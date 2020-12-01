@@ -57,7 +57,7 @@
         {{~inject 'validationFallbackDictionaryJSON' (langJson 'validation_fallback_messages')}}
         {{~inject 'validationDefaultDictionaryJSON' (langJson 'default_messages')}} 
     </head>
-    <body>
+    <body class="{{#if page_type}}page_type__{{snakecase page_type}}{{/if}} {{#if page}}page_title__{{snakecase page.title}}{{/if}}">
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
 
         {{> components/common/header }}
