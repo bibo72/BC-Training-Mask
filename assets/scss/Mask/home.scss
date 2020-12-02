@@ -35,6 +35,42 @@
             }
         }
 
+        // button style - normal style
+        #buttonLink[role="button"] {
+            line-height: 0 !important;
+            padding: remCalc(9px) remCalc(50px) !important;
+
+            // button text
+            > span {
+                line-height: 30px !important;
+            }
+        }
+
+        // button style - hero banner style
+        .custom[role="button"][data-test-id="hero-image-button"] {
+            border: 1px solid white;
+            padding: remCalc(9px) remCalc(50px);
+            line-height: 0 !important;
+
+            // button text container
+            > div {
+                line-height: 0 !important;
+
+                // button text
+                > p {
+                    font-size: 16px;
+                    line-height: 30px !important;
+                    font-weight: bold;
+                }
+            }
+
+            &:hover {
+                border-color: #ffe500;
+                background-color: #ffe500;
+                color: black !important;
+            }
+        }
+
         // restrict max width
         [data-layout-name="LayoutNewArrivalsHead"],
         [data-layout-name="LayoutNewArrivalsContent"],
@@ -156,8 +192,8 @@
 
             // item (layout column)
             > div {
-                // max-width: remCalc(269px);
-                max-width: none;
+                // max-width: none;
+                max-width: remCalc(269px); // IE
 
                 // item content (img text)
                 > div {
@@ -210,6 +246,7 @@
                     padding: 0 remCalc(10px);
                     align-items: center;
                     padding-bottom: remCalc(99px);
+                    margin-left: remCalc(30px);
 
                     // sub item
                     > div {
@@ -232,6 +269,7 @@
 
                         // text desc
                         &:nth-child(3) {
+                            max-width: 100%; // IE
 
                             // text container
                             > div {
@@ -249,6 +287,12 @@
                         &:nth-child(5) {
                             position: absolute;
                             bottom: 0;
+                            width: 100%;
+                            max-width: remCalc(210px);
+
+                            div {
+                                width: 100%;
+                            }
                         }
 
                         // button LEARN MORE
@@ -270,16 +314,254 @@
         // 30 Vent section
         [data-layout-name="Layout30Vent"] {
             margin-top: remCalc(105px);
+
+            // text
+            [data-test-id="hero-image-title"],
+            [data-test-id="hero-image-subtitle"] {
+                line-height: 0 !important;
+                min-height: auto !important;
+            }
+
+            // text title
+            [data-test-id="hero-image-title"] {
+
+                p {
+                    line-height: 30px !important;
+                }
+            }
+
+            // text subtitle
+            [data-test-id="hero-image-subtitle"] {
+                margin-top: 0;
+
+                p {
+                    line-height: 50px !important;
+                }
+            }
+
+            // button
+            [data-test-id="hero-image-button"] {
+                margin-top: remCalc(32px);
+            }
+
+            // layout column
+            > div {
+
+                // 30
+                &:nth-child(2) {
+                    padding-bottom: remCalc(293px);
+
+                    // 3.0 item
+                    > div {
+
+                        // banner
+                        &:nth-child(2) {
+
+                            // img holder
+                            > div > div > div > div {
+                                min-height: remCalc(538px);
+                                padding: remCalc(50px) remCalc(35px);
+                                align-items: flex-end;
+
+                                // banner content container 
+                                > div {
+                                    width: 100%;
+                                }
+                            }
+                        }
+
+                        // small img
+                        &:last-child,
+                        &:nth-last-child(2) {
+                            position: absolute;
+                            bottom: 0;
+                            width: 50%;
+                        }
+
+                        // last but one
+                        &:nth-last-child(2) {
+                            left: 0;
+                        }
+
+                        // last
+                        &:last-child {
+                            right: 0;
+                        }
+                    }
+                }
+
+                // vent
+                &:last-child {
+                    padding-top: remCalc(293px);
+
+                    // vent item
+                    > div {
+                        
+                        // small img
+                        &:nth-child(2),
+                        &:nth-child(3) {
+                            position: absolute;
+                            top: 0;
+                            width: 50%;
+                        }
+
+                        // first
+                        &:nth-child(2) {
+                            left: 0;
+                        }
+
+                        // second
+                        &:nth-child(3) {
+                            right: 0;
+                        }
+
+                        // banner
+                        &:last-child {
+
+                            // img holder
+                            > div > div > div > div {
+                                min-height: remCalc(538px);
+                                padding: remCalc(50px) remCalc(35px);
+                                align-items: flex-end;
+
+                                // banner content container 
+                                > div {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         // Vent Filtration section
         [data-layout-name="LayoutVentFiltration"] {
             margin-top: remCalc(100px);
+
+            // layout column
+            > div {
+
+                // article column
+                &:nth-child(2) {
+                    max-width: remCalc(554px);
+                    align-items: center;
+                    padding-bottom: remCalc(139px);
+
+                    // sub item
+                    > div {
+
+                        // text title
+                        &:nth-child(2) {
+                            line-height: 0;
+                            padding-bottom: remCalc(39px);
+
+                            // text container
+                            > div {
+                                line-height: 0;
+
+                                // text
+                                span {
+                                    line-height: 30px !important;
+                                }
+                            }
+                        }
+
+                        // text desc
+                        &:nth-child(3) {
+                            width: 100%; // IE
+
+                            // text container
+                            > div {
+
+                                // text
+                                span {
+                                    letter-spacing: 1px;
+                                    line-height: 30px !important;
+                                }
+                            }
+                        }
+
+                        // buttons
+                        &:nth-child(4),
+                        &:nth-child(5) {
+                            position: absolute;
+                            bottom: remCalc(40px);
+                            width: 100%;
+                            max-width: remCalc(210px);
+
+                            div {
+                                width: 100%;
+                            }
+                        }
+
+                        // button LEARN MORE
+                        &:nth-child(4) {
+                            right: 50%;
+                            margin-right: remCalc(15px);
+                        }
+
+                        // button SHOP NOW
+                        &:nth-child(5) {
+                            left: 50%;
+                            margin-left: remCalc(15px);
+                        }
+                    }
+                }
+
+                // img column
+                &:last-child {
+                    max-width: remCalc(476px);
+                    margin-left: remCalc(82px);
+                }
+            }
         }
 
         // Next Level section
         [data-layout-name="LayoutNextLevel"] {
             margin-top: remCalc(100px);
+
+            // text subtitle
+            [data-test-id="hero-image-subtitle"] {
+                margin-top: 0;
+
+                p {
+                    line-height: 56px !important;
+                }
+            }
+
+            // button
+            [data-test-id="hero-image-button"] {
+                margin-top: remCalc(32px);
+            }
+
+            // layout column
+            > div {
+
+                // just img
+                &:nth-child(2) {
+                    flex-basis: 28%;
+                    max-width: 28%;
+                }
+
+                // banner
+                &:last-child {
+                    flex-basis: 72%;
+                    max-width: 72%;
+
+                    // img holder
+                    > div > div > div > div > div {
+                        min-height: remCalc(585px);
+                        padding: remCalc(72px) remCalc(26px);
+                        align-items: flex-end;
+
+                        // banner content container
+                        > div {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
         }
 
         // News header section
@@ -294,6 +576,32 @@
                 // head text span
                 > span {
                     line-height: 30px !important;
+                }
+            }
+        }
+
+        // News content section
+        [data-layout-name="LayoutNewsContent"] {
+            justify-content: center;
+
+            // img column
+            > div {
+
+                // first column img
+                &:nth-child(2) {
+                    max-width: remCalc(177px);
+                }
+
+                // middle column img
+                &:nth-child(3) {
+                    max-width: remCalc(343px);
+                    padding-left: remCalc(59px);
+                    padding-right: remCalc(59px);
+                }
+
+                // last column img
+                &:last-child {
+                    max-width: remCalc(169px);
                 }
             }
         }
