@@ -1,8 +1,10 @@
 .navPages {
 
     @include breakpoint("medium") {
+        text-align: start;
         
         .navPages-list {
+            text-align: center;
 
             // normal category action item style
             .navPages-item {
@@ -126,6 +128,46 @@
         > .navPage-subMenu-action {
             border-color: transparent;
             margin-bottom: initial;
+        }
+    }
+}
+
+.banner_two {
+
+    + .banner_two {
+        margin-top: remCalc(18px);
+    }
+
+    img {
+        display: block;
+        max-width: none;
+        width: remCalc(268px);
+        height: remCalc(93px);
+    }
+}
+
+.banner_one {
+
+    img {
+        display: block;
+        max-width: none;
+        width: remCalc(534px);
+        height: remCalc(118px);
+    }
+}
+
+.navPage-subMenu-item {
+
+    @include breakpoint("medium") {
+
+        &:last-child {
+            float: right;
+        }
+
+        &.banner_within {
+            width: auto;
+            max-width: 50%;
+            padding: 0 !important;
         }
     }
 }
