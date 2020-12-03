@@ -6,6 +6,10 @@
 
             .navUser-item {
                 padding: remCalc(2px) remCalc(15px);
+                
+                &:last-child {
+                    padding-right: 0;
+                }
 
                 .navUser-action {
                     font-size: 12px;
@@ -107,6 +111,7 @@
                 top: 100% !important;
                 margin-top: remCalc(15px);
                 left: auto !important;
+                right: remCalc(-10px);
             }
         }
     }
@@ -128,5 +133,88 @@
         .navUser-action {
             line-height: 30px;
         }
+    }
+}
+
+.dropdown--quickSearch {
+    // position: fixed;
+    position: absolute;
+    width: 100%;
+    padding: remCalc(50px);
+    background-color: stencilColor("color-white");
+    margin-top: -1px;
+
+    .form {
+        max-width: remCalc(750px);
+    }
+
+    .form-field {
+        position: relative;
+    }
+
+    .form-input {
+        border-radius: 25px;
+        padding-right: remCalc(60px);
+    }
+
+    .icon {
+        @include square(25px);
+
+        svg {
+            fill: stencilColor("color-black");
+        }
+    }
+
+    .icon__search {
+        position: absolute;
+        left: auto;
+        right: remCalc(30px);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .dropdown_button__close {
+        display: block;
+        width: auto;
+        height: auto;
+        line-height: 0;
+        font-size: 0;
+        padding: remCalc(5px) remCalc(10px);
+        margin: 0;
+        position: absolute;
+        left: auto;
+        bottom: auto;
+        top: remCalc(16px);
+        right: remCalc(41px);
+
+        .icon,
+        .button_text {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .icon {
+            @include square(18px);
+            line-height: 0;
+        }
+
+        .icon__close {
+            height: remCalc(17px);
+        }
+
+        .button_text {
+            font-size: 12px;
+            line-height: 30px;
+            font-weight: normal;
+            color: stencilColor("color-black");
+            text-transform: uppercase;
+        }
+    }
+}
+
+.quickSearchResults {
+
+    .modal-close {
+        display: none;
     }
 }

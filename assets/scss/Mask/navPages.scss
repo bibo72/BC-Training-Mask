@@ -16,6 +16,19 @@
                 }
             }
 
+            // top level category action item style
+            > .navPages-item {
+                padding-bottom: remCalc(1px);
+    
+                > .navPages-action {
+                    border-bottom: 1px solid transparent;
+    
+                    &.is-open {
+                        border-color: stencilColor("color-black");
+                    }
+                }
+            }
+
             // second level category action item style
             .navPage-subMenu-list {
 
@@ -113,24 +126,6 @@
         > .navPage-subMenu-action {
             border-color: transparent;
             margin-bottom: initial;
-        }
-    }
-}
-
-.navPages-list {
-
-    @include breakpoint("medium") {
-
-        > .navPages-item {
-            padding-bottom: remCalc(1px);
-
-            > .navPages-action {
-                border-bottom: 1px solid transparent;
-
-                &.is-open {
-                    border-color: stencilColor("color-black");
-                }
-            }
         }
     }
 }

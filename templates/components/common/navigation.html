@@ -164,6 +164,12 @@
         </li>
     </ul>
     <div class="dropdown dropdown--quickSearch" id="quickSearch" aria-hidden="true" data-prevent-quick-search-close>
+        <button class="dropdown_button__close" data-shut-quicksearch data-drop-down-close>
+            <span class="icon icon__close">
+                <svg><use xlink:href="#icon-close"></use></svg>
+            </span>
+            <span class="button_text">{{lang 'common.close'}}</span>
+        </button>
         {{> components/common/quick-search name='nav-quick-search'}}
     </div>
 </nav>

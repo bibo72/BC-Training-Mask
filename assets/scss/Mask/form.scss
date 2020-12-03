@@ -1,0 +1,14 @@
+.form-input {
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: normal;
+    height: auto;
+    padding: remCalc(9px) remCalc(30px);
+    border: 1px solid stencilColor("color-black");
+    border-radius: 0;
+    margin: 0;
+
+    &::-webkit-input-placeholder {
+        color: #a0a19f;
+    }
+}

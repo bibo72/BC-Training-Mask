@@ -4,7 +4,9 @@ import StencilDropDown from './stencil-dropdown';
 import urlUtils from '../common/utils/url-utils';
 
 export default function () {
-    const TOP_STYLING = 'top: 49px;';
+    const HeaderHeight = $('.header').outerHeight();
+    // const TOP_STYLING = 'top: 49px;';
+    const TOP_STYLING = `top: ${HeaderHeight}px`;
     const $quickSearchResults = $('.quickSearchResults');
     const $quickSearchForms = $('[data-quick-search-form]');
     const $quickSearchExpand = $('#quick-search-expand');
