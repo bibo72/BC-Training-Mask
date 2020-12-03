@@ -14,7 +14,10 @@
     <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
         <span class="mobileMenu-toggleIcon">Toggle menu</span>
     </a>
-    {{> components/common/navigation}}
+
+    <div class="navUser_container">
+        {{> components/common/navigation}}
+    </div>
 
     {{#if page_type '===' 'default'}}
         <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
@@ -25,6 +28,7 @@
             {{> components/common/store-logo}}
         </div>
     {{/if}}
+    
     <div class="navPages-container" id="menu" data-menu>
         {{> components/common/navigation-menu}}
     </div>
