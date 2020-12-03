@@ -4,12 +4,131 @@
         
         .navPages-list {
 
+            // normal category action item style
             .navPages-item {
+                padding: remCalc(2px) remCalc(15px);
 
                 .navPages-action {
                     font-size: 12px;
                     line-height: 30px;
                     font-weight: normal;
+                    padding: 0;
+                }
+            }
+
+            // second level category action item style
+            .navPage-subMenu-list {
+
+                .navPage-subMenu-item {
+                    padding: remCalc(2px) remCalc(15px) remCalc(1px);
+            
+                    .navPages-action {
+                        font-size: 14px;
+                        line-height: 30px;
+                        font-weight: bold;
+                        padding: 0;
+                    }
+                }
+            }
+
+            // after second level action item style
+            .navPage-childList {
+
+                .navPage-childList-item {
+                    padding: remCalc(2px) 0;
+
+                    .navPages-action {
+                        font-size: 14px;
+                        line-height: 30px;
+                        font-weight: normal;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+
+        .navPage-subMenu-list {
+            margin: initial;
+            padding: remCalc(40px) remCalc(150px);
+            background-color: stencilColor("color-white");
+            max-width: none;
+        }
+    }
+}
+
+.navPage-subMenu {
+
+    .navPage-subMenu-list {
+
+        .navPage-subMenu-item {
+
+            &:first-child {
+                display: none; // hide the All Category access
+            }
+        }
+    }
+}
+
+.navPage-subMenu {
+
+    @include breakpoint("medium") {
+        background-color: transparent;
+        // padding: remCalc(40px) remCalc(150px);
+        padding: 0;
+
+        &.is-open {
+            top: 100%; // position submenu right below header
+            margin-top: 1px;
+            // background-color: stencilColor("color-white");
+            background-color: rgba($color: #000000, $alpha: 0.7);
+            height: 100vh;
+        }
+    }
+}
+
+.navPages-action {
+
+    @include breakpoint("medium") {
+
+        &.is-open {
+            background-color: transparent;
+        }
+    }
+}
+
+.navPages-list:not(.navPages-list-depth-max) {
+
+    @include breakpoint("medium") {
+
+        .navPages-action.has-subMenu + .navPage-subMenu .navPage-subMenu-list {
+            margin-right: initial;
+        }
+    }
+}
+
+.navPage-subMenu-item {
+
+    @include breakpoint("medium") {
+
+        > .navPage-subMenu-action {
+            border-color: transparent;
+            margin-bottom: initial;
+        }
+    }
+}
+
+.navPages-list {
+
+    @include breakpoint("medium") {
+
+        > .navPages-item {
+            padding-bottom: remCalc(1px);
+
+            > .navPages-action {
+                border-bottom: 1px solid transparent;
+
+                &.is-open {
+                    border-color: stencilColor("color-black");
                 }
             }
         }

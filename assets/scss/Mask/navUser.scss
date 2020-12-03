@@ -1,0 +1,132 @@
+.navUser {
+
+    @include breakpoint("medium") {
+
+        .navUser-section {
+
+            .navUser-item {
+                padding: remCalc(2px) remCalc(15px);
+
+                .navUser-action {
+                    font-size: 12px;
+                    line-height: 30px;
+                    font-weight: normal;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+.navUser-action--quickSearch {
+    @include square(25px);
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+
+    img {
+        display: block;
+        width: remCalc(12px);
+        height: remCalc(11px);
+        // margin: remCalc(4px) remCalc(5px);
+        margin: -8px remCalc(5px);
+    }
+}
+
+.navUser-item--account {
+
+    > .navUser-action {
+        width: remCalc(22px);
+        height: remCalc(25px);
+        margin: 0;
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+    }
+}
+
+.navUser-item-cartLabel {
+    display: block;
+    width: remCalc(29px);
+    height: remCalc(25px);
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.navUser .dropdown-menu.is-open:before {
+    left: auto;
+    right: spacing("half");
+}
+
+.navUser .dropdown-menu.is-open:after {
+    left: auto;
+    right: spacing("half") + remCalc(2px);
+}
+
+.navUser .navUser-section .navUser-item {
+    
+    &.navUser_item__quickSearch,
+    &.navUser-item--account,
+    &.navUser-item--cart {
+        position: relative;
+    }
+
+    &.navUser-item--account {
+
+        > .navUser-action {
+            display: block;
+        }
+
+        .dropdown-menu {
+            line-height: 1.5;
+            width: 100%;
+            min-width: remCalc(150px);
+            max-width: remCalc(300px);
+
+            @include breakpoint("medium") {
+                top: 100% !important;
+                margin-top: remCalc(15px);
+                left: auto !important;
+                right: 2.5px;
+            }
+        }
+    }
+
+    &.navUser-item--cart {
+
+        .dropdown-menu {
+            line-height: 1.5;
+            width: 100%;
+            min-width: remCalc(300px);
+            max-width: remCalc(350px);
+
+            @include breakpoint("medium") {
+                top: 100% !important;
+                margin-top: remCalc(15px);
+                left: auto !important;
+            }
+        }
+    }
+}
+
+.dropdown_menu__account_options {
+    padding: remCalc(5px);
+    padding-bottom: remCalc(10px);
+    margin: 0;
+}
+
+.navUser_section__dropdown {
+
+    .navUser-item {
+        padding: remCalc(2px) remCalc(15px);
+        line-height: 0;
+        float: none;
+
+        .navUser-action {
+            line-height: 30px;
+        }
+    }
+}

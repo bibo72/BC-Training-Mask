@@ -3,6 +3,14 @@
 a,
 input,
 textarea,
-select {
+select,
+button {
     outline: none;
+
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus {
+        outline: none;
+    }
 }

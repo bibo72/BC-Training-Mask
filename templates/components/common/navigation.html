@@ -2,6 +2,19 @@
     {{> components/common/currency-selector}}
 
     <ul class="navUser-section navUser-section--alt">
+
+        {{#each categories}}
+            {{#if @first}}
+                <li class="navUser-item"><a href="{{url}}" class="navUser-action">{{lang 'mask.clp_link'}}</a></li>
+            {{/if}}
+        {{/each}}
+
+        {{#each pages}}
+            {{#contains url "/blog/"}}
+                <li class="navUser-item"><a href="{{url}}" class="navUser-action">{{lang 'mask.blog_rename'}}</a></li>
+            {{/contains}}
+        {{/each}}
+        
         {{#if customer.store_credit.value '>' 0}}
             <li class="navUser-item">
                 <a class="navUser-action navUser-action--storeCredit"
@@ -19,6 +32,8 @@
                 </div>
             </li>
         {{/if}}
+
+        {{!--
         <li class="navUser-item">
             <a class="navUser-action navUser-item--compare"
                href="{{urls.compare}}"
@@ -28,21 +43,25 @@
                 {{lang 'common.compare'}} <span class="countPill countPill--positive countPill--alt"></span>
             </a>
         </li>
+        --}}
+
         {{#if theme_settings.social_icon_placement_top}}
             <li class="navUser-item navUser-item--social">
                 {{> components/common/social-links}}
             </li>
             <li class="navUser-item navUser-item--divider">|</li>
         {{/if}}
-        <li class="navUser-item">
+        <li class="navUser-item navUser_item__quickSearch">
             <button class="navUser-action navUser-action--quickSearch"
                type="button"
                id="quick-search-expand"
                data-search="quickSearch"
                aria-controls="quickSearch"
                aria-label="{{lang 'common.search'}}"
+               style="background-image: url({{cdn 'img/Tmask/TM-Icon-search.png'}});"
             >
-                {{lang 'common.search'}}
+                <img src="{{cdn 'img/Tmask/TM-Artwork-A.png'}}" alt="TrainingMaskArtworkA">
+                {{!-- {{lang 'common.search'}} --}}
             </button>
         </li>
         {{#if settings.gift_certificates_enabled}}
@@ -56,6 +75,8 @@
             </li>
         {{/if}}
         <li class="navUser-item navUser-item--account">
+
+            {{!--
             {{#if customer}}
                 <a class="navUser-action"
                    href="{{urls.account.index}}"
@@ -86,6 +107,42 @@
                     </a>
                 {{/if}}
             {{/if}}
+            --}}
+
+            {{#if customer}}
+                <a href="{{urls.account.index}}" 
+                    class="navUser-action" 
+                    data-dropdown="account-options-dropdown" 
+                    style="background-image: url({{cdn 'img/Tmask/TM-Icon-user.png'}});"></a>
+                <div class="dropdown-menu dropdown_menu__account_options" id="account-options-dropdown" data-dropdown-content>
+                    <ul class="navUser_section__dropdown">
+                        <li class="navUser-item">
+                            <a href="{{urls.account.index}}" class="navUser-action">{{lang 'common.account'}}</a>
+                        </li>
+                        <li class="navUser-item">
+                            <a href="{{urls.auth.logout}}" class="navUser-action">{{lang 'common.logout'}}</a>
+                        </li>
+                    </ul>
+                </div>
+            {{else}}
+                <a href="{{urls.auth.login}}" 
+                class="navUser-action" 
+                data-dropdown="account-options-dropdown" 
+                style="background-image: url({{cdn 'img/Tmask/TM-Icon-user.png'}});"></a>
+                <div class="dropdown-menu dropdown_menu__account_options" id="account-options-dropdown" data-dropdown-content>
+                    <ul class="navUser_section__dropdown">
+                        <li class="navUser-item">
+                            <a href="{{urls.auth.login}}" class="navUser-action">{{lang 'common.login'}}</a>
+                        </li>
+                        {{#if settings.account_creation_enabled}}
+                            <li class="navUser-item">
+                                <a href="{{urls.auth.create_account}}" class="navUser-action">{{lang 'common.sign_up'}}</a>
+                            </li>
+                        {{/if}}
+                    </ul>
+                </div>
+            {{/if}}
+
         </li>
         <li class="navUser-item navUser-item--cart">
             <a class="navUser-action"
@@ -95,7 +152,11 @@
                href="{{urls.cart}}"
                aria-label="{{lang 'cart.nav_aria_label'}}"
             >
-                <span class="navUser-item-cartLabel">{{lang 'common.cart'}}</span>
+
+                {{!-- <span class="navUser-item-cartLabel">{{lang 'common.cart'}}</span> --}}
+
+                <span class="navUser-item-cartLabel" style="background-image: url({{cdn 'img/Tmask/TM-Icon-shopping-cart.png'}});"></span>
+
                 <span class="countPill cart-quantity"></span>
             </a>
 

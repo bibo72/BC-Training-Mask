@@ -7,6 +7,8 @@
         flex-direction: row;
         flex-wrap: nowrap;
         min-height: remCalc(64px);
+        border-color: #d7d7d7;
+        border-width: 2px;
 
         .header-logo {
             width: remCalc(300px);
@@ -27,6 +29,10 @@
 
         .navUser_container {
             order: 2;
+        }
+
+        .navPages-container {
+            position: initial;
         }
     }
 }
