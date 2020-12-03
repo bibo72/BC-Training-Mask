@@ -1,0 +1,39 @@
+.header {
+
+    @include breakpoint("medium") {
+        padding: remCalc(15px) remCalc(50px);
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        min-height: remCalc(64px);
+
+        .header-logo {
+            width: remCalc(300px);
+            min-width: remCalc(150px);
+            max-width: remCalc(300px);
+            flex: 0 0 300px;
+            margin: 0;
+            order: 1;
+        }
+
+        .navUser_container,
+        .navPages-container {
+            width: calc( ( 100% - 300px ) / 2 );
+            min-width: calc( 50% - 300px );
+            max-width: calc( 50% - 150px );
+            flex: 1 1 auto;
+        }
+
+        .navUser_container {
+            order: 2;
+        }
+    }
+}
+
+.header-logo {
+
+    .header-logo__link {
+        height: 100%;
+    }
+}

@@ -1,0 +1,17 @@
+.navPages {
+
+    @include breakpoint("medium") {
+        
+        .navPages-list {
+
+            .navPages-item {
+
+                .navPages-action {
+                    font-size: 12px;
+                    line-height: 30px;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+}
