@@ -605,5 +605,599 @@
                 }
             }
         }
+
+        @media (max-width: $screen-medium) {
+
+            // button style - carousel style
+            [data-test-id="carousel-cta-button"] {
+                border: 1px solid black;
+                padding: remCalc(7px) remCalc(25px);
+                line-height: 0 !important;
+
+                // button text container
+                > div {
+                    line-height: 0 !important;
+
+                    // button text
+                    > p {
+                        font-size: 12px;
+                        line-height: 14px !important;
+                        font-weight: bold;
+                    }
+                }
+
+                &:hover {
+                    border-color: #ffe500;
+                    background-color: #ffe500;
+                }
+            }
+
+            // button style - normal style
+            #buttonLink[role="button"] {
+                line-height: 0 !important;
+                padding: remCalc(7px) remCalc(25px) !important;
+
+                // button text
+                > span {
+                    line-height: 14px !important;
+                    font-size: 12px;
+                }
+            }
+
+            // button style - hero banner style
+            .custom[role="button"][data-test-id="hero-image-button"] {
+                border: 1px solid white;
+                padding: remCalc(7px) remCalc(25px);
+                line-height: 0 !important;
+
+                // button text container
+                > div {
+                    line-height: 0 !important;
+
+                    // button text
+                    > p {
+                        font-size: 12px;
+                        line-height: 14px !important;
+                        font-weight: bold;
+                    }
+                }
+
+                &:hover {
+                    border-color: #ffe500;
+                    background-color: #ffe500;
+                    color: black !important;
+                }
+            }
+
+            // restrict max width
+            [data-layout-name="LayoutNewArrivalsHead"],
+            [data-layout-name="LayoutNewArrivalsContent"],
+            [data-layout-name="LayoutHowWorks"],
+            [data-layout-name="Layout30Vent"],
+            [data-layout-name="LayoutVentFiltration"],
+            [data-layout-name="LayoutNewsHead"],
+            [data-layout-name="LayoutNewsContent"] {
+                max-width: 100vw;
+                padding: 0 remCalc(20px);
+            }
+
+            // hero section
+            [data-layout-name="LayoutHero"] {
+
+                // carousel text container
+                [data-test-id="carousel-title"],
+                [data-test-id="carousel-subtitle"] {
+                    text-align: center;
+                    line-height: 0 !important;
+                    max-width: remCalc(310px);
+
+                    // text
+                    P {
+                        line-height: 56px !important;
+                        font-size: 22px;
+                    }
+                }
+
+                // carousel title
+                [data-test-id="carousel-title"] {
+                    padding-right: 0;
+                    text-align: left;
+                }
+
+                // carousel subtitle
+                [data-test-id="carousel-subtitle"] {
+                    color: white;
+                    margin-top: 0;
+                    text-align: right;
+                }
+
+                // carousel button
+                [data-test-id="carousel-cta-button"] {
+                    margin-top: remCalc(20px);
+                    max-width: remCalc(170px);
+                    align-self: center;
+                }
+
+                // carousel container
+                > div > div > div > div {
+                    margin-bottom: 0;
+
+                    // carousel viewport
+                    > div {
+
+                        // carousel track
+                        > div {
+
+                            // carousel item
+                            > div {
+
+                                // carousel item container
+                                > div {
+
+                                    // carousel item img holder (img set on :after)
+                                    > div {
+                                        min-height: remCalc(245px);
+                                        padding: remCalc(20px) remCalc(30px);
+
+                                        // carousel content container (title des button)
+                                        > div {
+                                            width: 100%;
+                                            height: 100%;
+                                            background-color: transparent;
+                                            box-shadow: none;
+                                            padding: 0;
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: flex-end;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // New Arrivals header section
+            [data-layout-name="LayoutNewArrivalsHead"] {
+                margin-top: remCalc(50px);
+                margin-bottom: remCalc(25px);
+
+                // head text container
+                > div > div > div {
+                    line-height: 0;
+
+                    // head text span
+                    > span {
+                        line-height: 30px !important;
+                    }
+                }
+            }
+
+            // New Arrivals content section
+            [data-layout-name="LayoutNewArrivalsContent"] {
+                justify-content: space-between;
+                flex-wrap: wrap;
+                column-gap: 20px;
+
+                // item (layout column)
+                > div {
+                    // max-width: none;
+                    max-width: remCalc(157.5px); // IE
+                    width: 50%;
+                    flex-basis: 50%;
+
+                    // item content (img text)
+                    > div {
+
+                        // text title
+                        &:last-child {
+                            margin-top: remCalc(12px);
+
+                            // text container
+                            > div {
+
+                                // text
+                                span {
+                                    line-height: 30px !important;
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // How Works section
+            [data-layout-name="LayoutHowWorks"] {
+                margin-top: remCalc(120px);
+
+                // layout column
+                > div {
+                    flex-basis: 25%;
+                    max-width: 25%;
+
+                    // first img column
+                    &:nth-child(2) {
+                        max-width: remCalc(320px);
+                        justify-content: flex-end;
+                        flex-basis: 320px;
+                    }
+
+                    // second img column
+                    &:nth-child(3) {
+                        max-width: remCalc(280px);
+                        margin-left: remCalc(-33px);
+                        justify-content: flex-start;
+                    }
+
+                    // article column
+                    &:last-child {
+                        flex-basis: 50%;
+                        // max-width: 50%;
+                        max-width: remCalc(568px);
+                        padding: 0 remCalc(10px);
+                        align-items: center;
+                        padding-bottom: remCalc(99px);
+                        margin-left: remCalc(30px);
+
+                        // sub item
+                        > div {
+
+                            // text title
+                            &:nth-child(2) {
+                                line-height: 0;
+                                padding-bottom: remCalc(39px);
+
+                                // text container
+                                > div {
+                                    line-height: 0;
+
+                                    // text
+                                    span {
+                                        line-height: 30px !important;
+                                    }
+                                }
+                            }
+
+                            // text desc
+                            &:nth-child(3) {
+                                max-width: 100%; // IE
+
+                                // text container
+                                > div {
+
+                                    // text
+                                    span {
+                                        letter-spacing: 1px;
+                                        line-height: 30px !important;
+                                    }
+                                }
+                            }
+
+                            // buttons
+                            &:nth-child(4),
+                            &:nth-child(5) {
+                                position: absolute;
+                                bottom: 0;
+                                width: 100%;
+                                max-width: remCalc(210px);
+
+                                div {
+                                    width: 100%;
+                                }
+                            }
+
+                            // button LEARN MORE
+                            &:nth-child(4) {
+                                right: 50%;
+                                margin-right: remCalc(15px);
+                            }
+
+                            // button SHOP NOW
+                            &:nth-child(5) {
+                                left: 50%;
+                                margin-left: remCalc(15px);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // 30 Vent section
+            [data-layout-name="Layout30Vent"] {
+                margin-top: remCalc(105px);
+
+                // text
+                [data-test-id="hero-image-title"],
+                [data-test-id="hero-image-subtitle"] {
+                    line-height: 0 !important;
+                    min-height: auto !important;
+                }
+
+                // text title
+                [data-test-id="hero-image-title"] {
+
+                    p {
+                        line-height: 30px !important;
+                    }
+                }
+
+                // text subtitle
+                [data-test-id="hero-image-subtitle"] {
+                    margin-top: 0;
+
+                    p {
+                        line-height: 50px !important;
+                    }
+                }
+
+                // button
+                [data-test-id="hero-image-button"] {
+                    margin-top: remCalc(32px);
+                }
+
+                // layout column
+                > div {
+
+                    // 30
+                    &:nth-child(2) {
+                        padding-bottom: remCalc(293px);
+
+                        // 3.0 item
+                        > div {
+
+                            // banner
+                            &:nth-child(2) {
+
+                                // img holder
+                                > div > div > div > div {
+                                    min-height: remCalc(538px);
+                                    padding: remCalc(50px) remCalc(35px);
+                                    align-items: flex-end;
+
+                                    // banner content container 
+                                    > div {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+
+                            // small img
+                            &:last-child,
+                            &:nth-last-child(2) {
+                                position: absolute;
+                                bottom: 0;
+                                width: 50%;
+                            }
+
+                            // last but one
+                            &:nth-last-child(2) {
+                                left: 0;
+                            }
+
+                            // last
+                            &:last-child {
+                                right: 0;
+                            }
+                        }
+                    }
+
+                    // vent
+                    &:last-child {
+                        padding-top: remCalc(293px);
+
+                        // vent item
+                        > div {
+                            
+                            // small img
+                            &:nth-child(2),
+                            &:nth-child(3) {
+                                position: absolute;
+                                top: 0;
+                                width: 50%;
+                            }
+
+                            // first
+                            &:nth-child(2) {
+                                left: 0;
+                            }
+
+                            // second
+                            &:nth-child(3) {
+                                right: 0;
+                            }
+
+                            // banner
+                            &:last-child {
+
+                                // img holder
+                                > div > div > div > div {
+                                    min-height: remCalc(538px);
+                                    padding: remCalc(50px) remCalc(35px);
+                                    align-items: flex-end;
+
+                                    // banner content container 
+                                    > div {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Vent Filtration section
+            [data-layout-name="LayoutVentFiltration"] {
+                margin-top: remCalc(100px);
+
+                // layout column
+                > div {
+
+                    // article column
+                    &:nth-child(2) {
+                        max-width: remCalc(554px);
+                        align-items: center;
+                        padding-bottom: remCalc(139px);
+
+                        // sub item
+                        > div {
+
+                            // text title
+                            &:nth-child(2) {
+                                line-height: 0;
+                                padding-bottom: remCalc(39px);
+
+                                // text container
+                                > div {
+                                    line-height: 0;
+
+                                    // text
+                                    span {
+                                        line-height: 30px !important;
+                                    }
+                                }
+                            }
+
+                            // text desc
+                            &:nth-child(3) {
+                                width: 100%; // IE
+
+                                // text container
+                                > div {
+
+                                    // text
+                                    span {
+                                        letter-spacing: 1px;
+                                        line-height: 30px !important;
+                                    }
+                                }
+                            }
+
+                            // buttons
+                            &:nth-child(4),
+                            &:nth-child(5) {
+                                position: absolute;
+                                bottom: remCalc(40px);
+                                width: 100%;
+                                max-width: remCalc(210px);
+
+                                div {
+                                    width: 100%;
+                                }
+                            }
+
+                            // button LEARN MORE
+                            &:nth-child(4) {
+                                right: 50%;
+                                margin-right: remCalc(15px);
+                            }
+
+                            // button SHOP NOW
+                            &:nth-child(5) {
+                                left: 50%;
+                                margin-left: remCalc(15px);
+                            }
+                        }
+                    }
+
+                    // img column
+                    &:last-child {
+                        max-width: remCalc(476px);
+                        margin-left: remCalc(82px);
+                    }
+                }
+            }
+
+            // Next Level section
+            [data-layout-name="LayoutNextLevel"] {
+                margin-top: remCalc(100px);
+
+                // text subtitle
+                [data-test-id="hero-image-subtitle"] {
+                    margin-top: 0;
+
+                    p {
+                        line-height: 56px !important;
+                    }
+                }
+
+                // button
+                [data-test-id="hero-image-button"] {
+                    margin-top: remCalc(32px);
+                }
+
+                // layout column
+                > div {
+
+                    // just img
+                    &:nth-child(2) {
+                        flex-basis: 28%;
+                        max-width: 28%;
+                    }
+
+                    // banner
+                    &:last-child {
+                        flex-basis: 72%;
+                        max-width: 72%;
+
+                        // img holder
+                        > div > div > div > div > div {
+                            min-height: remCalc(585px);
+                            padding: remCalc(72px) remCalc(26px);
+                            align-items: flex-end;
+
+                            // banner content container
+                            > div {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // News header section
+            [data-layout-name="LayoutNewsHead"] {
+                margin-top: remCalc(25px);
+                margin-bottom: remCalc(25px);
+
+                // head text container
+                > div > div > div {
+                    line-height: 0;
+
+                    // head text span
+                    > span {
+                        line-height: 30px !important;
+                    }
+                }
+            }
+
+            // News content section
+            [data-layout-name="LayoutNewsContent"] {
+                justify-content: center;
+
+                // img column
+                > div {
+
+                    // first column img
+                    &:nth-child(2) {
+                        max-width: remCalc(177px);
+                    }
+
+                    // middle column img
+                    &:nth-child(3) {
+                        max-width: remCalc(343px);
+                        padding-left: remCalc(59px);
+                        padding-right: remCalc(59px);
+                    }
+
+                    // last column img
+                    &:last-child {
+                        max-width: remCalc(169px);
+                    }
+                }
+            }
+        }
     }
 }
