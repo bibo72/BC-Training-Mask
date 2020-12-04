@@ -5,11 +5,9 @@
 >
     {{name}}
 
-    {{!--
     <i class="icon navPages-action-moreIcon" aria-hidden="true">
         <svg><use xlink:href="#icon-chevron-down" /></svg>
     </i>
-    --}}
     
 </a>
 <div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
@@ -64,7 +62,7 @@
             </li>
         {{/each}}
         {{#if topName "===" "Training"}}
-            <li class="navPage-subMenu-item">
+            <li class="navPage-subMenu-item two_banner_within">
                 <div class="category_banner banner_two">
                     <a href="javascript: void(0)">
                         <img src="/content/img/category/banner/30.png" alt="Mask 3.0">
@@ -78,7 +76,7 @@
             </li>
         {{/if}}
         {{#if topName "===" "Filtration"}}
-            <li class="navPage-subMenu-item banner_within">
+            <li class="navPage-subMenu-item one_banner_within">
                 <div class="category_banner banner_one">
                     <a href="javascript: void(0)">
                         <img src="/content/img/category/banner/vent.png" alt="Vent Mask">

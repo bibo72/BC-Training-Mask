@@ -1,7 +1,78 @@
 .navPages {
+    background-color: transparent;
+    padding: 0;
+    height: auto;
+    padding-bottom: remCalc(10px);
+
+    .navPages-list + .navPages-list {
+        border-top: none;
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    .navPages-list {
+        background-color: stencilColor("color-white");
+
+        .navPages-item {
+            padding: remCalc(10px) remCalc(18px);
+            border-top: 1px solid #CCCCCC;
+
+            .navPages-action {
+                font-size: 12px;
+                line-height: 30px;
+                font-weight: bold;
+                padding: 0;
+            }
+        }
+
+        &:first-child {
+
+            .navPages-item {
+
+                &:first-child {
+                    border-color: #EBEBEB;
+                }
+            }
+        }
+    }
+
+    .navPages-list--user {
+
+        .navPages-item {
+
+            &:last-child {
+                
+                .navPages-action {
+    
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+
+    .navPage-subMenu-action {
+
+        .collapsible-icon-wrapper {
+            width: 20%;
+            max-width: remCalc(50px);
+            padding: remCalc(10px) 0;
+        }
+    }
+
+    .navPage-childList,
+    .navPage-subMenu-list {
+        border: none;
+        margin: 0;
+        padding-left: remCalc(20px);
+    }
+
+    .navPage-subMenu-action:not(.navPages-action-depth-max) + .navPage-childList {
+        margin: 0;
+    }
 
     @include breakpoint("medium") {
         text-align: start;
+        padding-bottom: 0;
         
         .navPages-list {
             text-align: center;
@@ -9,6 +80,7 @@
             // normal category action item style
             .navPages-item {
                 padding: remCalc(2px) remCalc(15px);
+                border: none;
 
                 .navPages-action {
                     font-size: 12px;
@@ -52,6 +124,7 @@
 
             // after second level action item style
             .navPage-childList {
+                padding-left: 0;
 
                 .navPage-childList-item {
                     padding: remCalc(2px) 0;
@@ -71,6 +144,10 @@
             padding: remCalc(40px) remCalc(150px);
             background-color: stencilColor("color-white");
             max-width: none;
+        }
+
+        .navPages-action-moreIcon {
+            display: none;
         }
     }
 }
@@ -137,6 +214,7 @@
 }
 
 .banner_two {
+    margin-top: remCalc(18px);
 
     + .banner_two {
         margin-top: remCalc(18px);
@@ -148,15 +226,27 @@
         width: remCalc(268px);
         height: remCalc(93px);
     }
+
+    @include breakpoint("medium") {
+        margin-top: 0;
+    }
 }
 
 .banner_one {
 
     img {
-        display: block;
-        max-width: none;
-        width: remCalc(534px);
-        height: remCalc(118px);
+        max-width: 100%;
+        height: auto;
+    }
+
+    @include breakpoint(1025px) {
+
+        img {
+            display: block;
+            max-width: none;
+            width: remCalc(534px);
+            height: remCalc(118px);
+        }
     }
 }
 
@@ -168,9 +258,15 @@
             float: right;
         }
 
-        &.banner_within {
+        &.one_banner_within {
             width: auto;
             max-width: 50%;
+            padding: 0 !important;
+        }
+
+        &.two_banner_within {
+            width: auto;
+            max-width: 25%;
             padding: 0 !important;
         }
     }

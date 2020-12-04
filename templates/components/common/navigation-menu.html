@@ -1,8 +1,10 @@
 <nav class="navPages">
 
+    {{!--
     <div class="navPages-quickSearch">
         {{> components/common/quick-search name='nav-menu-quick-search'}}
     </div>
+    --}}
     
     <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max{{/if}}">
         {{#each (sortBy categories "id")}}
@@ -51,6 +53,15 @@
         {{/unless}}
     </ul>
     <ul class="navPages-list navPages-list--user">
+
+        {{#each categories}}
+            {{#if @first}}
+                <li class="navPages-item"><a href="{{url}}" class="navPages-action">{{lang 'mask.clp_link'}}</a></li>
+            {{/if}}
+        {{/each}}
+        
+        <li class="navPages-item"><a href="https://www.trainingmask.com/training-mask-store-finder/" class="navPages-action">{{lang 'mask.blog_rename'}}</a></li>
+
         {{#if currency_selector.currencies.length '>' 1}}
             <li class="navPages-item">
                 <a class="navPages-action has-subMenu"
@@ -215,6 +226,8 @@
                 </a>
             </li>
         {{else}}
+
+            {{!--
             <li class="navPages-item">
                 <a class="navPages-action"
                    href="{{urls.auth.login}}"
@@ -232,6 +245,12 @@
                     </a>
                 {{/if}}
             </li>
+            --}}
+
+            <li class="navPages-item">
+                <a href="{{urls.auth.login}}" class="navPages-action">{{lang 'common.account'}}</a>
+            </li>
+
         {{/if}}
         {{#if theme_settings.social_icon_placement_top}}
             <li class="navPages-item">
