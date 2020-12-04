@@ -1,7 +1,9 @@
 <nav class="navPages">
+
     <div class="navPages-quickSearch">
         {{> components/common/quick-search name='nav-menu-quick-search'}}
     </div>
+    
     <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max{{/if}}">
         {{#each (sortBy categories "id")}}
 

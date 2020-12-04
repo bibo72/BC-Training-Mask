@@ -1,7 +1,13 @@
 .header {
+    width: 100vw;
+
+    .navUser_container {
+        position: absolute;
+        right: 0;
+    }
 
     @include breakpoint("medium") {
-        padding: remCalc(15px) remCalc(50px);
+        padding: remCalc(15px) remCalc(20px);
         display: flex;
         justify-content: space-between;
         flex-direction: row;
@@ -9,6 +15,7 @@
         min-height: remCalc(64px);
         border-color: #d7d7d7;
         border-width: 2px;
+        width: 100%;
 
         .header-logo {
             width: remCalc(300px);
@@ -29,11 +36,17 @@
 
         .navUser_container {
             order: 2;
+            position: initial;
+            right: auto;
         }
 
         .navPages-container {
             position: initial;
         }
+    }
+
+    @include breakpoint(1025px) {
+        padding: remCalc(15px) remCalc(50px);
     }
 }
 

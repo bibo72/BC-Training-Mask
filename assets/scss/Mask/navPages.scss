@@ -16,6 +16,10 @@
                     font-weight: normal;
                     padding: 0;
                 }
+
+                &:first-child {
+                    padding-left: 0;
+                }
             }
 
             // top level category action item style

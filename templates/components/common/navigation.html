@@ -9,11 +9,15 @@
             {{/if}}
         {{/each}}
 
+        {{!--
         {{#each pages}}
             {{#contains url "/blog/"}}
                 <li class="navUser-item"><a href="{{url}}" class="navUser-action">{{lang 'mask.blog_rename'}}</a></li>
             {{/contains}}
         {{/each}}
+        --}}
+
+        <li class="navUser-item"><a href="https://www.trainingmask.com/training-mask-store-finder/" class="navUser-action">{{lang 'mask.blog_rename'}}</a></li>
         
         {{#if customer.store_credit.value '>' 0}}
             <li class="navUser-item">

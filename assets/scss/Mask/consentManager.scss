@@ -1,0 +1,9 @@
+#consent-manager,
+#consent-manager-update-banner {
+    width: 100vw !important;
+    right: auto !important;
+
+    @include breakpoint("medium") {
+        width: 100% !important;
+    }
+}

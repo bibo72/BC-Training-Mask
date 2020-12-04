@@ -1,4 +1,21 @@
 .navUser {
+    position: initial;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+
+    .navUser-section--alt {
+        float: none;
+
+        .navUser-item--cart {
+
+            &.navUser-item {
+                height: auto;
+            }
+        }
+    }
 
     @include breakpoint("medium") {
 
@@ -18,6 +35,10 @@
                     padding: 0;
                 }
             }
+        }
+
+        .navUser-section--alt {
+            float: right;
         }
     }
 }
@@ -71,6 +92,7 @@
 }
 
 .navUser .navUser-section .navUser-item {
+    height: remCalc(34px);
     
     &.navUser_item__quickSearch,
     &.navUser-item--account,
