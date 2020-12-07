@@ -2,6 +2,7 @@
 #consent-manager-update-banner {
     width: 100vw !important;
     right: auto !important;
+    max-width: 100vw !important;
 
     @include breakpoint("medium") {
         width: 100% !important;
