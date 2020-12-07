@@ -558,6 +558,7 @@
                         // banner content container
                         > div {
                             width: 100%;
+                            max-width: remCalc(230px);
                         }
                     }
                 }
@@ -594,9 +595,10 @@
 
                 // middle column img
                 &:nth-child(3) {
-                    max-width: remCalc(343px);
+                    max-width: remCalc(461px);
                     padding-left: remCalc(59px);
                     padding-right: remCalc(59px);
+                    flex-basis: 40.58%;
                 }
 
                 // last column img
@@ -693,8 +695,8 @@
 
                     // text
                     P {
-                        line-height: 56px !important;
-                        font-size: 22px;
+                        line-height: 32px !important;
+                        font-size: 28px;
                     }
                 }
 
@@ -714,7 +716,6 @@
                 // carousel button
                 [data-test-id="carousel-cta-button"] {
                     margin-top: remCalc(20px);
-                    max-width: remCalc(170px);
                     align-self: center;
                 }
 
@@ -760,8 +761,8 @@
 
             // New Arrivals header section
             [data-layout-name="LayoutNewArrivalsHead"] {
-                margin-top: remCalc(50px);
-                margin-bottom: remCalc(25px);
+                margin-top: remCalc(32px);
+                margin-bottom: remCalc(16px);
 
                 // head text container
                 > div > div > div {
@@ -783,16 +784,22 @@
                 // item (layout column)
                 > div {
                     // max-width: none;
-                    max-width: remCalc(157.5px); // IE
+                    max-width: calc( ( 100vw - 20px - 20px - 20px ) / 2 ); // IE
                     width: 50%;
                     flex-basis: 50%;
+
+                    // img holder
+                    > div > div > div {
+                        height: calc( ( 100vw - 20px - 20px - 20px ) / 2 ) !important;
+                    }
 
                     // item content (img text)
                     > div {
 
                         // text title
                         &:last-child {
-                            margin-top: remCalc(12px);
+                            margin-top: 0;
+                            margin-bottom: remCalc(6px);
 
                             // text container
                             > div {
@@ -810,36 +817,47 @@
 
             // How Works section
             [data-layout-name="LayoutHowWorks"] {
-                margin-top: remCalc(120px);
+                margin-top: remCalc(30px);
+                justify-content: center;
 
                 // layout column
                 > div {
-                    flex-basis: 25%;
-                    max-width: 25%;
+                    flex-basis: 50%;
+                    max-width: 50%;
 
                     // first img column
                     &:nth-child(2) {
-                        max-width: remCalc(320px);
+                        max-width: 50%;
                         justify-content: flex-end;
-                        flex-basis: 320px;
+                        margin-right: remCalc(-6px);
+
+                        // img holder
+                        > div > div > div {
+                            height: remCalc(138px) !important;
+                        }
                     }
 
                     // second img column
                     &:nth-child(3) {
-                        max-width: remCalc(280px);
-                        margin-left: remCalc(-33px);
+                        max-width: 45%;
+                        margin-left: remCalc(-6px);
                         justify-content: flex-start;
+
+                        // img holder
+                        > div > div > div {
+                            height: remCalc(106px) !important;
+                        }
                     }
 
                     // article column
                     &:last-child {
-                        flex-basis: 50%;
-                        // max-width: 50%;
-                        max-width: remCalc(568px);
+                        flex-basis: 100%;
+                        max-width: 100%;
                         padding: 0 remCalc(10px);
                         align-items: center;
-                        padding-bottom: remCalc(99px);
-                        margin-left: remCalc(30px);
+                        padding-bottom: remCalc(60px);
+                        margin-left: 0;
+                        margin-top: remCalc(32px);
 
                         // sub item
                         > div {
@@ -847,7 +865,7 @@
                             // text title
                             &:nth-child(2) {
                                 line-height: 0;
-                                padding-bottom: remCalc(39px);
+                                padding-bottom: remCalc(26px);
 
                                 // text container
                                 > div {
@@ -856,6 +874,7 @@
                                     // text
                                     span {
                                         line-height: 30px !important;
+                                        font-size: 12px !important;
                                     }
                                 }
                             }
@@ -871,6 +890,7 @@
                                     span {
                                         letter-spacing: 1px;
                                         line-height: 30px !important;
+                                        font-size: 12px !important;
                                     }
                                 }
                             }
@@ -881,7 +901,7 @@
                                 position: absolute;
                                 bottom: 0;
                                 width: 100%;
-                                max-width: remCalc(210px);
+                                max-width: remCalc(130px);
 
                                 div {
                                     width: 100%;
@@ -891,13 +911,13 @@
                             // button LEARN MORE
                             &:nth-child(4) {
                                 right: 50%;
-                                margin-right: remCalc(15px);
+                                margin-right: remCalc(8px);
                             }
 
                             // button SHOP NOW
                             &:nth-child(5) {
                                 left: 50%;
-                                margin-left: remCalc(15px);
+                                margin-left: remCalc(8px);
                             }
                         }
                     }
@@ -906,13 +926,18 @@
 
             // 30 Vent section
             [data-layout-name="Layout30Vent"] {
-                margin-top: remCalc(105px);
+                margin-top: remCalc(30px);
+                padding: 0;
 
                 // text
                 [data-test-id="hero-image-title"],
                 [data-test-id="hero-image-subtitle"] {
                     line-height: 0 !important;
                     min-height: auto !important;
+
+                    p {
+                        width: 100%;
+                    }
                 }
 
                 // text title
@@ -928,13 +953,16 @@
                     margin-top: 0;
 
                     p {
-                        line-height: 50px !important;
+                        line-height: 32px !important;
+                        font-size: 28px !important;
                     }
                 }
 
                 // button
                 [data-test-id="hero-image-button"] {
                     margin-top: remCalc(32px);
+                    max-width: remCalc(210px);
+                    text-align: center;
                 }
 
                 // layout column
@@ -942,7 +970,7 @@
 
                     // 30
                     &:nth-child(2) {
-                        padding-bottom: remCalc(293px);
+                        padding-bottom: 0;
 
                         // 3.0 item
                         > div {
@@ -952,13 +980,20 @@
 
                                 // img holder
                                 > div > div > div > div {
-                                    min-height: remCalc(538px);
-                                    padding: remCalc(50px) remCalc(35px);
+                                    min-height: remCalc(345px);
+                                    padding: remCalc(32px) remCalc(20px);
                                     align-items: flex-end;
+                                    text-align: left;
 
                                     // banner content container 
                                     > div {
                                         width: 100%;
+                                        display: block;
+                                    }
+
+                                    // BC page builder mobile banner content
+                                    &:last-child {
+                                        display: none !important;
                                     }
                                 }
                             }
@@ -969,6 +1004,7 @@
                                 position: absolute;
                                 bottom: 0;
                                 width: 50%;
+                                display: none;
                             }
 
                             // last but one
@@ -985,7 +1021,7 @@
 
                     // vent
                     &:last-child {
-                        padding-top: remCalc(293px);
+                        padding-top: 0;
 
                         // vent item
                         > div {
@@ -996,6 +1032,7 @@
                                 position: absolute;
                                 top: 0;
                                 width: 50%;
+                                display: none;
                             }
 
                             // first
@@ -1013,13 +1050,24 @@
 
                                 // img holder
                                 > div > div > div > div {
-                                    min-height: remCalc(538px);
-                                    padding: remCalc(50px) remCalc(35px);
+                                    min-height: remCalc(345px);
+                                    padding: remCalc(32px) remCalc(20px);
                                     align-items: flex-end;
+                                    text-align: right;
 
                                     // banner content container 
                                     > div {
                                         width: 100%;
+                                        display: block;
+
+                                        [data-test-id="hero-image-button"] {
+                                            margin-left: auto;
+                                        }
+                                    }
+                                    
+                                    // BC page builder mobile banner content
+                                    &:last-child {
+                                        display: none !important;
                                     }
                                 }
                             }
@@ -1030,16 +1078,20 @@
 
             // Vent Filtration section
             [data-layout-name="LayoutVentFiltration"] {
-                margin-top: remCalc(100px);
+                margin-top: remCalc(30px);
+                flex-direction: column-reverse;
 
                 // layout column
                 > div {
+                    flex: 0 0 100%;
+                    max-width: 100%;
 
                     // article column
                     &:nth-child(2) {
-                        max-width: remCalc(554px);
+                        max-width: 100%;
                         align-items: center;
-                        padding-bottom: remCalc(139px);
+                        padding-bottom: remCalc(60px);
+                        margin-top: remCalc(32px);
 
                         // sub item
                         > div {
@@ -1047,7 +1099,7 @@
                             // text title
                             &:nth-child(2) {
                                 line-height: 0;
-                                padding-bottom: remCalc(39px);
+                                padding-bottom: remCalc(26px);
 
                                 // text container
                                 > div {
@@ -1056,6 +1108,7 @@
                                     // text
                                     span {
                                         line-height: 30px !important;
+                                        font-size: 12px !important;
                                     }
                                 }
                             }
@@ -1071,6 +1124,7 @@
                                     span {
                                         letter-spacing: 1px;
                                         line-height: 30px !important;
+                                        font-size: 12px !important;
                                     }
                                 }
                             }
@@ -1079,9 +1133,9 @@
                             &:nth-child(4),
                             &:nth-child(5) {
                                 position: absolute;
-                                bottom: remCalc(40px);
+                                bottom: 0;
                                 width: 100%;
-                                max-width: remCalc(210px);
+                                max-width: remCalc(130px);
 
                                 div {
                                     width: 100%;
@@ -1091,41 +1145,51 @@
                             // button LEARN MORE
                             &:nth-child(4) {
                                 right: 50%;
-                                margin-right: remCalc(15px);
+                                margin-right: remCalc(8px);
                             }
 
                             // button SHOP NOW
                             &:nth-child(5) {
                                 left: 50%;
-                                margin-left: remCalc(15px);
+                                margin-left: remCalc(8px);
                             }
                         }
                     }
 
                     // img column
                     &:last-child {
-                        max-width: remCalc(476px);
-                        margin-left: remCalc(82px);
+                        max-width: 100%;
+                        margin-left: 0;
+
+                        // img holder
+                        > div > div > div {
+                            height: remCalc(196px) !important;
+                            background-size: contain !important;
+                        }
                     }
                 }
             }
 
             // Next Level section
             [data-layout-name="LayoutNextLevel"] {
-                margin-top: remCalc(100px);
+                margin-top: remCalc(32px);
 
                 // text subtitle
                 [data-test-id="hero-image-subtitle"] {
                     margin-top: 0;
 
                     p {
-                        line-height: 56px !important;
+                        line-height: 32px !important;
+                        font-size: 28px !important;
+                        width: 100%;
                     }
                 }
 
                 // button
                 [data-test-id="hero-image-button"] {
                     margin-top: remCalc(32px);
+                    max-width: remCalc(135px);
+                    text-align: center;
                 }
 
                 // layout column
@@ -1135,22 +1199,31 @@
                     &:nth-child(2) {
                         flex-basis: 28%;
                         max-width: 28%;
+                        display: none;
                     }
 
                     // banner
                     &:last-child {
-                        flex-basis: 72%;
-                        max-width: 72%;
+                        flex-basis: 100%;
+                        max-width: 100%;
 
                         // img holder
                         > div > div > div > div > div {
-                            min-height: remCalc(585px);
-                            padding: remCalc(72px) remCalc(26px);
+                            min-height: remCalc(360px);
+                            padding: remCalc(50px) remCalc(20px);
                             align-items: flex-end;
+                            text-align: left;
 
                             // banner content container
                             > div {
                                 width: 100%;
+                                max-width: remCalc(228px);
+                                display: block;
+                            }
+
+                            // BC page builder mobile banner content
+                            &:last-child {
+                                display: none !important;
                             }
                         }
                     }
@@ -1159,8 +1232,8 @@
 
             // News header section
             [data-layout-name="LayoutNewsHead"] {
-                margin-top: remCalc(25px);
-                margin-bottom: remCalc(25px);
+                margin-top: remCalc(16px);
+                margin-bottom: remCalc(16px);
 
                 // head text container
                 > div > div > div {
@@ -1176,25 +1249,32 @@
             // News content section
             [data-layout-name="LayoutNewsContent"] {
                 justify-content: center;
+                flex-wrap: nowrap;
 
                 // img column
                 > div {
 
                     // first column img
                     &:nth-child(2) {
-                        max-width: remCalc(177px);
+                        max-width: remCalc(75px);
                     }
 
                     // middle column img
                     &:nth-child(3) {
-                        max-width: remCalc(343px);
-                        padding-left: remCalc(59px);
-                        padding-right: remCalc(59px);
+                        max-width: remCalc(195px);
+                        padding-left: remCalc(25px);
+                        padding-right: remCalc(25px);
                     }
 
                     // last column img
                     &:last-child {
-                        max-width: remCalc(169px);
+                        max-width: remCalc(70px);
+                    }
+
+                    // img holder
+                    > div > div > div {
+                        height: remCalc(20px) !important;
+                        background-size: contain !important;
                     }
                 }
             }
