@@ -14,8 +14,11 @@
         // button style - carousel style
         [data-test-id="carousel-cta-button"] {
             border: 1px solid black;
-            padding: remCalc(9px) remCalc(50px);
+            padding: remCalc(9px) remCalc(9px);
             line-height: 0 !important;
+            display: block;
+            width: 100%;
+            text-align: center;
 
             // button text container
             > div {
@@ -26,6 +29,7 @@
                     font-size: 16px;
                     line-height: 30px !important;
                     font-weight: bold;
+                    letter-spacing: 2px;
                 }
             }
 
@@ -38,19 +42,26 @@
         // button style - normal style
         #buttonLink[role="button"] {
             line-height: 0 !important;
-            padding: remCalc(9px) remCalc(50px) !important;
+            padding: remCalc(9px) remCalc(9px) !important;
+            display: block;
+            width: 100%;
+            text-align: center;
 
             // button text
             > span {
                 line-height: 30px !important;
+                letter-spacing: 2px;
             }
         }
 
         // button style - hero banner style
         .custom[role="button"][data-test-id="hero-image-button"] {
             border: 1px solid white;
-            padding: remCalc(9px) remCalc(50px);
+            padding: remCalc(9px) remCalc(9px);
             line-height: 0 !important;
+            display: block;
+            width: 100%;
+            text-align: center;
 
             // button text container
             > div {
@@ -61,6 +72,7 @@
                     font-size: 16px;
                     line-height: 30px !important;
                     font-weight: bold;
+                    letter-spacing: 2px;
                 }
             }
 
@@ -107,6 +119,8 @@
                 // text
                 P {
                     line-height: 56px !important;
+                    letter-spacing: 0;
+                    font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
                 }
             }
 
@@ -180,6 +194,8 @@
                 // head text span
                 > span {
                     line-height: 30px !important;
+                    letter-spacing: 0;
+                    font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
                 }
             }
         }
@@ -215,6 +231,7 @@
                             // text
                             span {
                                 line-height: 30px !important;
+                                letter-spacing: 2px;
                             }
                         }
                     }
@@ -262,11 +279,12 @@
                 &:last-child {
                     flex-basis: 50%;
                     // max-width: 50%;
-                    max-width: remCalc(568px);
-                    padding: 0 remCalc(10px);
+                    max-width: remCalc(583px);
+                    padding: 0;
                     align-items: center;
                     padding-bottom: remCalc(99px);
-                    padding-left: remCalc(30px);
+                    // padding-left: remCalc(40px);
+                    padding-left: remCalc(24px);
 
                     // sub item
                     > div {
@@ -283,6 +301,8 @@
                                 // text
                                 span {
                                     line-height: 30px !important;
+                                    letter-spacing: 0;
+                                    font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
                                 }
                             }
                         }
@@ -347,6 +367,7 @@
 
                 p {
                     line-height: 30px !important;
+                    letter-spacing: 0;
                 }
             }
 
@@ -356,12 +377,15 @@
 
                 p {
                     line-height: 50px !important;
+                    letter-spacing: 0;
+                    font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
                 }
             }
 
             // button
             [data-test-id="hero-image-button"] {
                 margin-top: remCalc(32px);
+                max-width: remCalc(326px);
             }
 
             // layout column
@@ -447,6 +471,15 @@
                                 // banner content container 
                                 > div {
                                     width: 100%;
+
+                                    // banner content items
+                                    > div {
+
+                                        // button
+                                        &:last-child {
+                                            max-width: remCalc(294px);
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -464,7 +497,8 @@
 
                 // article column
                 &:nth-child(2) {
-                    max-width: remCalc(554px);
+                    // max-width: remCalc(554px);
+                    max-width: remCalc(563px);
                     align-items: center;
                     padding-bottom: remCalc(139px);
 
@@ -483,6 +517,8 @@
                                 // text
                                 span {
                                     line-height: 30px !important;
+                                    letter-spacing: 0;
+                                    font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
                                 }
                             }
                         }
@@ -531,7 +567,7 @@
 
                 // img column
                 &:last-child {
-                    max-width: remCalc(476px);
+                    max-width: remCalc(558px);
                     padding-left: remCalc(82px);
 
                     // img holder
@@ -552,12 +588,15 @@
 
                 p {
                     line-height: 56px !important;
+                    letter-spacing: 0;
+                    font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
                 }
             }
 
             // button
             [data-test-id="hero-image-button"] {
                 margin-top: remCalc(32px);
+                max-width: remCalc(214px);
             }
 
             // layout column
@@ -602,6 +641,8 @@
                 // head text span
                 > span {
                     line-height: 30px !important;
+                    letter-spacing: 0;
+                    font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
                 }
             }
         }

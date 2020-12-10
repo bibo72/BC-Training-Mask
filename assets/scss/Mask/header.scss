@@ -31,12 +31,13 @@
         border-color: #d7d7d7;
         border-width: 2px;
         width: 100%;
+        background-color: stencilColor("color-white");
 
         .header-logo {
             width: remCalc(300px);
-            min-width: remCalc(150px);
+            min-width: remCalc(100px);
             max-width: remCalc(300px);
-            flex: 0 0 300px;
+            flex: 0 1 300px;
             margin: 0;
             order: 1;
             padding: 0;
@@ -44,10 +45,10 @@
 
         .navUser_container,
         .navPages-container {
-            width: calc( ( 100% - 300px ) / 2 );
-            min-width: calc( 50% - 300px );
-            max-width: calc( 50% - 150px );
-            flex: 1 1 auto;
+            // width: calc( ( 100% - 300px ) / 2 );
+            // min-width: calc( 50% - 300px );
+            // max-width: calc( 50% - 150px );
+            flex: 0 0 auto;
         }
 
         .navUser_container {
@@ -71,5 +72,14 @@
 
     .header-logo__link {
         height: 100%;
+    }
+}
+
+.header-logo-image-container {
+
+    @include breakpoint("medium") {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

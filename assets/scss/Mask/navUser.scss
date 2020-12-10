@@ -6,6 +6,16 @@
     right: auto;
     transform: none;
 
+    .navUser-section {
+
+        .navUser-item {
+
+            .navUser-action {
+                letter-spacing: 1px;
+            }
+        }
+    }
+
     .navUser-section--alt {
         float: none;
 
@@ -33,6 +43,7 @@
                     line-height: 30px;
                     font-weight: normal;
                     padding: 0;
+                    letter-spacing: 1px;
                 }
             }
         }
