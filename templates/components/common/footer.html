@@ -21,29 +21,27 @@
 <footer class="footer" role="contentinfo">
     <h2 class="footer-title-sr-only">{{lang 'footer.title'}}</h2>
     <div class="container">
-        {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}
-            <article class="footer-info-col
-                footer-info-col--social
-                footer-info-col--{{#if theme_settings.social_icon_placement_bottom '===' 'bottom_left'}}left{{else}}right{{/if}}"
-                data-section-type="footer-webPages">
-                    <h3 class="footer-info-heading">{{lang 'social.connect'}}</h3>
-                    {{> components/common/social-links}}
-            </article>
-        {{/if}}
+
+        <div class="footer_logo">
+            {{#if page_type '===' 'default'}}
+                <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
+                    {{> components/common/store-logo}}
+                </h1>
+            {{else}}
+                <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+                    {{> components/common/store-logo}}
+                </div>
+            {{/if}}
+        </div>
+
+        <article class="footer-info-col" data-section-type="newsletterSubscription">
+            {{#if settings.show_newsletter_box}}
+                {{> components/common/subscription-form}}
+            {{/if}}
+            {{> components/common/payment-icons}}
+        </article>
+
         <section class="footer-info">
-            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
-                <h3 class="footer-info-heading">{{lang 'footer.navigate'}}</h3>
-                <ul class="footer-info-list">
-                    {{#each pages}}
-                        <li>
-                            <a href="{{url}}">{{name}}</a>
-                        </li>
-                    {{/each}}
-                    <li>
-                        <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
-                    </li>
-                </ul>
-            </article>
 
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
                 <h3 class="footer-info-heading">{{lang 'footer.categories'}}</h3>
@@ -55,6 +53,60 @@
                     {{/each}}
                 </ul>
             </article>
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages-learn">
+                <h3 class="footer-info-heading">{{lang 'footer.learn'}}</h3>
+                <ul class="footer-info-list">
+                    {{#each pages}}
+                        {{#if (lowercase name) "===" "learn"}}
+                            {{#each children}}
+                                <li>
+                                    <a href="{{url}}">{{name}}</a>
+                                </li>
+                            {{/each}}
+                        {{/if}}
+                    {{/each}}
+
+                    {{!--
+                    <li>
+                        <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
+                    </li>
+                    --}}
+
+                </ul>
+            </article>
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages-support">
+                <h3 class="footer-info-heading">{{lang 'footer.support'}}</h3>
+                <ul class="footer-info-list">
+                    {{#each pages}}
+                        {{#if (lowercase name) "===" "support"}}
+                            {{#each children}}
+                                <li>
+                                    <a href="{{url}}">{{name}}</a>
+                                </li>
+                            {{/each}}
+                        {{/if}}
+                    {{/each}}
+
+                    {{!--
+                    <li>
+                        <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
+                    </li>
+                    --}}
+
+                </ul>
+            </article>
+
+            {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}
+                <article class="footer-info-col
+                    footer-info-col--social
+                    footer-info-col--{{#if theme_settings.social_icon_placement_bottom '===' 'bottom_left'}}left{{else if theme_settings.social_icon_placement_bottom '===' 'bottom_right'}}right{{else}}center{{/if}}"
+                    data-section-type="footer-webPages-socialLinks">
+                        <h3 class="footer-info-heading">{{lang 'social.connect'}}</h3>
+                        {{> components/common/social-links}}
+                </article>
+            {{/if}}
 
             {{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
@@ -70,33 +122,61 @@
             </article>
             {{/and}}
 
-            {{#if settings.address}}
             <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
-                <h3 class="footer-info-heading">{{lang 'footer.info'}}</h3>
-                <address>{{nl2br settings.address}}</address>
+                <h3 class="footer-info-heading">{{lang 'footer.contact'}}</h3>
+
+                {{!-- <address>{{nl2br settings.address}}</address> --}}
+
+                {{!--
                 {{#if settings.phone_number}}
                     <strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
                 {{/if}}
-            </article>
-            {{/if}}
+                --}}
+                
+                <ul>
+                    {{#if settings.phone_number}}
+                    <li>
+                        <div>
+                            <span class="icon icon_phone"><img src="{{cdn 'img/Tmask/TM-Icon-phone.png'}}" alt="icon phone"></span>
+                            <span class="label">{{lang 'footer.phone'}}</span>
+                            <span><a href="tel:{{settings.phone_number}}">{{settings.phone_number}}</a></span>
+                        </div>
+                    </li>
+                    {{/if}}
+                    {{#each pages}}
+                        {{#if (lowercase name) "===" "contact us"}}
+                            <li>
+                                <div>
+                                    <span class="icon icon_email"><img src="{{cdn 'img/Tmask/TM-Icon-email.png'}}" alt="icon email"></span>
+                                    <span class="label">{{lang 'footer.email'}}</span>
+                                    <span><a href="{{url}}">{{name}}</a></span>
+                                </div>
+                            </li>
+                        {{/if}}
+                    {{/each}}
+                </ul>
 
-            <article class="footer-info-col" data-section-type="newsletterSubscription">
-                {{#if settings.show_newsletter_box}}
-                    {{> components/common/subscription-form}}
-                {{/if}}
-                {{> components/common/payment-icons}}
             </article>
+            
         </section>
+
+        {{!--
         {{#if theme_settings.geotrust_ssl_common_name}}
             <div class="footer-geotrust-ssl-seal">
                 {{> components/common/geotrust-ssl-seal}}
             </div>
         {{/if}}
+        --}}
+
+        {{!--
         {{#if settings.paypal_commerce_credit_message}}
         <div class="footer-copyright">
             <p class="paypal-credit">{{nl2br settings.paypal_commerce_credit_message}}</p>
         </div>
         {{/if}}
+        --}}
+
+        {{!--
         {{#if theme_settings.show_powered_by}}
             <div class="footer-copyright">
                 <p class="powered-by">{{lang 'footer.powered_by'}} <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce</a></p>
@@ -107,5 +187,40 @@
                 <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}} </p>
             </div>
         {{/if}}
+        --}}
+
+        <div class="footer_line">
+            <div class="art_icon"><img src="{{cdn 'img/Tmask/TM-Artwork-A.png'}}" alt="Artwork A"></div>
+        </div>
+
+        <div class="footer-copyright">
+            {{#if theme_settings.show_copyright_footer}}
+                <p class="powered-by">
+                    <span class="on_left">
+                        {{lang 'footer.copyright'}} &copy; {{moment format="YYYY"}}. {{settings.store_name}} & {{lang 'mask.site_url'}} 
+                        {{#each pages}}
+                            {{#if (lowercase name) "===" "copyright"}}
+                                {{#each children}}
+                                    {{#if (lowercase name) "===" "all rights reserved"}}
+                                        <a href="{{url}}">{{name}}</a>
+                                    {{/if}}
+                                {{/each}}
+                            {{/if}}
+                        {{/each}}
+                    </span>
+                    <span class="on_right">
+                        {{#each pages}}
+                            {{#if (lowercase name) "===" "copyright"}}
+                                {{#each children}}
+                                    {{#or (if (lowercase name) "===" "privacy policy") (if (lowercase name) "===" "terms & condition")}}
+                                        <a href="{{url}}">{{name}}</a>
+                                    {{/or}}
+                                {{/each}}
+                            {{/if}}
+                        {{/each}}
+                    </span>
+                </p>
+            {{/if}}
+        </div>
     </div>
 </footer>

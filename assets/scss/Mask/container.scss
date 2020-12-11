@@ -1,3 +1,9 @@
 .container {
     max-width: remCalc(1366px);
+
+    padding: 0 remCalc(20px);
+
+    @include breakpoint("medium") {
+        padding: 0 remCalc(100px);
+    }
 }
