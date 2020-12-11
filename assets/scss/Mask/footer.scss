@@ -3,6 +3,20 @@
     margin: 0;
     overflow: hidden;
 
+    .container {
+        padding: 0;
+
+        [data-section-type="newsletterSubscription"],
+        .footer-info,
+        .footer-copyright {
+            padding: 0 remCalc(20px);
+        }
+
+        .footer-copyright {
+            padding: remCalc(11px) remCalc(20px);
+        }
+    }
+
     .footer_logo {
         padding: 0;
         margin: remCalc(33px) auto 0;
@@ -183,6 +197,7 @@
             color: stencilColor("color-black");
             letter-spacing: 1px;
             display: inline-block;
+            text-transform: uppercase;
         }
 
         span {
@@ -200,6 +215,7 @@
     }
 
     .footer_line {
+        margin: remCalc(17) auto 0;
         height: remCalc(21px);
         border-bottom: 2px solid stencilColor("color-black");
         position: relative;
@@ -214,6 +230,20 @@
     }
 
     @include breakpoint("medium") {
+
+        .container {
+            padding: 0;
+    
+            [data-section-type="newsletterSubscription"],
+            .footer-info,
+            .footer-copyright {
+                padding: 0 remCalc(100px);
+            }
+
+            .footer-copyright {
+                padding: remCalc(11px) remCalc(100px);
+            }
+        }
 
         .footer-info {
             margin: 0;
