@@ -2,6 +2,12 @@ export default function () {
     $('.navPages-action.has-subMenu').on('mouseenter', e => {
         e.stopPropagation();
 
+        const isTouchDevice = 'ontouchstart' in window;
+
+        if (isTouchDevice) {
+            return
+        }
+
         const $currentTarget = $(e.currentTarget);
 
         const isOpen = $currentTarget.hasClass('is-open');
@@ -21,6 +27,12 @@ export default function () {
 
     $('.navPages-container').on('mouseleave', e => {
         e.stopPropagation();
+
+        const isTouchDevice = 'ontouchstart' in window;
+
+        if (isTouchDevice) {
+            return
+        }
 
         const $currentTarget = $(e.currentTarget);
 
