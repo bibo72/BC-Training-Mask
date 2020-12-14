@@ -3,11 +3,13 @@
 
     <ul class="navUser-section navUser-section--alt">
 
+        {{!--
         {{#each categories}}
             {{#if @first}}
                 <li class="navUser-item"><a href="{{url}}" class="navUser-action">{{lang 'mask.clp_link'}}</a></li>
             {{/if}}
         {{/each}}
+        --}}
 
         {{!--
         {{#each pages}}
@@ -17,7 +19,17 @@
         {{/each}}
         --}}
 
-        <li class="navUser-item"><a href="https://www.trainingmask.com/training-mask-store-finder/" class="navUser-action">{{lang 'mask.loctor_rename'}}</a></li>
+        {{!-- <li class="navUser-item"><a href="https://www.trainingmask.com/training-mask-store-finder/" class="navUser-action">{{lang 'mask.loctor_rename'}}</a></li> --}}
+
+        {{#each pages}}
+            {{#if (lowercase name) '===' 'header right'}}
+                {{#each children}}
+                    <li class="navUser-item">
+                        <a href="{{url}}" class="navUser-action">{{name}}</a>
+                    </li>
+                {{/each}}
+            {{/if}}
+        {{/each}}
         
         {{#if customer.store_credit.value '>' 0}}
             <li class="navUser-item">
