@@ -19,7 +19,9 @@
 
 {{/if}}
 <footer class="footer" role="contentinfo">
+
     <h2 class="footer-title-sr-only">{{lang 'footer.title'}}</h2>
+
     <div class="container">
 
         <div class="footer_logo">
@@ -46,11 +48,43 @@
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
                 <h3 class="footer-info-heading">{{lang 'footer.categories'}}</h3>
                 <ul class="footer-info-list">
-                    {{#each categories}}
-                        <li>
-                            <a href="{{url}}">{{name}}</a>
-                        </li>
-                    {{/each}}
+
+                    {{#any categories name="Training Masks"}}
+                        {{#each (sortBy categories "name")}}
+
+                            {{#if (lowercase name) "===" "training masks"}}
+                                <li>
+                                    <a href="{{url}}">{{name}}</a>
+                                </li>
+                            {{/if}}
+
+                        {{/each}}
+                    {{/any}}
+
+                    {{#any categories name="Filtration Masks"}}
+                        {{#each (sortBy categories "name")}}
+
+                            {{#if (lowercase name) "===" "filtration masks"}}
+                                <li>
+                                    <a href="{{url}}">{{name}}</a>
+                                </li>
+                            {{/if}}
+
+                        {{/each}}
+                    {{/any}}
+
+                    {{#any categories name="Accessories"}}
+                        {{#each (sortBy categories "name")}}
+
+                            {{#if (lowercase name) "===" "accessories"}}
+                                <li>
+                                    <a href="{{url}}">{{name}}</a>
+                                </li>
+                            {{/if}}
+
+                        {{/each}}
+                    {{/any}}
+
                 </ul>
             </article>
 
@@ -189,20 +223,23 @@
         {{/if}}
         --}}
 
-        <div class="footer_line">
-            <div class="art_icon"><img src="{{cdn 'img/Tmask/TM-Artwork-A.png'}}" alt="Artwork A"></div>
-        </div>
+    </div>
 
+    <div class="footer_line">
+        <div class="art_icon"><img src="{{cdn 'img/Tmask/TM-Artwork-A.png'}}" alt="Artwork A"></div>
+    </div>
+
+    <div class="container">
         <div class="footer-copyright">
             {{#if theme_settings.show_copyright_footer}}
                 <p class="powered-by">
                     <span class="on_left">
-                        {{lang 'footer.copyright'}} &copy; {{moment format="YYYY"}}. {{settings.store_name}} & {{lang 'mask.site_url'}} 
+                        <span class="pc_text">{{lang 'footer.copyright'}}</span> &copy; {{moment format="YYYY"}}. {{settings.store_name}} & {{lang 'mask.site_url'}}. 
                         {{#each pages}}
                             {{#if (lowercase name) "===" "copyright"}}
                                 {{#each children}}
                                     {{#if (lowercase name) "===" "all rights reserved"}}
-                                        <a href="{{url}}">{{name}}</a>
+                                        <a href="{{url}}">{{name}}</a>.
                                     {{/if}}
                                 {{/each}}
                             {{/if}}
@@ -223,4 +260,5 @@
             {{/if}}
         </div>
     </div>
+
 </footer>
