@@ -152,11 +152,12 @@
             padding: 0;
             margin: remCalc(13px) auto 0;
             color: stencilColor("color-black");
+            display: inline-flex;
+            flex-direction: column;
 
             li {
-                max-width: 60%;
                 text-align: start;
-                margin: auto;
+                // margin: auto;
 
                 span {
                     display: inline-block;
@@ -287,20 +288,18 @@
         }
     }
 
-    @include breakpoint(325px) {
+    @include breakpoint("small") {
 
-        [data-section-type="storeInfo"] {
+        .footer-info {
 
-            ul {
+            .footer-info-col {
 
-                li {
-                    max-width: 50%;
+                &:first-child,
+                &:nth-child(2) {
+                    margin-top: 0;
                 }
             }
         }
-    }
-
-    @include breakpoint("small") {
 
         .footer-info-col {
             float: left;
@@ -388,11 +387,9 @@
         }
 
         [data-section-type="newsletterSubscription"] {
-            float: none;
-            width: 100%;
-            max-width: remCalc(560px);
             margin: remCalc(81px) auto 0;
             display: block;
+            width: 100%;
 
             .footer-info-heading {
                 text-align: center;
@@ -421,22 +418,7 @@
             }
         }
 
-        [data-section-type="storeInfo"] {
-
-            ul {
-
-                li {
-                    margin: 0;
-                    max-width: none;
-                }
-            }
-        }
-
         .footer-copyright {
-
-            .powered-by {
-                justify-content: space-between;
-            }
 
             .pc_text {
                 display: inline;
@@ -466,7 +448,7 @@
         }
     }
 
-    @include breakpoint("large") {
+    @include breakpoint(1290px) {
 
         .socialLinks {
 

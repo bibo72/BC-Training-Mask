@@ -950,7 +950,8 @@
     },
     "mask": {
         "clp_link": "Find My Mask",
-        "blog_rename": "Stores",
+        "blog_rename": "Stories",
+        "loctor_rename": "Stores",
         "site_url": "TRAININGMASK.COM"
     }
 }

@@ -49,6 +49,7 @@
                 <h3 class="footer-info-heading">{{lang 'footer.categories'}}</h3>
                 <ul class="footer-info-list">
 
+                    {{!--
                     {{#any categories name="Training Masks"}}
                         {{#each (sortBy categories "name")}}
 
@@ -84,6 +85,32 @@
 
                         {{/each}}
                     {{/any}}
+                    --}}
+
+                    {{!--
+                    {{#each (sortBy categories "name")}}
+
+                        {{#if (lowercase name) "===" "training masks"}}
+                        {{else if (lowercase name) "===" "filtration masks"}}
+                        {{else if (lowercase name) "===" "accessories"}}
+                        {{else}}
+                            <li>
+                                <a href="{{url}}">{{name}}</a>
+                            </li>
+                        {{/if}}
+
+                    {{/each}}
+                    --}}
+
+                    {{#each pages}}
+                        {{#if (lowercase name) "===" "shop"}}
+                            {{#each children}}
+                                <li>
+                                    <a href="{{url}}">{{name}}</a>
+                                </li>
+                            {{/each}}
+                        {{/if}}
+                    {{/each}}
 
                 </ul>
             </article>
@@ -236,22 +263,18 @@
                     <span class="on_left">
                         <span class="pc_text">{{lang 'footer.copyright'}}</span> &copy; {{moment format="YYYY"}}. {{settings.store_name}} & {{lang 'mask.site_url'}}. 
                         {{#each pages}}
-                            {{#if (lowercase name) "===" "copyright"}}
+                            {{#if (lowercase name) "===" "copyright-left"}}
                                 {{#each children}}
-                                    {{#if (lowercase name) "===" "all rights reserved"}}
-                                        <a href="{{url}}">{{name}}</a>.
-                                    {{/if}}
+                                    <a href="{{url}}">{{name}}</a>.
                                 {{/each}}
                             {{/if}}
                         {{/each}}
                     </span>
                     <span class="on_right">
                         {{#each pages}}
-                            {{#if (lowercase name) "===" "copyright"}}
+                            {{#if (lowercase name) "===" "copyright-right"}}
                                 {{#each children}}
-                                    {{#or (if (lowercase name) "===" "privacy policy") (if (lowercase name) "===" "terms & condition")}}
-                                        <a href="{{url}}">{{name}}</a>
-                                    {{/or}}
+                                    <a href="{{url}}">{{name}}</a>
                                 {{/each}}
                             {{/if}}
                         {{/each}}
