@@ -212,6 +212,7 @@
                 // max-width: none;
                 // max-width: remCalc(269px); // IE
                 max-width: calc( ( 100% - 30px - 30px - 30px ) / 4 ); // IE
+                justify-content: flex-start;
 
                 // img holder
                 > div > div > div {
@@ -680,7 +681,7 @@
             // button style - carousel style
             [data-test-id="carousel-cta-button"] {
                 border: 1px solid black;
-                padding: remCalc(7px) remCalc(25px);
+                padding: remCalc(7px) remCalc(7px);
                 line-height: 0 !important;
 
                 // button text container
@@ -704,7 +705,7 @@
             // button style - normal style
             #buttonLink[role="button"] {
                 line-height: 0 !important;
-                padding: remCalc(7px) remCalc(25px) !important;
+                padding: remCalc(7px) remCalc(7px) !important;
 
                 // button text
                 > span {
@@ -716,7 +717,7 @@
             // button style - hero banner style
             .custom[role="button"][data-test-id="hero-image-button"] {
                 border: 1px solid white;
-                padding: remCalc(7px) remCalc(25px);
+                padding: remCalc(7px) remCalc(7px);
                 line-height: 0 !important;
 
                 // button text container
@@ -785,6 +786,7 @@
                 [data-test-id="carousel-cta-button"] {
                     margin-top: remCalc(20px);
                     align-self: center;
+                    max-width: remCalc(235px);
                 }
 
                 // carousel container
@@ -860,6 +862,11 @@
                     // img holder
                     > div > div > div {
                         height: calc( ( 100vw - 20px - 20px - 20px ) / 2 ) !important;
+
+                        // if open link mode, img holder turn to the nex level div
+                        > div {
+                            height: calc( ( 100vw - 20px - 20px - 20px ) / 2 ) !important;
+                        }
                     }
 
                     // item content (img text)
@@ -1130,6 +1137,15 @@
                                     > div {
                                         width: 100%;
                                         display: block;
+
+                                        // banner content items
+                                        > div {
+
+                                            // button
+                                            &:last-child {
+                                                max-width: remCalc(190px);
+                                            }
+                                        }
 
                                         [data-test-id="hero-image-button"] {
                                             margin-left: auto;
