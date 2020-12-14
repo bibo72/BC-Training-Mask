@@ -218,6 +218,12 @@
                 > div > div > div {
                     height: 0 !important;
                     padding-bottom: 100% !important;
+
+                    // if open link mode, img holder turn to the nex level div
+                    > div {
+                        height: 0 !important;
+                        padding-bottom: 100% !important;
+                    }
                 }
 
                 // item content (img text)
