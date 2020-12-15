@@ -7,9 +7,10 @@
     --}}
     
     <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max{{/if}}">
+
+        {{!--
         {{#each (sortBy categories "id")}}
 
-            {{!--
             <li class="navPages-item">
             {{#if ../theme_settings.navigation_design '===' 'simple'}}
                 {{> components/common/navigation-list}}
@@ -18,7 +19,6 @@
                 {{> components/common/navigation-list-alternate}}
             {{/if}}
             </li>
-            --}}
 
             {{#if name "===" "Training"}}
                 <li class="navPages-item">
@@ -39,6 +39,18 @@
             {{/if}}
 
         {{/each}}
+        --}}
+
+        {{#each pages}}
+            {{#if (lowercase name) '===' 'header category'}}
+                {{#each children}}
+                    <li class="navPages-item" data-test="{{@index}}">
+                        {{> components/common/navigation-list index=@index}}
+                    </li>
+                {{/each}}
+            {{/if}}
+        {{/each}}
+
         {{#unless theme_settings.hide_content_navigation}}
             {{#each pages}}
                  <li class="navPages-item navPages-item-page">
@@ -54,13 +66,25 @@
     </ul>
     <ul class="navPages-list navPages-list--user">
 
+        {{!--
         {{#each categories}}
             {{#if @first}}
                 <li class="navPages-item"><a href="{{url}}" class="navPages-action">{{lang 'mask.clp_link'}}</a></li>
             {{/if}}
         {{/each}}
+        --}}
         
-        <li class="navPages-item"><a href="https://www.trainingmask.com/training-mask-store-finder/" class="navPages-action">{{lang 'mask.blog_rename'}}</a></li>
+        {{!-- <li class="navPages-item"><a href="https://www.trainingmask.com/training-mask-store-finder/" class="navPages-action">{{lang 'mask.blog_rename'}}</a></li> --}}
+
+        {{#each pages}}
+            {{#if (lowercase name) '===' 'header right'}}
+                {{#each children}}
+                    <li class="navPages-item">
+                        <a href="{{url}}" class="navPages-action">{{name}}</a>
+                    </li>
+                {{/each}}
+            {{/if}}
+        {{/each}}
 
         {{#if currency_selector.currencies.length '>' 1}}
             <li class="navPages-item">

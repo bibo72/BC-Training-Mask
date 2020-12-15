@@ -83,13 +83,25 @@
 }
 
 .navUser-item-cartLabel {
-    display: block;
-    width: remCalc(29px);
+    display: inline-block;
+    width: remCalc(23px);
     height: remCalc(25px);
     margin: 0;
     padding: 0;
     position: relative;
     overflow: hidden;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    + .countPill {
+        vertical-align: top;
+    }
+
+    @include breakpoint("medium") {
+        width: remCalc(29px);
+        height: remCalc(25px);
+    }
 }
 
 .navUser .dropdown-menu.is-open:before {

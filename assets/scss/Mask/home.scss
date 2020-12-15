@@ -696,8 +696,8 @@
 
                     // button text
                     > p {
-                        font-size: 12px;
-                        line-height: 14px !important;
+                        // font-size: 12px;
+                        line-height: 20px !important;
                         font-weight: bold;
                     }
                 }
@@ -715,8 +715,8 @@
 
                 // button text
                 > span {
-                    line-height: 14px !important;
-                    font-size: 12px;
+                    line-height: 20px !important;
+                    // font-size: 12px;
                 }
             }
 
@@ -732,8 +732,8 @@
 
                     // button text
                     > p {
-                        font-size: 12px;
-                        line-height: 14px !important;
+                        // font-size: 12px;
+                        line-height: 20px !important;
                         font-weight: bold;
                     }
                 }
@@ -974,7 +974,7 @@
                                     span {
                                         letter-spacing: 1px;
                                         line-height: 30px !important;
-                                        font-size: 12px !important;
+                                        // font-size: 12px !important;
                                     }
                                 }
                             }
@@ -996,6 +996,7 @@
                             &:nth-child(4) {
                                 right: 50%;
                                 margin-right: remCalc(8px);
+                                max-width: remCalc(135px);
                             }
 
                             // button SHOP NOW
@@ -1045,7 +1046,7 @@
                 // button
                 [data-test-id="hero-image-button"] {
                     margin-top: remCalc(23px);
-                    max-width: remCalc(210px);
+                    max-width: remCalc(255px);
                     text-align: center;
                 }
 
@@ -1149,7 +1150,7 @@
 
                                             // button
                                             &:last-child {
-                                                max-width: remCalc(190px);
+                                                max-width: remCalc(225px);
                                             }
                                         }
 
@@ -1216,7 +1217,7 @@
                                     span {
                                         letter-spacing: 1px;
                                         line-height: 30px !important;
-                                        font-size: 12px !important;
+                                        // font-size: 12px !important;
                                     }
                                 }
                             }
@@ -1238,6 +1239,7 @@
                             &:nth-child(4) {
                                 right: 50%;
                                 margin-right: remCalc(8px);
+                                max-width: remCalc(135px);
                             }
 
                             // button SHOP NOW
@@ -1281,7 +1283,7 @@
                 // button
                 [data-test-id="hero-image-button"] {
                     margin-top: remCalc(23px);
-                    max-width: remCalc(135px);
+                    max-width: remCalc(150px);
                     text-align: center;
                 }
 

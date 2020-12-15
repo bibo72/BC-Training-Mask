@@ -1,16 +1,23 @@
 {{#if children}}
 <a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
    href="{{url}}"
-   data-collapsible="navPages-{{id}}"
+   data-collapsible="navPages-{{snakecase name}}"
 >
-    {{name}}
+    {{#contains name 'Header category'}}
+        {{#replace 'Header category ' name}}
+        {{else}}
+            {{name}}
+        {{/replace}}
+    {{else}}
+        {{name}}
+    {{/contains}}
 
     <i class="icon navPages-action-moreIcon" aria-hidden="true">
         <svg><use xlink:href="#icon-chevron-down" /></svg>
     </i>
     
 </a>
-<div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+<div class="navPage-subMenu" id="navPages-{{snakecase name}}" aria-hidden="true" tabindex="-1">
     <ul class="navPage-subMenu-list">
         <li class="navPage-subMenu-item">
             <a class="navPage-subMenu-action navPages-action"
@@ -27,9 +34,16 @@
                        href="{{url}}"
                        aria-label="{{name}}"
                     >
+                    {{#contains name 'Header category'}}
+                        {{#replace 'Header category ' name}}
+                        {{else}}
+                            {{name}}
+                        {{/replace}}
+                    {{else}}
                         {{name}}
+                    {{/contains}}
                         <span class="collapsible-icon-wrapper"
-                            data-collapsible="navPages-{{id}}"
+                            data-collapsible="navPages-{{snakecase name}}"
                             data-collapsible-disabled-breakpoint="medium"
                             data-collapsible-disabled-state="open"
                             data-collapsible-enabled-state="closed"
@@ -39,14 +53,21 @@
                             </i>
                         </span>
                     </a>
-                    <ul class="navPage-childList" id="navPages-{{id}}">
+                    <ul class="navPage-childList" id="navPages-{{snakecase name}}">
                         {{#each children}}
                         <li class="navPage-childList-item">
                             <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
                                href="{{url}}"
                                aria-label="{{name}}"
                             >
+                            {{#contains name 'Header category'}}
+                                {{#replace 'Header category ' name}}
+                                {{else}}
+                                    {{name}}
+                                {{/replace}}
+                            {{else}}
                                 {{name}}
+                            {{/contains}}
                             </a>
                         </li>
                         {{/each}}
@@ -56,12 +77,19 @@
                        href="{{url}}"
                        aria-label="{{name}}"
                     >
+                    {{#contains name 'Header category'}}
+                        {{#replace 'Header category ' name}}
+                        {{else}}
+                            {{name}}
+                        {{/replace}}
+                    {{else}}
                         {{name}}
+                    {{/contains}}
                     </a>
                 {{/if}}
             </li>
         {{/each}}
-        {{#if topName "===" "Training"}}
+        {{#if index "===" 0}}
             <li class="navPage-subMenu-item two_banner_within">
                 <div class="category_banner banner_two">
                     <a href="javascript: void(0)">
@@ -75,7 +103,7 @@
                 </div>
             </li>
         {{/if}}
-        {{#if topName "===" "Filtration"}}
+        {{#if index "===" 1}}
             <li class="navPage-subMenu-item one_banner_within">
                 <div class="category_banner banner_one">
                     <a href="javascript: void(0)">
@@ -91,6 +119,13 @@
    href="{{url}}"
    aria-label="{{name}}"
 >
-    {{name}}
+    {{#contains name 'Header category'}}
+        {{#replace 'Header category ' name}}
+        {{else}}
+            {{name}}
+        {{/replace}}
+    {{else}}
+        {{name}}
+    {{/contains}}
 </a>
 {{/if}}
