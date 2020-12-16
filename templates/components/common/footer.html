@@ -261,7 +261,7 @@
             {{#if theme_settings.show_copyright_footer}}
                 <p class="powered-by">
                     <span class="on_left">
-                        <span class="pc_text">{{lang 'footer.copyright'}}</span> &copy; {{moment format="YYYY"}}. {{settings.store_name}} & {{lang 'mask.site_url'}}. 
+                        <span class="pc_text">{{lang 'footer.copyright'}}</span> &copy; {{moment format="YYYY"}}. {{settings.store_name}} & {{settings.secure_host}}. 
                         {{#each pages}}
                             {{#if (lowercase name) "===" "copyright-left"}}
                                 {{#each children}}

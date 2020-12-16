@@ -66,16 +66,6 @@
     </ul>
     <ul class="navPages-list navPages-list--user">
 
-        {{!--
-        {{#each categories}}
-            {{#if @first}}
-                <li class="navPages-item"><a href="{{url}}" class="navPages-action">{{lang 'mask.clp_link'}}</a></li>
-            {{/if}}
-        {{/each}}
-        --}}
-        
-        {{!-- <li class="navPages-item"><a href="https://www.trainingmask.com/training-mask-store-finder/" class="navPages-action">{{lang 'mask.blog_rename'}}</a></li> --}}
-
         {{#each pages}}
             {{#if (lowercase name) '===' 'header right'}}
                 {{#each children}}
