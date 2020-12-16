@@ -292,7 +292,8 @@
     }
 
     &.is-open {
-        display: initial;
+        // display: initial;
+        display: block; // IE
         // scss-lint:disable ImportantRule
         left: 0 !important; // 1
         outline: none;
@@ -313,7 +314,8 @@
 
     .form-input {
         font-size: fontSize("small");
-        height: unset;
+        // height: unset;
+        height: 50px; // IE
     }
 
     .productGrid {

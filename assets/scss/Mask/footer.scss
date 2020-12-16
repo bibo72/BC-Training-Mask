@@ -458,3 +458,19 @@
         }
     }
 }
+
+
+// IE
+
+@media all and (-ms-high-contrast:none) {
+
+    .footer {
+
+        @include breakpoint("medium") {
+
+            .footer_logo {
+                width: 300px;
+            }
+        }
+    }
+}

@@ -115,12 +115,18 @@
 }
 
 .navUser .navUser-section .navUser-item {
-    height: remCalc(34px);
+    // height: remCalc(34px);
     
     &.navUser_item__quickSearch,
     &.navUser-item--account,
     &.navUser-item--cart {
         position: relative;
+        padding: remCalc(4.5px) remCalc(15px);
+
+        > .navUser-action {
+            background-repeat: no-repeat;
+            background-position: center;
+        }
     }
 
     &.navUser-item--account {
@@ -146,6 +152,10 @@
 
     &.navUser-item--cart {
 
+        > .navUser-action {
+            line-height: 0;
+        }
+
         .dropdown-menu {
             line-height: 1.5;
             width: 100%;
@@ -156,7 +166,7 @@
                 top: 100% !important;
                 margin-top: remCalc(15px);
                 left: auto !important;
-                right: remCalc(-10px);
+                right: remCalc(5px);
             }
         }
     }
@@ -261,5 +271,27 @@
 
     .modal-close {
         display: none;
+    }
+}
+
+
+// IE
+
+@media all and (-ms-high-contrast:none) {
+
+    .navUser {
+
+        .navUser-section {
+
+            .navUser-item {
+
+                &.navUser-item--account {
+
+                    > .navUser-action {
+                        background-size: 97%;
+                    }
+                }
+            }
+        }
     }
 }
