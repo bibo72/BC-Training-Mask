@@ -8,9 +8,9 @@
     
     <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max{{/if}}">
 
-        {{!--
-        {{#each (sortBy categories "id")}}
+        {{#each categories}}
 
+            {{!--
             <li class="navPages-item">
             {{#if ../theme_settings.navigation_design '===' 'simple'}}
                 {{> components/common/navigation-list}}
@@ -19,28 +19,15 @@
                 {{> components/common/navigation-list-alternate}}
             {{/if}}
             </li>
+            --}}
 
-            {{#if name "===" "Training"}}
-                <li class="navPages-item">
-                    {{> components/common/navigation-list topName=name}}
-                </li>
-            {{/if}}
-
-            {{#if name "===" "Filtration"}}
-                <li class="navPages-item">
-                    {{> components/common/navigation-list topName=name}}
-                </li>
-            {{/if}}
-
-            {{#if name "===" "Accessories"}}
-                <li class="navPages-item">
-                    {{> components/common/navigation-list topName=name}}
-                </li>
-            {{/if}}
+            <li class="navPages-item">
+                {{> components/common/navigation-list index=@index}}
+            </li>
 
         {{/each}}
-        --}}
 
+        {{!--
         {{#each pages}}
             {{#if (lowercase name) '===' 'header category'}}
                 {{#each children}}
@@ -50,6 +37,7 @@
                 {{/each}}
             {{/if}}
         {{/each}}
+        --}}
 
         {{#unless theme_settings.hide_content_navigation}}
             {{#each pages}}
