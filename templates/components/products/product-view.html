@@ -8,7 +8,7 @@
         {{/if}}
     {{/each}}
 
-    <section class="productView-images" data-image-gallery>
+    <section class="productView-images u-hiddenVisually" data-image-gallery>
         {{!--
             Note that these image sizes are coupled to image sizes used in /assets/js/theme/common/product-details.js
             for variant/rule image replacement
@@ -61,6 +61,31 @@
                         lazyload=../theme_settings.lazyload_mode
                     }}
                     </a>
+                </li>
+            {{/each}}
+        </ul>
+    </section>
+
+    <section class="productView-images">
+        <ul class="product_images product_videos">
+            {{#each product.images}}
+                <li class="product_image">
+                    <div class="product_image_container">
+                        {{> components/common/responsive-img
+                            image=this
+                            fallback_size=../theme_settings.productview_thumb_size
+                            lazyload=../theme_settings.lazyload_mode
+                        }}
+                    </div>
+                </li>
+            {{/each}}
+            {{#each product.videos.list}}
+                <li class="product_image product_video">
+                    <div class="product_image_container product_video_container">
+                        <video autoplay="autoplay" preload="auto" loop="loop" muted src="www.youtube.com/embed/{{id}}">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </li>
             {{/each}}
         </ul>
