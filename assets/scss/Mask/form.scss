@@ -12,3 +12,120 @@
         color: #a0a19f;
     }
 }
+
+.button {
+    font-size: 16px;
+    line-height: 30px;
+    font-family: stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    padding: remCalc(9px) remCalc(18px);
+    border: 1px solid stencilColor("button--default-borderColor");
+    background-color: transparent;
+    color: stencilColor("button--default-color");
+    width: auto;
+    height: auto;
+    min-width: remCalc(50px);
+    min-height: remCalc(30px);
+    max-width: none;
+    max-height: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 0;
+
+    &:hover {
+        border-color: stencilColor("button--default-borderColorHover");
+        background-color: stencilColor("button--default-borderColorHover");
+        color: stencilColor("button--default-colorHover");
+    }
+
+    &:active,
+    &:focus {
+        border-color: stencilColor("button--default-borderColorActive");
+        background-color: stencilColor("button--default-borderColorActive");
+        color: stencilColor("button--default-colorActive");
+    }
+
+    &.button__default__white {
+        border-color: stencilColor("color-white");
+        color: stencilColor("color-white");
+
+        &:hover {
+            color: stencilColor("color-white");
+        }
+    
+        &:active {
+            color: stencilColor("color-white");
+        }
+    }
+
+    &.button--primary {
+        border-color: stencilColor("button--primary-backgroundColor");
+        background-color: stencilColor("button--primary-backgroundColor");
+        color: stencilColor("button--primary-color");
+
+        &:hover {
+            border-color: stencilColor("button--primary-colorHover");
+            background-color: stencilColor("button--primary-backgroundColorHover");
+            color: stencilColor("button--primary-colorHover");
+        }
+    
+        &:active {
+            border-color: stencilColor("button--primary-colorActive");
+            background-color: stencilColor("button--primary-backgroundColorActive");
+            color: stencilColor("button--primary-colorActive");
+        }
+
+        &.button__primary__white {
+            color: stencilColor("color-white");
+
+            &:hover {
+                border-color: stencilColor("color-white");
+                color: stencilColor("color-white");
+            }
+        
+            &:active {
+                border-color: stencilColor("color-white");
+                color: stencilColor("color-white");
+            }
+        }
+    }
+}
+
+.dropdown-menu-button {
+    position: relative;
+
+    .icon {
+        float: none;
+        margin: 0;
+        position: absolute;
+        left: auto;
+        right: remCalc(30px);
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%);
+    }
+}
+
+#wishlist-dropdown.is-open {
+    padding: 0;
+
+    .button {
+
+        &:hover {
+            background-color: stencilColor("button--default-borderColorHover");
+        }
+    }
+
+    @include breakpoint("small") {
+        padding: 0;
+    }
+
+    @include breakpoint("medium") {
+        padding: 0;
+    }
+
+    @include breakpoint("large") {
+        padding: 0;
+    }
+}
