@@ -277,20 +277,20 @@
                 {{/if}}
             </form>
             {{#if settings.show_wishlist}}
-                {{> components/common/wishlist-dropdown}}
+                {{!> components/common/wishlist-dropdown}}
             {{/if}}
         </div>
         {{#unless is_ajax}}
-            {{> components/common/share}}
+            {{!> components/common/share}}
         {{/unless}}
     </section>
 
     {{#if product.description}}
         <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
             {{#if theme_settings.show_product_details_tabs}}
-                {{> components/products/description-tabs}}
+                {{!> components/products/description-tabs}}
             {{else}}
-                {{> components/products/description}}
+                {{!> components/products/description}}
             {{/if}}
         </article>
     {{/if}}
