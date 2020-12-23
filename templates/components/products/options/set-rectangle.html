@@ -33,7 +33,38 @@
             {{/if}}
             {{#if ../required}}required{{/if}}>
         <label class="form-option" for="attribute_rectangle__{{../id}}_{{id}}" data-product-attribute-value="{{id}}">
-            <span class="form-option-variant">{{this.label}}</span>
+            <span class="form-option-variant">{{truncate this.label 1}}</span>
         </label>
     {{/each}}
+
+    <div class="product_option_modal">
+        <a href="javascript: void(0);" class="modal_trigger" data-product-modal-trigger>
+            See Size Chart
+        </a>
+        <div class="modal_content">
+            <div class="modal_close" data-product-modal-close>
+                <span class="icon">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                    </svg>
+                </span>
+            </div>
+            <div class="modal_logo" data-country-code="{{country_code}}">
+                <img src="{{cdn 'img/Tmask/TM-Logo-header.png'}}" alt="Training Mask">
+            </div>
+            <p class="modal_title">SIZE GUIDE</p>
+            <ul class="modal_chart">
+                {{#each this.values}}
+                    <li class="chart_row">
+                        {{#each (split data '(')}}
+                            <span class="chart_cell">
+                                {{chop this}}
+                            </span>
+                        {{/each}}
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
 </div>

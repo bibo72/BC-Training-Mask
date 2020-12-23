@@ -140,6 +140,30 @@
             .form-radio:checked + .form-option {
                 box-shadow: 0 0 0 1px #B7B7B7;
             }
+
+            [data-product-attribute="set-rectangle"] {
+
+                .form-option {
+                    @include square(40px);
+                    border: 1px solid stencilColor('color-black');
+                    margin: 0;
+                    margin-right: remCalc(8px);
+                    margin-top: remCalc(8px);
+                }
+
+                .form-option-variant {
+                    font-size: 18px;
+                    line-height: 36px;
+                    padding: remCalc(1px);
+                }
+
+                .form-radio:checked + .form-option {
+                    box-shadow: none;
+                    background-color: stencilColor('color-black');
+                    color: stencilColor('color-white');
+                }
+            }
+
         }
 
         .form {
@@ -294,6 +318,121 @@
 
             .productView-price {
                 font-size: 18px;
+            }
+        }
+    }
+}
+
+
+// product option modal
+
+.product_option_modal {
+    display: inline-block;
+    vertical-align: text-bottom;
+    margin-left: 2px;
+    position: relative;
+
+    .modal_trigger {
+        display: block;
+        font-size: 16px;
+        // line-height: 30px;
+        font-weight: normal;
+        font-style: normal;
+        letter-spacing: 0;
+        text-decoration: underline;
+        text-transform: capitalize;
+        line-height: 1;
+    }
+
+    .modal_content {
+        // display: block;
+        position: absolute;
+        left: 50%;
+        right: auto;
+        top: 36px;
+        bottom: auto;
+        transform: translateX(-50%);
+        width: 100vw;
+        max-width: remCalc(290px);
+        box-shadow: 0px 0px 43px 0px rgba(0, 0, 0, 0.23);
+        border: 1px solid stencilColor('color-black');
+        background-color: stencilColor('color-white');
+        z-index: 1;
+        display: none;
+    }
+
+    .modal_close {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+
+        .icon {
+            display: block;
+            @include square(25px);
+            margin-left: auto;
+            margin-right: 3px;
+            margin-top: 3px;
+            cursor: pointer;
+
+            svg {
+                fill: #CCCCCC;
+            }
+        }
+    }
+
+    .modal_logo {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 0 remCalc(33px);
+        margin: remCalc(5px) 0 0;
+    }
+
+    .modal_title {
+        font-size: 16px;
+        line-height: 1;
+        margin: remCalc(5px) 0 0;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        text-align: center;
+    }
+
+    .modal_chart {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: remCalc(40px) 0 0;
+        padding: 0;
+
+        .chart_row {
+            border-top: 1px solid stencilColor('color-black');
+            margin: 0;
+            padding: 0;
+            font-size: 0;
+
+            &:nth-child(odd) {
+                background-color: #F2F2F2;
+            }
+        }
+
+        .chart_cell {
+            display: inline-block;
+            font-size: 16px;
+            line-height: 60px;
+            padding: 0 remCalc(30px);
+            
+            &:first-child {
+                border-right: 1px solid stencilColor('color-black');
+                font-weight: bold;
+                width: 45%;
+                text-transform: uppercase;
+            }
+
+            &:last-child {
+                width: 55%;
+                text-transform: lowercase;
             }
         }
     }
