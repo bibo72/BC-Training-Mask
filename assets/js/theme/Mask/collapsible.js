@@ -1,4 +1,5 @@
 export default function () {
+    // header navPages
     $('.navPages-action.has-subMenu').on('mouseenter', e => {
         e.stopPropagation();
 
@@ -39,5 +40,22 @@ export default function () {
         $currentTarget.find('.navPages-action.has-subMenu, .navPage-subMenu').removeClass('is-open');
 
         $('.global_background').hide();
+    });
+
+    // PDP accordions
+    $('#productAccordion').on('click', '.accordion_title', e => {
+        e.stopPropagation();
+
+        const $currentTarget = $(e.currentTarget);
+
+        const $siblingTriggers = $currentTarget.siblings('.accordion_title');
+
+        $siblingTriggers.each((index, siblingTrigger) => {
+            const $siblingTrigger = $(siblingTrigger);
+
+            const collapsible = $siblingTrigger.data('collapsibleInstance');
+
+            collapsible.close();
+        });
     });
 }

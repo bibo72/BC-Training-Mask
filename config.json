@@ -300,7 +300,7 @@
     "color_text_product_sale_badges": "#ffffff",
     "color_hover_product_sale_badges": "#000000",
     "restrict_to_login": false,
-    "swatch_option_size": "22x22",
+    "swatch_option_size": "30x30",
     "social_icon_placement_top": false,
     "social_icon_placement_bottom": "bottom_center",
     "geotrust_ssl_common_name": "",

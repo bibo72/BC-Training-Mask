@@ -1,0 +1,93 @@
+<div id="productAccordion" class="accordion">
+
+
+    {{#if product.custom_fields.length}}
+        {{#any product.custom_fields name='Features'}}
+            <a href="#productAccordionCoreFeatures" role="button" class="accordion_title" data-collapsible>
+                <span class="accordion_title_text">
+                    CORE FEATURES
+                </span>
+        
+                <span class="accordion_title_icon">
+        
+                    <i class="icon" aria-hidden="true">
+                        <svg><use xlink:href="#icon-keyboard-arrow-up"/></svg>
+                    </i>
+        
+                </span>
+            </a>
+
+            <div id="productAccordionCoreFeatures"
+                class="accordion_content"
+            >
+                <div class="content">
+                    <ul>
+                        {{#each product.custom_fields}}
+                            {{#if (lowercase name) '===' 'features'}}
+                                <li>{{{value}}}</li>
+                            {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
+
+                <div class="blocker" style="display: none;"></div>
+            </div>
+        {{/any}}
+        {{#any product.custom_fields name='Feature'}}
+            <a href="#productAccordionCoreFeature" role="button" class="accordion_title" data-collapsible>
+                <span class="accordion_title_text">
+                    CORE FEATURE
+                </span>
+        
+                <span class="accordion_title_icon">
+        
+                    <i class="icon" aria-hidden="true">
+                        <svg><use xlink:href="#icon-keyboard-arrow-up"/></svg>
+                    </i>
+        
+                </span>
+            </a>
+
+            <div id="productAccordionCoreFeature"
+                class="accordion_content"
+            >
+                <div class="content">
+                    <ul>
+                        {{#each product.custom_fields}}
+                            {{#if (lowercase name) '===' 'feature'}}
+                                <li>{{{value}}}</li>
+                            {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
+
+                <div class="blocker" style="display: none;"></div>
+            </div>
+        {{/any}}
+    {{/if}}
+
+    <a href="#productAccordionDescription" role="button" class="accordion_title" data-collapsible>
+        <span class="accordion_title_text">
+            {{lang 'products.description'}}
+        </span>
+
+        <span class="accordion_title_icon">
+
+            <i class="icon" aria-hidden="true">
+                <svg><use xlink:href="#icon-keyboard-arrow-up"/></svg>
+            </i>
+
+        </span>
+    </a>
+
+    <div id="productAccordionDescription"
+        class="accordion_content"
+    >
+        <div class="content">
+            {{{product.description}}}
+        </div>
+
+        <div class="blocker" style="display: none;"></div>
+    </div>
+
+</div>

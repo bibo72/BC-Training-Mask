@@ -285,6 +285,12 @@
         {{/unless}}
     </section>
 
+    <section class="productView-details">
+
+        {{> components/products/accordion}}
+
+    </section>
+
     {{#if product.description}}
         <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
             {{#if theme_settings.show_product_details_tabs}}

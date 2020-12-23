@@ -114,6 +114,34 @@
         padding: 0;
         margin: 0;
 
+        [data-product-option-change] {
+
+            .form-option {
+                margin: 0;
+                margin-right: remCalc(16px);
+                margin-top: remCalc(8px);
+            }
+
+            [data-product-attribute="swatch"] {
+
+                .form-option {
+                    border-radius: 50%;
+                    border: none;
+                    padding: remCalc(2px);
+                }
+            }
+
+            .form-option-variant--color, .form-option-variant--pattern {
+                @include square(30px);
+                border-radius: 50%;
+                border: 1px solid stencilColor("color-black");
+            }
+
+            .form-radio:checked + .form-option {
+                box-shadow: 0 0 0 1px #B7B7B7;
+            }
+        }
+
         .form {
             margin: 0;
             padding: 0;
@@ -131,6 +159,11 @@
                 font-weight: bold;
                 text-transform: uppercase;
                 margin: 0;
+
+                [data-set-option-label] {
+                    font-weight: normal;
+                    text-transform: capitalize;
+                }
             }
 
             .form-label--alternate {
@@ -163,7 +196,13 @@
                     }
 
                     &:hover,
-                    &:active {
+                    &:active,
+                    &:visited,
+                    &:focus {
+                        background-color: transparent;
+                    }
+
+                    &[disabled] {
                         background-color: transparent;
                     }
                 }
@@ -202,6 +241,18 @@
                 width: 100%;
             }
         }
+
+        .alertBox {
+            margin: remCalc(10px) 0 0;
+            padding: remCalc(9px) remCalc(18px);
+            font-size: 16px;
+            line-height: 30px;
+            border: 1px solid transparent;
+        }
+    }
+
+    .accordion {
+        margin: remCalc(36px) 0 0;
     }
 
     @include breakpoint("medium") {

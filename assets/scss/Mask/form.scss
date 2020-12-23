@@ -90,6 +90,19 @@
             }
         }
     }
+
+    &[disabled] {
+        background-color: rgba($color: #AAAAAA, $alpha: 1.0);
+        border-color: rgba($color: #AAAAAA, $alpha: 1.0);
+
+        &:hover,
+        &:active,
+        &:visited,
+        &:focus {
+            background-color: rgba($color: #AAAAAA, $alpha: 0.8);
+            border-color: rgba($color: #AAAAAA, $alpha: 0.8);
+        }
+    }
 }
 
 .dropdown-menu-button {

@@ -20,10 +20,13 @@ import mask from './Mask/mask';
 
 export default class Global extends PageManager {
     onReady() {
+        console.log(this.context);
         const {
             channelId, cartId, productId, categoryId, secureBaseUrl, maintenanceModeSettings, adminBarLanguage, showAdminBar,
         } = this.context;
-        cartPreview(secureBaseUrl, cartId);
+        if (secureBaseUrl && cartId) {
+            cartPreview(secureBaseUrl, cartId);
+        }
         quickSearch();
         currencySelector(cartId);
         foundation($(document));

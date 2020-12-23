@@ -30,9 +30,6 @@ export default class Product extends PageManager {
 
         let validator;
 
-        // Init collapsible
-        collapsibleFactory();
-
         this.productDetails = new ProductDetails($('.productView'), this.context, window.BCData.product_attributes);
         this.productDetails.setProductVariant();
 
@@ -63,6 +60,9 @@ export default class Product extends PageManager {
         });
 
         this.productReviewHandler();
+
+        // Init collapsible
+        collapsibleFactory();
     }
 
     ariaDescribeReviewInputs($form) {

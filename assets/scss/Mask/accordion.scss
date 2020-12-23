@@ -1,0 +1,128 @@
+.accordion {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border-bottom: 2px solid #EBEBEB;
+    
+    .accordion_title {
+        display: block;
+        font-size: 16px;
+        line-height: 30px;
+        font-family: stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-style: normal;
+        letter-spacing: 1px;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-top: 2px solid #EBEBEB;
+        padding: remCalc(10px) 0;
+        margin: 0;
+        color: stencilColor("color-black");
+        position: relative;
+
+        .accordion_title_text,
+        .accordion_title_icon {
+            display: initial;
+        }
+
+        .accordion_title_icon {
+            display: block;
+            @include square(20px);
+            position: absolute;
+            left: auto;
+            right: 0;
+            top: 50%;
+            margin-top: remCalc(-10px);
+            bottom: auto;
+            transform: rotateZ(-180deg);
+            transition: .3s;
+
+            .icon {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+        }
+
+        &.is-open {
+
+            .accordion_title_icon {
+                transform: rotateZ(0);
+            }
+        }
+    }
+
+    .accordion_content {
+        padding: remCalc(10px) 0;
+        margin: 0;
+        display: none;
+        height: 0;
+        transition: .3s;
+
+        .content {
+            font-size: 16px;
+            line-height: 30px;
+            font-family: stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+            font-weight: normal;
+            font-style: normal;
+            letter-spacing: 1px;
+            color: stencilColor("color-black");
+            opacity: 0;
+            height: 0;
+            transition: .3s;
+        }
+
+        &.is-open {
+            display: block;
+            height: auto;
+            transition: .3s;
+
+            .content {
+                opacity: 1;
+                height: auto;
+                transition: .3s;
+            }
+        }
+    }
+}
+
+.accordion_content {
+
+    .content {
+
+        ul {
+            list-style: none;
+            margin: 0 0 remCalc(10px);
+            padding: 0;
+            position: relative;
+
+            li {
+                padding: 0;
+                margin: 0;
+                position: relative;
+                // padding-left: 16px;
+
+                /* &:before {
+                    content: '';
+                    display: inline-block;
+                    @include square(6px);
+                    background-color: stencilColor("color-black");
+                    border-radius: 50%;
+                    margin: remCalc(12px) remCalc(5px);
+                    vertical-align: middle;
+                    // position: absolute;
+                    // top: 50%;
+                    // left: 5px;
+                    // right: auto;
+                    // bottom: auto;
+                    // transform: translateY(-50%);
+                } */
+            }
+        }
+    }
+}
