@@ -1,5 +1,10 @@
 .page_type__product {
 
+    .body {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
     .container {
         max-width: remCalc(1266px);
         padding: 0 remCalc(20px);
@@ -139,6 +144,7 @@
             }
 
             [data-product-attribute="set-rectangle"] {
+                position: relative;
 
                 .form-option {
                     @include square(40px);
@@ -332,7 +338,7 @@
     display: inline-block;
     vertical-align: text-bottom;
     margin-left: 2px;
-    position: relative;
+    // position: relative;
 
     .modal_trigger {
         display: block;
@@ -351,7 +357,7 @@
         position: absolute;
         left: 50%;
         right: auto;
-        top: 36px;
+        top: calc( 100% + 30px );
         bottom: auto;
         transform: translateX(-50%);
         width: 100vw;
@@ -436,6 +442,17 @@
                 width: 55%;
                 text-transform: lowercase;
             }
+        }
+    }
+
+    @include breakpoint("large") {
+
+        .modal_content {
+            left: auto;
+            right: remCalc(30px);
+            top: calc( 100% + 30px );
+            bottom: auto;
+            transform: none;
         }
     }
 }
