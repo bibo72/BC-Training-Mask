@@ -41,6 +41,6 @@ export default class Global extends PageManager {
         loadingProgressBar();
         svgInjector();
         // Mask
-        mask();
+        mask(this.context);
     }
 }

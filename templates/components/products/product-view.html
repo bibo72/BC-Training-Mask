@@ -66,10 +66,10 @@
         </ul>
     </section>
 
-    <section class="productView-images">
+    <section class="productView-images" data-product-image-section>
         <ul class="product_images product_videos">
             {{#each product.images}}
-                <li class="product_image">
+                <li class="product_image" data-product-image-li>
                     <div class="product_image_container">
                         {{> components/common/responsive-img
                             image=this

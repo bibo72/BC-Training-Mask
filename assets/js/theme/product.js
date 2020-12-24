@@ -63,6 +63,9 @@ export default class Product extends PageManager {
 
         // Init collapsible
         collapsibleFactory();
+
+        const firstCollapsible = $('#productAccordion').find('.accordion_title').first().data('collapsibleInstance');
+        firstCollapsible.open();
     }
 
     ariaDescribeReviewInputs($form) {
