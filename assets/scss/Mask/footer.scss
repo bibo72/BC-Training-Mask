@@ -342,7 +342,7 @@
             [data-section-type="newsletterSubscription"],
             .footer-info,
             .footer-copyright {
-                padding: 0 remCalc(100px);
+                padding: 0 remCalc(20px);
             }
 
             [data-section-type="newsletterSubscription"] {
@@ -351,7 +351,7 @@
             }
 
             .footer-copyright {
-                padding: remCalc(11px) remCalc(100px);
+                padding: remCalc(11px) remCalc(20px);
             }
         }
 
@@ -444,6 +444,27 @@
 
             .icon {
                 @include square(40px);
+            }
+        }
+    }
+
+    @include breakpoint('large') {
+
+        .container {
+    
+            [data-section-type="newsletterSubscription"],
+            .footer-info,
+            .footer-copyright {
+                padding: 0 remCalc(100px);
+            }
+
+            [data-section-type="newsletterSubscription"] {
+                padding: 0;
+                order: 1;
+            }
+
+            .footer-copyright {
+                padding: remCalc(11px) remCalc(100px);
             }
         }
     }

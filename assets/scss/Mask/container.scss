@@ -3,7 +3,7 @@
 
     padding: 0 remCalc(20px);
 
-    @include breakpoint("medium") {
+    @include breakpoint("large") {
         padding: 0 remCalc(100px);
     }
 }
