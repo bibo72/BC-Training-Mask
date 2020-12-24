@@ -6,29 +6,35 @@ export default function (context) {
 
     if (injectedProductOptions) {
         const colorOptions = injectedProductOptions.find(option => option.display_name.toLowerCase() === 'color' && option.partial.toLowerCase() === 'swatch');
-        const selectedColorOption = colorOptions.values.find(colorOption => colorOption.selected === true);
-        const selectedColorOptionName = selectedColorOption.label;
+        if (colorOptions) {
+            const selectedColorOption = colorOptions.values.find(colorOption => colorOption.selected === true);
+            if (selectedColorOption) {
+                const selectedColorOptionName = selectedColorOption.label;
+        
+                if (injectedProductImages) {
+                    fnSwitchProductImage(injectedProductImages, themeSettingsProductviewThumbSize, $productImageSection, selectedColorOptionName);
+        
+                    /* $('body').on('click', '[data-product-attribute="swatch"] .form-option', e => {
+                        e.stopPropagation();
+        
+                        const $currentTarget = $(e.currentTarget);
+        
+                        const triggeredOptionName = $currentTarget.data('getOptionLabel');
+        
+                        fnSwitchProductImage(injectedProductImages, themeSettingsProductviewThumbSize, $productImageSection, triggeredOptionName);
+                    }); */
+        
+                    $('.productView form[data-cart-item-add] [data-product-option-change]').on('change', e => {
+                        const $target = $(e.target);
+        
+                        const triggeredOptionName = $target.attr('aria-label');
 
-        if (injectedProductImages) {
-            fnSwitchProductImage(injectedProductImages, themeSettingsProductviewThumbSize, $productImageSection, selectedColorOptionName);
-
-            /* $('body').on('click', '[data-product-attribute="swatch"] .form-option', e => {
-                e.stopPropagation();
-
-                const $currentTarget = $(e.currentTarget);
-
-                const triggeredOptionName = $currentTarget.data('getOptionLabel');
-
-                fnSwitchProductImage(injectedProductImages, themeSettingsProductviewThumbSize, $productImageSection, triggeredOptionName);
-            }); */
-
-            $('.productView form[data-cart-item-add] [data-product-option-change]').on('change', e => {
-                const $target = $(e.target);
-
-                const triggeredOptionName = $target.attr('aria-label');
-
-                fnSwitchProductImage(injectedProductImages, themeSettingsProductviewThumbSize, $productImageSection, triggeredOptionName);
-            });
+                        if (triggeredOptionName) {
+                            fnSwitchProductImage(injectedProductImages, themeSettingsProductviewThumbSize, $productImageSection, triggeredOptionName);
+                        }
+                    });
+                }
+            }
         }
     }
 }
