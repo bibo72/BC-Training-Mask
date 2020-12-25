@@ -1,0 +1,62 @@
+.page_type__page {
+
+    [data-content-region="page_builder_content"] {
+        
+        // Gray Banner
+        [data-layout-name="LayoutGrayBanner"] {
+            background-color: #f1f1f1 !important;
+            
+            // column
+            > div {
+                padding: remCalc(45px) 0 !important;
+    
+                // Text Widgets
+                > div {
+    
+                    // Page Title
+                    &:nth-child(2) {
+    
+                        // text container
+                        > div {
+                            line-height: 0;
+    
+                            // text span
+                            span {
+                                font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
+                                font-weight: bold;
+                                font-style: normal;
+                                letter-spacing: 0;
+                                font-size: 60px !important;
+                                line-height: 1 !important;
+                            }
+                        }
+                    }
+    
+                    // Description
+                    &:last-child {
+                        padding: remCalc(20px) 0 0 !important;
+    
+                        // text container
+                        > div {
+                            line-height: 0;
+    
+                            // text span
+                            span {
+                                font-family: stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+                                font-weight: normal;
+                                font-style: normal;
+                                letter-spacing: 0;
+                                font-size: 18px !important;
+                                line-height: 30px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+        // Left Text
+        
+    }
+
+}
