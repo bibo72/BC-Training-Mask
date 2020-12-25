@@ -74,26 +74,29 @@ export default function (secureBaseUrl, cartId) {
             }
         }
 
-        // Get updated cart quantity from the Cart API
-        const cartQtyPromise = new Promise((resolve, reject) => {
-            utils.api.cart.getCartQuantity({ baseUrl: secureBaseUrl, cartId }, (err, qty) => {
-                if (err) {
-                    // If this appears to be a 404 for the cart ID, set cart quantity to 0
-                    if (err === 'Not Found') {
-                        resolve(0);
-                    } else {
-                        reject(err);
+        if (secureBaseUrl) {
+            // Get updated cart quantity from the Cart API
+            const cartQtyPromise = new Promise((resolve, reject) => {
+                utils.api.cart.getCartQuantity({ baseUrl: secureBaseUrl, cartId }, (err, qty) => {
+                    console.log(err);
+                    if (err) {
+                        // If this appears to be a 404 for the cart ID, set cart quantity to 0
+                        if (err === 'Not Found') {
+                            resolve(0);
+                        } else {
+                            reject(err);
+                        }
                     }
-                }
-                resolve(qty);
+                    resolve(qty);
+                });
             });
-        });
-
-        // If the Cart API gives us a different quantity number, update it
-        cartQtyPromise.then(qty => {
-            quantity = qty;
-            $body.trigger('cart-quantity-update', quantity);
-        });
+    
+            // If the Cart API gives us a different quantity number, update it
+            cartQtyPromise.then(qty => {
+                quantity = qty;
+                $body.trigger('cart-quantity-update', quantity);
+            });
+        }
     } else {
         $body.trigger('cart-quantity-update', quantity);
     }

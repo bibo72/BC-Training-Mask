@@ -24,9 +24,7 @@ export default class Global extends PageManager {
         const {
             channelId, cartId, productId, categoryId, secureBaseUrl, maintenanceModeSettings, adminBarLanguage, showAdminBar,
         } = this.context;
-        if (secureBaseUrl && cartId) {
-            cartPreview(secureBaseUrl, cartId);
-        }
+        cartPreview(secureBaseUrl, cartId);
         quickSearch();
         currencySelector(cartId);
         foundation($(document));
