@@ -1,6 +1,37 @@
 .page_type__page {
 
     [data-content-region="page_builder_content"] {
+
+        // for weightiness
+        > div > div > div > div > div {
+
+            // buttons
+            div[id="buttonLink"][role="button"] {
+                line-height: 0 !important;
+                border: 1px solid stencilColor('button--default-borderColor') !important;
+                border-radius: 0 !important;
+                padding: remCalc(9px) remCalc(55px) !important;
+                background-color: transparent !important;
+    
+                span {
+                    font-family: stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+                    font-weight: bold;
+                    font-style: normal;
+                    letter-spacing: 2px;
+                    font-size: 16px !important;
+                    line-height: 30px !important;
+                    color: stencilColor('button--default-color');
+                }
+    
+                &:hover,
+                &:active,
+                &:visited,
+                &:focus {
+                    border-color: stencilColor("button--default-borderColorHover") !important;
+                    background-color: stencilColor("button--default-borderColorHover") !important;
+                }
+            }
+        }
         
         // Gray Banner
         [data-layout-name="LayoutGrayBanner"] {
@@ -9,23 +40,38 @@
             // column
             > div {
                 padding: remCalc(45px) 0 !important;
-    
+
                 // Text Widgets
                 > div {
+                    padding: remCalc(20px) 0 0 !important;
+                    // Description
+                    // text container
+                    > div {
+                        line-height: 0 !important;
+
+                        // text span
+                        span {
+                            font-family: stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+                            font-weight: normal;
+                            font-style: normal;
+                            letter-spacing: 0;
+                            font-size: 18px !important;
+                            line-height: 30px !important;
+                            color: stencilColor('color-black');
+                        }
+                    }
     
                     // Page Title
                     &:nth-child(2) {
+                        padding: 0 !important;
     
                         // text container
                         > div {
-                            line-height: 0;
     
                             // text span
                             span {
                                 font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
                                 font-weight: bold;
-                                font-style: normal;
-                                letter-spacing: 0;
                                 font-size: 60px !important;
                                 line-height: 1 !important;
                             }
@@ -33,7 +79,7 @@
                     }
     
                     // Description
-                    &:last-child {
+                    /* &:last-child {
                         padding: remCalc(20px) 0 0 !important;
     
                         // text container
@@ -50,13 +96,789 @@
                                 line-height: 30px !important;
                             }
                         }
-                    }
+                    } */
                 }
             }
         }
     
         // Left Text
+        [data-layout-name="LayoutLeftText"] {
+            margin: remCalc(100px) 0 0 !important;
+
+            // column
+            > div {
+
+                // text column
+                &:nth-child(2) {
+                    padding: 0 remCalc(130px) !important;
+
+                    // Text Widgets
+                    > div {
+                        padding: 0 0 remCalc(20px) !important;
+                        // Description
+                        // text container
+                        > div {
+                            line-height: 0 !important;
+                            text-align: left !important;
+
+                            // text span
+                            span {
+                                font-family: stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+                                font-weight: normal;
+                                font-style: normal;
+                                letter-spacing: 0;
+                                font-size: 18px !important;
+                                line-height: 30px !important;
+                                color: stencilColor('color-black');
+                            }
+                        }
+
+                        // small title
+                        &:nth-child(2) {
+                            padding: 0 0 remCalc(10px) !important;
+
+                            // text container
+                            > div {
+
+                                // text span
+                                span {
+                                    font-family: stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+                                    font-weight: bold;
+                                    letter-spacing: 1px;
+                                    font-size: 16px !important;
+                                    line-height: 30px !important;
+                                }
+                            }
+                        }
+
+                        // large title
+                        &:nth-child(3) {
+
+                            // text container
+                            > div {
+
+                                // text span
+                                span {
+                                    font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
+                                    font-weight: bold;
+                                    font-size: 36px !important;
+                                    line-height: 1 !important;
+                                }
+                            }
+                        }
+
+                        &:last-child {
+                            padding: 0 !important;
+                        }
+                    }
+                }
+
+                // img column
+                &:last-child {
+
+                    img {
+                        display: block !important;
+                        opacity: 1 !important;
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+
+        // Right Text
+        [data-layout-name="LayoutRightText"] {
+            margin: remCalc(100px) 0 0 !important;
+
+            // column
+            > div {
+
+                // text column
+                &:last-child {
+                    padding: 0 remCalc(130px) !important;
+
+                    // Text Widgets
+                    > div {
+                        padding: 0 0 remCalc(20px) !important;
+                        // Description
+                        // text container
+                        > div {
+                            line-height: 0 !important;
+                            text-align: left !important;
+
+                            // text span
+                            span {
+                                font-family: stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+                                font-weight: normal;
+                                font-style: normal;
+                                letter-spacing: 0;
+                                font-size: 18px !important;
+                                line-height: 30px !important;
+                                color: stencilColor('color-black');
+                            }
+                        }
+
+                        // small title
+                        &:nth-child(2) {
+                            padding: 0 0 remCalc(10px) !important;
+
+                            // text container
+                            > div {
+
+                                // text span
+                                span {
+                                    font-family: stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+                                    font-weight: bold;
+                                    letter-spacing: 1px;
+                                    font-size: 16px !important;
+                                    line-height: 30px !important;
+                                }
+                            }
+                        }
+
+                        // large title
+                        &:nth-child(3) {
+
+                            // text container
+                            > div {
+
+                                // text span
+                                span {
+                                    font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
+                                    font-weight: bold;
+                                    font-size: 36px !important;
+                                    line-height: 1 !important;
+                                }
+                            }
+                        }
+
+                        &:last-child {
+                            padding: 0 !important;
+                        }
+                    }
+                }
+
+                // img column
+                &:nth-child(2) {
+
+                    img {
+                        display: block !important;
+                        opacity: 1 !important;
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+
+        // Left Text With Button
+        [data-layout-name="LayoutLeftTextWithButton"] {
+            margin: remCalc(100px) 0 0 !important;
+
+            // column
+            > div {
+
+                // text column
+                &:nth-child(2) {
+                    padding: 0 remCalc(130px) !important;
+
+                    // Text & Button Widgets
+                    > div {
+                        padding: 0 0 remCalc(20px) !important;
+                        // Description
+                        // text container
+                        > div {
+                            line-height: 0 !important;
+                            text-align: left !important;
+
+                            // text span
+                            span {
+                                font-family: stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+                                font-weight: normal;
+                                font-style: normal;
+                                letter-spacing: 0;
+                                font-size: 18px !important;
+                                line-height: 30px !important;
+                                color: stencilColor('color-black');
+                            }
+                        }
+
+                        // small title
+                        &:nth-child(2) {
+                            padding: 0 0 remCalc(10px) !important;
+
+                            // text container
+                            > div {
+
+                                // text span
+                                span {
+                                    font-family: stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+                                    font-weight: bold;
+                                    letter-spacing: 1px;
+                                    font-size: 16px !important;
+                                    line-height: 30px !important;
+                                }
+                            }
+                        }
+
+                        // large title
+                        &:nth-child(3) {
+
+                            // text container
+                            > div {
+
+                                // text span
+                                span {
+                                    font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
+                                    font-weight: bold;
+                                    font-size: 36px !important;
+                                    line-height: 1 !important;
+                                }
+                            }
+                        }
+
+                        // button
+                        &:last-child {
+                            padding: 0 !important;
+
+                            // button container
+                            > div {
+                                padding: remCalc(50px) 0 0 !important;
+                            }
+                        }
+                    }
+                }
+
+                // img column
+                &:last-child {
+
+                    img {
+                        display: block !important;
+                        opacity: 1 !important;
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+
+        // Right Text With Button
+        [data-layout-name="LayoutRightTextWithButton"] {
+            margin: remCalc(100px) 0 0 !important;
+
+            // column
+            > div {
+
+                // text column
+                &:last-child {
+                    padding: 0 remCalc(130px) !important;
+
+                    // Text & Button Widgets
+                    > div {
+                        padding: 0 0 remCalc(20px) !important;
+                        // Description
+                        // text container
+                        > div {
+                            line-height: 0 !important;
+                            text-align: left !important;
+
+                            // text span
+                            span {
+                                font-family: stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+                                font-weight: normal;
+                                font-style: normal;
+                                letter-spacing: 0;
+                                font-size: 18px !important;
+                                line-height: 30px !important;
+                                color: stencilColor('color-black');
+                            }
+                        }
+
+                        // small title
+                        &:nth-child(2) {
+                            padding: 0 0 remCalc(10px) !important;
+
+                            // text container
+                            > div {
+
+                                // text span
+                                span {
+                                    font-family: stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+                                    font-weight: bold;
+                                    letter-spacing: 1px;
+                                    font-size: 16px !important;
+                                    line-height: 30px !important;
+                                }
+                            }
+                        }
+
+                        // large title
+                        &:nth-child(3) {
+
+                            // text container
+                            > div {
+
+                                // text span
+                                span {
+                                    font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
+                                    font-weight: bold;
+                                    font-size: 36px !important;
+                                    line-height: 1 !important;
+                                }
+                            }
+                        }
+
+                        // button
+                        &:last-child {
+                            padding: 0 !important;
+
+                            // button container
+                            > div {
+                                padding: remCalc(50px) 0 0 !important;
+                            }
+                        }
+                    }
+                }
+
+                // img column
+                &:nth-child(2) {
+
+                    img {
+                        display: block !important;
+                        opacity: 1 !important;
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+
+        // Left Text With Gray Title
+        [data-layout-name="LayoutLeftTextWithGrayTitle"] {
+            margin: remCalc(100px) 0 0 !important;
+
+            // column
+            > div {
+
+                // text column
+                &:nth-child(2) {
+                    padding: 0 remCalc(130px) !important;
+
+                    // Text Widgets
+                    > div {
+                        padding: 0 0 remCalc(20px) !important;
+                        // Description
+                        // text container
+                        > div {
+                            line-height: 0 !important;
+                            text-align: left !important;
+
+                            // text span
+                            span {
+                                font-family: stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+                                font-weight: normal;
+                                font-style: normal;
+                                letter-spacing: 0;
+                                font-size: 18px !important;
+                                line-height: 30px !important;
+                                color: stencilColor('color-black');
+                            }
+                        }
+
+                        // small title
+                        &:nth-child(2) {
+                            padding: 0 0 remCalc(10px) !important;
+
+                            // text container
+                            > div {
+
+                                // text span
+                                span {
+                                    font-family: stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+                                    font-weight: bold;
+                                    letter-spacing: 1px;
+                                    font-size: 16px !important;
+                                    line-height: 30px !important;
+                                }
+                            }
+                        }
+
+                        // large title
+                        &:nth-child(3) {
+
+                            // text container
+                            > div {
+
+                                // text span
+                                span {
+                                    font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
+                                    font-weight: bold;
+                                    font-size: 36px !important;
+                                    line-height: 1 !important;
+                                }
+                            }
+                        }
+
+                        // secondary title
+                        &:nth-last-child(3) {
+                            padding: 0 !important;
+
+                            // text container
+                            > div {
+
+                                // text span
+                                span {
+                                    font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
+                                    font-weight: normal;
+                                    font-size: 30px !important;
+                                    line-height: 36px !important;
+                                }
+                            }
+                        }
+
+                        // secondary gray title
+                        &:nth-last-child(2) {
+                            padding: 0 0 remCalc(5px) !important;
+
+                            // text container
+                            > div {
+
+                                // text span
+                                span {
+                                    font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
+                                    font-weight: normal;
+                                    font-size: 30px !important;
+                                    line-height: 36px !important;
+                                    color: #999999 !important;
+                                }
+                            }
+                        }
+
+                        &:last-child {
+                            padding: 0 !important;
+                        }
+                    }
+                }
+
+                // img column
+                &:last-child {
+
+                    img {
+                        display: block !important;
+                        opacity: 1 !important;
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+
+        // Right Text With Gray Title
+        [data-layout-name="LayoutRightTextWithGrayTitle"] {
+            margin: remCalc(100px) 0 0 !important;
+
+            // column
+            > div {
+
+                // text column
+                &:last-child {
+                    padding: 0 remCalc(130px) !important;
+
+                    // Text Widgets
+                    > div {
+                        padding: 0 0 remCalc(20px) !important;
+                        // Description
+                        // text container
+                        > div {
+                            line-height: 0 !important;
+                            text-align: left !important;
+
+                            // text span
+                            span {
+                                font-family: stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+                                font-weight: normal;
+                                font-style: normal;
+                                letter-spacing: 0;
+                                font-size: 18px !important;
+                                line-height: 30px !important;
+                                color: stencilColor('color-black');
+                            }
+                        }
+
+                        // small title
+                        &:nth-child(2) {
+                            padding: 0 0 remCalc(10px) !important;
+
+                            // text container
+                            > div {
+
+                                // text span
+                                span {
+                                    font-family: stencilFontFamily("body-font"), Arial, Helvetica, sans-serif;
+                                    font-weight: bold;
+                                    letter-spacing: 1px;
+                                    font-size: 16px !important;
+                                    line-height: 30px !important;
+                                }
+                            }
+                        }
+
+                        // large title
+                        &:nth-child(3) {
+
+                            // text container
+                            > div {
+
+                                // text span
+                                span {
+                                    font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
+                                    font-weight: bold;
+                                    font-size: 36px !important;
+                                    line-height: 1 !important;
+                                }
+                            }
+                        }
+
+                        // secondary title
+                        &:nth-last-child(3) {
+                            padding: 0 !important;
+
+                            // text container
+                            > div {
+
+                                // text span
+                                span {
+                                    font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
+                                    font-weight: normal;
+                                    font-size: 30px !important;
+                                    line-height: 36px !important;
+                                }
+                            }
+                        }
+
+                        // secondary gray title
+                        &:nth-last-child(2) {
+                            padding: 0 0 remCalc(5px) !important;
+
+                            // text container
+                            > div {
+
+                                // text span
+                                span {
+                                    font-family: stencilFontFamily("headings-font"), Arial, Helvetica, sans-serif;
+                                    font-weight: normal;
+                                    font-size: 30px !important;
+                                    line-height: 36px !important;
+                                    color: #999999 !important;
+                                }
+                            }
+                        }
+
+                        &:last-child {
+                            padding: 0 !important;
+                        }
+                    }
+                }
+
+                // img column
+                &:nth-last-child(2) {
+
+                    img {
+                        display: block !important;
+                        opacity: 1 !important;
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: $screen-large) {
+
+            // Gray Banner
+            [data-layout-name="LayoutGrayBanner"] {
+                
+                // column
+                > div {
+                    padding: remCalc(45px) remCalc(20px) !important;
+                }
+            }
         
+            // Left Text
+            [data-layout-name="LayoutLeftText"] {
+
+                // column
+                > div {
+
+                    // text column
+                    &:nth-child(2) {
+                        padding: 0 remCalc(20px) !important;
+                    }
+                }
+            }
+
+            // Right Text
+            [data-layout-name="LayoutRightText"] {
+
+                // column
+                > div {
+
+                    // text column
+                    &:last-child {
+                        padding: 0 remCalc(20px) !important;
+                    }
+                }
+            }
+
+            // Left Text With Button
+            [data-layout-name="LayoutLeftTextWithButton"] {
+
+                // column
+                > div {
+
+                    // text column
+                    &:nth-child(2) {
+                        padding: 0 remCalc(20px) !important;
+                    }
+                }
+            }
+
+            // Right Text With Button
+            [data-layout-name="LayoutRightTextWithButton"] {
+
+                // column
+                > div {
+
+                    // text column
+                    &:last-child {
+                        padding: 0 remCalc(20px) !important;
+                    }
+                }
+            }
+
+            // Left Text With Gray Title
+            [data-layout-name="LayoutLeftTextWithGrayTitle"] {
+
+                // column
+                > div {
+
+                    // text column
+                    &:nth-child(2) {
+                        padding: 0 remCalc(20px) !important;
+                    }
+                }
+            }
+
+            // Right Text With Gray Title
+            [data-layout-name="LayoutRightTextWithGrayTitle"] {
+
+                // column
+                > div {
+
+                    // text column
+                    &:last-child {
+                        padding: 0 remCalc(20px) !important;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: $screen-medium) {
+            
+            // Gray Banner
+            [data-layout-name="LayoutGrayBanner"] {
+                
+                // column
+                > div {
+
+                    // Text Widgets
+                    > div {
+        
+                        // Page Title
+                        &:nth-child(2) {
+        
+                            // text container
+                            > div {
+        
+                                // text span
+                                span {
+                                    font-size: 30px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (max-width: $screen-small) {
+
+            // Left Text
+            [data-layout-name="LayoutLeftText"] {
+                margin: remCalc(50px) 0 0 !important;
+
+                // column
+                > div {
+
+                    // text column
+                    &:nth-child(2) {
+                        order: 1 !important;
+                    }
+
+                    // img column
+                    &:last-child {
+                        order: 0 !important;
+                    }
+                }
+            }
+
+            // Right Text
+            [data-layout-name="LayoutRightText"] {
+                margin: remCalc(50px) 0 0 !important;
+            }
+
+            // Left Text With Button
+            [data-layout-name="LayoutLeftTextWithButton"] {
+                margin: remCalc(50px) 0 0 !important;
+
+                // column
+                > div {
+
+                    // text column
+                    &:nth-child(2) {
+                        order: 1;
+                    }
+
+                    // img column
+                    &:last-child {
+                        order: 0;
+                    }
+                }
+            }
+
+            // Right Text With Button
+            [data-layout-name="LayoutRightTextWithButton"] {
+                margin: remCalc(50px) 0 0 !important;
+            }
+
+            // Left Text With Gray Title
+            [data-layout-name="LayoutLeftTextWithGrayTitle"] {
+                margin: remCalc(50px) 0 0 !important;
+
+                // column
+                > div {
+
+                    // text column
+                    &:nth-child(2) {
+                        order: 1;
+                    }
+
+                    // img column
+                    &:last-child {
+                        order: 0;
+                    }
+                }
+            }
+
+            // Right Text With Gray Title
+            [data-layout-name="LayoutRightTextWithGrayTitle"] {
+                margin: remCalc(50px) 0 0 !important;
+            }
+        }
     }
 
 }
