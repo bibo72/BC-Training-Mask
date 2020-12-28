@@ -74,7 +74,7 @@
         @include breakpoint("medium") {
             background-position: right 0 top 50%;
             border: 0;
-            margin-bottom: spacing("half") !important;
+            // margin-bottom: spacing("half") !important;
             padding: 0;
         }
     }

@@ -1,5 +1,5 @@
 <div id="facetedSearch" class="facetedSearch sidebarBlock">
-    {{> components/faceted-search/selected-facets selected}}
+    {{!> components/faceted-search/selected-facets selected}}
 
     <a href="#facetedSearch-navList" role="button" class="facetedSearch-toggle toggleLink" data-collapsible>
         <span class="facetedSearch-toggle-text">
@@ -34,6 +34,9 @@
             class="facetedSearch-navList"
         >
             <div class="accordion accordion--navList">
+
+                <p class="filter_by">Filter By:</p>
+
                 {{#each facets}}
                     {{#if visible}}
                         {{{dynamicComponent 'components/faceted-search/facets'}}}

@@ -1,0 +1,29 @@
+.card {
+    margin: 0;
+
+    .card-figure {
+        padding: 0;
+    }
+
+    .card-img-container:after {
+        padding-bottom: 100%;
+    }
+
+    .card-body {
+        padding: 0;
+        margin: remCalc(18px) 0 0;
+    }
+
+    .card-title {
+        font-family: stencilFontFamily('body-font'), Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-style: normal;
+        letter-spacing: 0;
+        font-size: 18px;
+        line-height: 36px;
+        color: stencilColor('color-black');
+        text-decoration: none;
+        text-transform: capitalize;
+        margin: 0;
+    }
+}

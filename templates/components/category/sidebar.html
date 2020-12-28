@@ -1,7 +1,12 @@
 <nav>
+
+    <div class="mask_breadcrumbs">
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    </div>
+
     {{#if category.subcategories}}
-        <div class="sidebarBlock">
-            <h2 class="sidebarBlock-heading">{{category.name}}</h2>
+        <div class="sidebarBlock block_category">
+            {{!-- <h2 class="sidebarBlock-heading">{{category.name}}</h2> --}}
             <ul class="navList">
                 {{#each category.subcategories}}
                 <li class="navList-item">
