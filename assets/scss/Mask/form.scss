@@ -51,11 +51,16 @@
         color: stencilColor("color-white");
 
         &:hover {
-            color: stencilColor("color-white");
+            border-color: stencilColor("button--default-borderColorHover");
+            background-color: stencilColor("button--default-borderColorHover");
+            color: stencilColor("button--default-colorHover");
         }
     
-        &:active {
-            color: stencilColor("color-white");
+        &:active,
+        &:focus {
+            border-color: stencilColor("button--default-borderColorActive");
+            background-color: stencilColor("button--default-borderColorActive");
+            color: stencilColor("button--default-colorActive");
         }
     }
 

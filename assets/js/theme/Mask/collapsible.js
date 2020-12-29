@@ -58,4 +58,7 @@ export default function () {
             collapsible.close();
         });
     });
+    // open first accordion by default
+    const firstCollapsible = $('#productAccordion').find('.accordion_title').first().data('collapsibleInstance');
+    firstCollapsible.open();
 }

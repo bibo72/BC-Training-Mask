@@ -8,6 +8,10 @@ import Wishlist from '../wishlist';
 import { normalizeFormData } from './utils/api';
 import { initRadioOptions } from './aria';
 import { isBrowserIE, convertIntoArray } from './utils/ie-helpers';
+// Mask
+import mask from '../Mask/mask';
+
+import collapsibleFactory from './collapsible';
 
 const optionsTypesMap = {
     INPUT_FILE: 'input-file',
@@ -34,6 +38,9 @@ export default class ProductDetails {
         this.initRadioAttributes();
         Wishlist.load(this.context);
         this.getTabRequests();
+
+        // Init collapsibles
+        collapsibleFactory();
 
         const $form = $('form[data-cart-item-add]', $scope);
         const $productOptionsElement = $('[data-product-option-change]', $form);
@@ -77,6 +84,9 @@ export default class ProductDetails {
         $productOptionsElement.show();
 
         this.previewModal = modalFactory('#previewModal')[0];
+
+        // Mask
+        mask(context, 'PRODUCTDETAILS');
     }
 
     _makeProductVariantAccessible(variantDomNode, variantType) {

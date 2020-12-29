@@ -1,4 +1,7 @@
 export default function (context) {
+    console.log('in?');
+    console.log(context);
+
     const injectedProductImages = context.productImages;
     const injectedProductOptions = context.productOptions;
     const themeSettingsProductviewThumbSize = context.productThumbSize;
@@ -40,6 +43,8 @@ export default function (context) {
 }
 
 function fnSwitchProductImage(injectedProductImages, themeSettingsProductviewThumbSize, $productImageSection, selectedColorOptionName) {
+    $('.productView [data-set-option-label]').text(selectedColorOptionName);
+
     let imagesOnSelectedOption = [];
     injectedProductImages.forEach(imageObject => {
         const imageAlt = imageObject.alt;
