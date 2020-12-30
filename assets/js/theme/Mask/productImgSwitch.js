@@ -1,8 +1,9 @@
 export default function (context) {
+    console.log(context);
     const injectedProductImages = context.productImages;
     const injectedProductOptions = context.productOptions;
     const themeSettingsProductviewThumbSize = context.productThumbSize;
-    const $productImageSection = $('.page_type__product [data-product-image-section]');
+    const $productImageSection = $('[data-product-image-section]');
 
     if (injectedProductOptions) {
         const colorOptions = injectedProductOptions.find(option => option.display_name.toLowerCase() === 'color' && option.partial.toLowerCase() === 'swatch');
@@ -10,7 +11,7 @@ export default function (context) {
             const selectedColorOption = colorOptions.values.find(colorOption => colorOption.selected === true);
             if (selectedColorOption) {
                 const selectedColorOptionName = selectedColorOption.label;
-        
+
                 if (injectedProductImages) {
                     fnSwitchProductImage(injectedProductImages, themeSettingsProductviewThumbSize, $productImageSection, selectedColorOptionName);
         
@@ -52,6 +53,7 @@ function fnSwitchProductImage(injectedProductImages, themeSettingsProductviewThu
     });
 
     const $productImageLi = $productImageSection.find('[data-product-image-li]');
+
     if ($productImageLi.length > imagesOnSelectedOption.length) {
         imagesOnSelectedOption.forEach((image, index) => {
             const sizedImage = image.data.replace('{:size}', `${themeSettingsProductviewThumbSize}`);

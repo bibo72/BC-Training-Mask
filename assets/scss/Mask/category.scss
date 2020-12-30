@@ -160,7 +160,7 @@
     }
 }
 
-.page-content {
+.page_type__category .page-content {
     padding: 0;
 
     @include breakpoint('medium') {

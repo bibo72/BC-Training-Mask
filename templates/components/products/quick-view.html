@@ -1,3 +1,7 @@
 <div class="modal-body quickView">
+
+    <input type="hidden" name="productImages" id="productImages" value="{{json product.images}}">
+    <input type="hidden" name="productOptions" id="productOptions" value="{{json product.options}}">
+
     {{> components/products/product-view schema=false}}
 </div>

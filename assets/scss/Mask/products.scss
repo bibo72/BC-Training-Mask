@@ -108,6 +108,13 @@
                 line-height: 30px;
             }
         }
+
+        .rrp-price--withoutTax {
+        
+            .price--rrp {
+                font-size: 15px;
+            }
+        }
     }
 
     .productView-options {
@@ -326,6 +333,13 @@
 
             .productView-price {
                 font-size: 18px;
+            }
+
+            .rrp-price--withoutTax {
+        
+                .price--rrp {
+                    font-size: 18px;
+                }
             }
         }
     }

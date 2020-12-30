@@ -15,7 +15,10 @@ export default function (context) {
 
         modal.open({ size: 'large' });
 
+
+        // { template: 'products/debug' }
         utils.api.product.getById(productId, { template: 'products/quick-view' }, (err, response) => {
+
             modal.updateContent(response);
 
             modal.$content.find('.productView').addClass('productView--quickView');
@@ -23,6 +26,12 @@ export default function (context) {
             modal.$content.find('[data-slick]').slick();
 
             modal.setupFocusableElements(modalTypes.QUICK_VIEW);
+
+            const productImages = modal.$content.find('#productImages').val();
+            const productOptions = modal.$content.find('#productOptions').val();
+
+            context.productImages = JSON.parse(productImages);
+            context.productOptions = JSON.parse(productOptions);
 
             return new ProductDetails(modal.$content.find('.quickView'), context);
         });

@@ -35,13 +35,13 @@
     .price-section {
         display: inline-block;
     }
+}
 
-    .rrp-price--withoutTax {
-        color: #cc0000;
-        font-size: 0;
+.rrp-price--withoutTax {
+    color: #cc0000;
+    font-size: 0;
 
-        .price--rrp {
-            font-size: 16px;
-        }
+    .price--rrp {
+        font-size: 16px;
     }
 }
