@@ -60,5 +60,7 @@ export default function () {
     });
     // open first accordion by default
     const firstCollapsible = $('#productAccordion').find('.accordion_title').first().data('collapsibleInstance');
-    firstCollapsible.open();
+    if (firstCollapsible) {
+        firstCollapsible.open();
+    }
 }

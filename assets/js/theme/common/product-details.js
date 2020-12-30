@@ -86,7 +86,7 @@ export default class ProductDetails {
         this.previewModal = modalFactory('#previewModal')[0];
 
         // Mask
-        mask(context, 'PRODUCTDETAILS');
+        mask(context);
     }
 
     _makeProductVariantAccessible(variantDomNode, variantType) {

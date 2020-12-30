@@ -126,6 +126,7 @@
         > .navUser-action {
             background-repeat: no-repeat;
             background-position: center;
+            background-size: contain;
         }
     }
 
@@ -151,9 +152,24 @@
     }
 
     &.navUser-item--cart {
+        padding: remCalc(15px) remCalc(20px);
 
         > .navUser-action {
             line-height: 0;
+        }
+
+        .navUser-action {
+            position: relative;
+            padding: 0;
+    
+            .countPill {
+                position: absolute;
+                left: auto;
+                bottom: auto;
+                top: 0;
+                right: 0;
+                transform: translate(50%, -50%);
+            }
         }
 
         .dropdown-menu {
@@ -168,6 +184,10 @@
                 left: auto !important;
                 right: remCalc(5px);
             }
+        }
+
+        @include breakpoint('medium') {
+            padding: remCalc(4.5px) remCalc(15px);
         }
     }
 }
