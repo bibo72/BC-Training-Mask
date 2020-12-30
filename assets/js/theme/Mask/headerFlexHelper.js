@@ -11,10 +11,10 @@ export default function () {
     }
 
     if (navUserContainerWidth > navPagesContainerWidth) {
-        $navUserContainer.width(Math.ceil(navUserContainerWidth));
-        $navPagesContainer.width(Math.ceil(navUserContainerWidth));
+        $navUserContainer.width(Math.ceil(navUserContainerWidth) + 1);
+        $navPagesContainer.width(Math.ceil(navUserContainerWidth) + 1);
     } else if (navUserContainerWidth < navPagesContainerWidth) {
-        $navUserContainer.width(Math.ceil(navPagesContainerWidth));
-        $navPagesContainer.width(Math.ceil(navPagesContainerWidth));
+        $navUserContainer.width(Math.ceil(navPagesContainerWidth) + 1);
+        $navPagesContainer.width(Math.ceil(navPagesContainerWidth) + 1);
     }
 }
