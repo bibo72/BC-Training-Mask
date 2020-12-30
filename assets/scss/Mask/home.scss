@@ -161,7 +161,7 @@
 
                                 // carousel item img holder (img set on :after)
                                 > div {
-                                    min-height: remCalc(751px);
+                                    min-height: remCalc(1000px);
                                     padding: remCalc(55px) remCalc(85px);
 
                                     // carousel content container (title des button)
@@ -678,6 +678,39 @@
                 // last column img
                 &:last-child {
                     max-width: remCalc(169px);
+                }
+            }
+        }
+
+        @media (max-width: $screen-medium) {
+
+            // hero section
+            [data-layout-name="LayoutHero"] {
+
+                // carousel container
+                > div > div > div > div {
+                    margin-bottom: 0;
+
+                    // carousel viewport
+                    > div {
+
+                        // carousel track
+                        > div {
+
+                            // carousel item
+                            > div {
+
+                                // carousel item container
+                                > div {
+
+                                    // carousel item img holder (img set on :after)
+                                    > div {
+                                        min-height: remCalc(751px);
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
