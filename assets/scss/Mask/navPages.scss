@@ -313,11 +313,44 @@
         transition: .2s;
     }
 
+    .hover_state {
+        display: none;
+    }
+
     @media (any-hover: hover) {
 
         &:hover {
     
             &:before {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// hover state IE solution for not support any-hover media query
+
+@media all and (-ms-high-contrast:none) {
+    
+    .navPages-item > .navPages-action.has-subMenu {
+        position: relative;
+    
+        .hover_state {
+            content: '';
+            display: block;
+            width: 0;
+            height: 1px;
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: stencilColor("color-black");
+            transition: .2s;
+        }
+    
+        &:hover {
+    
+            .hover_state {
                 width: 100%;
             }
         }
