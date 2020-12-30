@@ -1,5 +1,4 @@
 export default function (context) {
-    console.log(context);
     const injectedProductImages = context.productImages;
     const injectedProductOptions = context.productOptions;
     const themeSettingsProductviewThumbSize = context.productThumbSize;
