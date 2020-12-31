@@ -4,6 +4,7 @@ import bannerManager from './bannerManager';
 import quickSearch from './quick-search';
 import optionModal from './optionModal';
 import productImgSwitch from './productImgSwitch';
+import categoryWelcome from './categoryWelcome';
 
 export default function (context, from) {
     headerFlexHelper();
@@ -12,4 +13,5 @@ export default function (context, from) {
     quickSearch();
     optionModal();
     productImgSwitch(context);
+    // categoryWelcome();
 }

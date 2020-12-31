@@ -1,0 +1,44 @@
+<div class="product_card">
+    <div class="product_main_image">
+        <a href="{{product.url}}">
+            
+        </a>
+    </div>
+    
+    <h5 class="product_title">{{product.title}}</h5>
+
+    <p class="product_option_label"></p>
+
+    <p class="product_price">
+        {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+            {{> components/products/price price=product.price}}
+        {{else}}
+            {{> components/common/login-for-pricing}}
+        {{/or}}
+    </p>
+
+    <div class="product_thumbnail_area">
+        <div class="product_thumbnail_viewport">
+            <button type="button" class="product_thumbnail_button"></button>
+            <div class="product_thumbnails">
+                {{#if product.options.length}}
+                    {{#each product.options}}
+                        {{#and (if (lowercase display_name) '===' 'color') (if values.length)}}
+                            {{#each values}}
+                                <button type="button" class="product_thumbnail_button {{#if selected}}now{{/if}}" style="max-width: 445px;">
+                                    {{> components/common/responsive-img
+                                        image=image
+                                        class="product_thumbnail"
+                                        fallback_size=theme_settings.productgallery_size
+                                        lazyload=theme_settings.lazyload_mode
+                                        default_image=theme_settings.default_image_product
+                                    }}
+                                </button>
+                            {{/each}}
+                        {{/and}}
+                    {{/each}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
