@@ -13,5 +13,5 @@ export default function (context, from) {
     quickSearch();
     optionModal();
     productImgSwitch(context);
-    // categoryWelcome();
+    categoryWelcome();
 }

@@ -1,63 +1,52 @@
 import utils from '@bigcommerce/stencil-utils';
 
-function getProductData(productId) {
+function getProductData(productId, $categoryWelcomeLayer) {
     utils.api.product.getById(productId, { template: 'products/debug' }, (err, response) => {
-        // console.log(response);
         console.log(JSON.parse(response));
         const parsedResponse = JSON.parse(response);
-        buildCard(parsedResponse);
+
+        dealRequiredOptions(parsedResponse, $categoryWelcomeLayer);
     })
 }
 
-function buildCard(data) {
-    const productTitle = data.title;
-    const productPrice = data.price;
-    const productUrl = data.url;
-    const productOptions = data.options;
-    const colorOption = productOptions.find(productOption => productOption.display_name.toLowerCase() === 'color');
-    if (colorOption) {
-        // get card thumbnails
-        let productThumbnailHtml = '';
-        colorOption.values.forEach(option => {
-            const sizedOptionImage = option.image.data.replace('{:size}', '443x443');
-            productThumbnailHtml += `
-                <button type="button" class="product_thumbnail_button ${option.selected ? 'now' : ''}">
-                    <img src="${sizedOptionImage}" alt="${option.image.alt}">
-                </button>
+function dealRequiredOptions(parsedResponse, $categoryWelcomeLayer) {
+    const productId = parsedResponse.id;
+    const options = parsedResponse.options;
+    // color option
+    const colorOption = options.filter(option => option.display_name.toLowerCase() === 'color');
+    console.log(colorOption);
+    const colorOptionId = colorOption.id;
+    const colorOptionValueId = colorOption.values[0].id; // get the first/default main image
+    // other required options
+    const requiredOptions = options.filter(option => option.required === true && option.display_name.toLowerCase() !== 'color');
+    let html = '';
+    requiredOptions.forEach(requiredOption => {
+        const requiredOptionValues = requiredOption.values;
+        const selectedValue = requiredOptionValues.find(requiredOptionValue => requiredOptionValue.selected === true);
+        if (selectedValue) {
+            html += `
+                <input type="hidden" name="attribute[${requiredOption.id}]" value="${selectedValue.id}" />
             `;
-        });
-        // set card default image and related option label
-        let productNowImage = colorOption.values[0].image;
-        let productNowOptionLabel = colorOption.values[0].label;
-        // check if default selected option
-        const selectedOption = colorOption.values.find(option => option.selected === true);
-        if (selectedOption) {
-            productNowImage = selectedOption.image;
-            productNowOptionLabel = selectedOption.label;
+        } else {
+            html += `
+                <input type="hidden" name="attribute[${requiredOption.id}]" value="${requiredOptionValues[0].id}" />
+            `;
         }
-        const sizedProductNowImage = productNowImage.data.replace('{:size}', '443x443');
+    });
+    $categoryWelcomeLayer.find(`#form${productId}`).html(html);
 
-        let productCardHtml = `
-            <div class="product_card">
-                <div class="product_main_image">
-                    <a href="${productUrl}">
-                        <img src="${sizedProductNowImage}" alt="${productNowImage.alt}">
-                    </a>
-                </div>
-                <h5 class="product_title">${productTitle}</h5>
-                <p class="product_option_label">${productNowOptionLabel}</p>
-                <p class="product_price">${productPrice.without_tax.formatted}</p>
-                <div class="product_thumbnail_area">
-                    <div class="product_thumbnail_viewport">
-                        <div class="product_thumbnails">
-                        ${productThumbnailHtml}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-        $(`.page_builder_product_card[data-product-id="${data.id}"]`).html(productCardHtml);
-    }
+    getMainImageByAttrs(colorOptionId, colorOptionValueId);
+}
+
+function getMainImageByAttrs(colorOptionId, colorOptionValueId) {
+    
+}
+
+function getProductHtml(productId, $categoryWelcomeLayer) {
+    utils.api.product.getById(productId, { template: 'products/page-builder-product-card' }, (err, response) => {
+        // console.log(response);
+        $categoryWelcomeLayer.append(response);
+    })
 }
 
 export default function () {
@@ -73,15 +62,19 @@ export default function () {
             const productId = $card.data('productId');
     
             if (productId) {
-                getProductData(productId);
+                getProductHtml(productId, $categoryWelcomeLayer);
+                
+                getProductData(productId, $categoryWelcomeLayer);
             }
         });
     }
 
-
-
-    utils.api.product.getById('112', { template: 'products/page-builder-product-card' }, (err, response) => {
-        console.log(response);
-        $categoryWelcomeLayer.append(response);
-    })
+    // local test
+    const productId = 112;
+    
+    if (productId) {
+        getProductHtml(productId, $categoryWelcomeLayer);
+        
+        getProductData(productId, $categoryWelcomeLayer);
+    }
 }
