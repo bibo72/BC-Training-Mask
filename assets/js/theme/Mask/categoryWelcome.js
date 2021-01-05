@@ -1,25 +1,38 @@
 import utils from '@bigcommerce/stencil-utils';
+import _ from 'lodash';
 
 function getProductData(productId, $categoryWelcomeLayer) {
     utils.api.product.getById(productId, { template: 'products/debug' }, (err, response) => {
-        console.log(JSON.parse(response));
-        const parsedResponse = JSON.parse(response);
+        if (err) {
+            console.log(err);
+            return
+        }
 
-        dealRequiredOptions(parsedResponse, $categoryWelcomeLayer);
+        if (response) {
+            const parsedResponse = JSON.parse(response);
+    
+            dealRequiredOptions(parsedResponse, $categoryWelcomeLayer);
+        }
     })
 }
 
 function dealRequiredOptions(parsedResponse, $categoryWelcomeLayer) {
     const productId = parsedResponse.id;
     const options = parsedResponse.options;
+    let html = '';
     // color option
-    const colorOption = options.filter(option => option.display_name.toLowerCase() === 'color');
-    console.log(colorOption);
+    const colorOption = options.find(option => option.display_name.toLowerCase() === 'color');
     const colorOptionId = colorOption.id;
     const colorOptionValueId = colorOption.values[0].id; // get the first/default main image
+    html += `<input type="hidden" name="attribute[${colorOptionId}]" value="${colorOptionValueId}" data-color-attr-val />`;
+    initThumbnailCarousel(colorOption, productId);
+
+    // set option value label
+    const colorOptionValueLabel = colorOption.values[0].label;
+    $categoryWelcomeLayer.find(`[data-product-id="${productId}"] .product_option_label`).text(colorOptionValueLabel);
+
     // other required options
     const requiredOptions = options.filter(option => option.required === true && option.display_name.toLowerCase() !== 'color');
-    let html = '';
     requiredOptions.forEach(requiredOption => {
         const requiredOptionValues = requiredOption.values;
         const selectedValue = requiredOptionValues.find(requiredOptionValue => requiredOptionValue.selected === true);
@@ -33,20 +46,118 @@ function dealRequiredOptions(parsedResponse, $categoryWelcomeLayer) {
             `;
         }
     });
-    $categoryWelcomeLayer.find(`#form${productId}`).html(html);
 
-    getMainImageByAttrs(colorOptionId, colorOptionValueId);
+    // append hidden data which required for retriving main image
+    const $form = $categoryWelcomeLayer.find(`#form${productId}`);
+    $form.html(html);
+
+    getMainImageByAttrs(productId, $form);
 }
 
-function getMainImageByAttrs(colorOptionId, colorOptionValueId) {
+function getMainImageByAttrs(productId, $form) {
+    console.log($form.serialize());
+    utils.api.productAttributes.optionChange(productId, $form.serialize(), 'products/bulk-discount-rates', (err, response) => {
+        if (err) {
+            console.log(err);
+            return
+        }
+
+        if (response) {
+            const data = response.data;
+            const image = data.image;
+            if (_.isPlainObject(image)) {
+                const mainImageUrl = utils.tools.imageSrcset.getSrcset(
+                    image.data,
+                    { '1x': '450x450' },
+                    /*
+                        Should match fallback image size used for the main product image in
+                        components/products/product-view.html
     
+                        Note that this will only be used as a fallback image for browsers that do not support srcset
+    
+                        Also note that getSrcset returns a simple src string when exactly one size is provided
+                    */
+                );
+                $(`[data-product-id="${productId}"]`).find('.product_main_image a').html(`<img src="${mainImageUrl}" alt="${image.alt}" />`);
+            }
+
+            const price = data.price;
+            if (price) {
+                $(`[data-product-id="${productId}"]`).find('.product_price').html(price.without_tax.formatted);
+            }
+        }
+    });
 }
 
 function getProductHtml(productId, $categoryWelcomeLayer) {
     utils.api.product.getById(productId, { template: 'products/page-builder-product-card' }, (err, response) => {
-        // console.log(response);
-        $categoryWelcomeLayer.append(response);
+        if (err) {
+            console.log(err);
+            return
+        }
+
+        if (response) {
+            $categoryWelcomeLayer.append(response);
+        }
     })
+}
+
+function initThumbnailCarousel(option, productId) {
+    const values = option.values;
+    const $thisCard = $(`.product_card[data-product-id="${productId}"]`);
+    const $thumbnail = $('[data-thumbnail]', $thisCard);
+    const $prev = $('[data-prev]', $thisCard);
+    const $next = $('[data-next]', $thisCard);
+
+    console.log($thisCard);
+    const cardWidth = $thisCard.width();
+    console.log(cardWidth);
+    $thumbnail.width(`${cardWidth/6-5}px`).height(`${cardWidth/6-5}px`);
+
+    if (values.length) {
+        if (values.length < 7) {
+            $next.addClass('disabled');
+        } else {
+            // $prev.addClass('disabled');
+        }
+    }
+}
+
+function actPrev(event) {
+    const $currentTarget = $(event.currentTarget);
+    const $thisCard = $currentTarget.closest('.product_card');
+    const $next = $('[data-next]', $thisCard);
+    const $thumbnails = $('[data-thumbnails]', $thisCard);
+
+    const cardWidth = $thisCard.width();
+    const unit = cardWidth / 6;
+    const nowMarginLeft = $thumbnails.css('margin-left');
+    const disabledNext = $next.hasClass('disabled');
+
+    if (disabledNext) {
+        $thumbnails.css('margin-left', `${nowMarginLeft + (unit*5-5)}px`);
+    } else {
+        $thumbnails.css('margin-left', `${nowMarginLeft + (unit*4-5)}px`);
+    }
+}
+
+function actNext(event) {
+    const $currentTarget = $(event.currentTarget);
+    const $thisCard = $currentTarget.closest('.product_card');
+    const $prev = $('[data-prev]', $thisCard);
+    const $thumbnails = $('[data-thumbnails]', $thisCard);
+
+    const cardWidth = $thisCard.width();
+    const unit = cardWidth / 6;
+    const nowMarginLeft = $thumbnails.css('margin-left');
+    const disabledPrev = $prev.hasClass('disabled');
+
+    if (disabledPrev) {
+        $thumbnails.css('margin-left', `${nowMarginLeft} - ${(unit*5-5)}px`);
+        console.log('!!!');
+    } else {
+        $thumbnails.css('margin-left', `${nowMarginLeft} - ${(unit*4-5)}px`);
+    }
 }
 
 export default function () {
@@ -77,4 +188,41 @@ export default function () {
         
         getProductData(productId, $categoryWelcomeLayer);
     }
+
+    // event
+    $('body').on('click', `.product_card .product_thumbnail_button[data-thumbnail]`, event => {
+        event.stopPropagation();
+
+        const $currentTarget = $(event.currentTarget);
+
+        // update view
+        $currentTarget.siblings('.product_thumbnail_button').removeClass('now');
+        $currentTarget.addClass('now');
+
+        // store now option id and its value id
+        const optionId = $currentTarget.data('optionId');
+        const optionValueId = $currentTarget.data('optionValueId');
+        const optionValueLabel = $currentTarget.data('optionValueLabel');
+
+        const $currentCard = $currentTarget.closest('.product_card');
+
+        console.log($currentCard.find('form input[data-color-attr-val]'));
+        $currentCard.find('form input[data-color-attr-val]').attr({name: `attribute[${optionId}]`, value: optionValueId});
+        $currentCard.find('.product_option_label').text(optionValueLabel);
+
+        const productId = $currentCard.data('productId');
+
+        const $form = $currentCard.find('form');
+
+        getMainImageByAttrs(productId, $form);
+    }).on('click', '.product_card .prev', event => {
+        event.stopPropagation();
+
+        actPrev(event);
+    }).on('click', '.product_card .next', event => {
+        event.stopPropagation();
+        console.log('???');
+
+        actNext(event);
+    });
 }

@@ -1,13 +1,25 @@
-<div class="product_card" data-product-id="{{product.id}}">
+<div class="product_card" data-product-id="{{product.id}}" style="max-width: 443px;">
     <div class="product_main_image">
-        <a href="{{product.url}}">
-            
+        <a href="{{product.url}}" class="product_image_link">
+            <img src="{{getImage product.main_image "page_builder_product_card_main_img_size"}}" alt="{{product.main_image.alt}}">
         </a>
     </div>
     
     <p class="product_title">{{product.title}}</p>
 
-    <p class="product_option_label"></p>
+    <p class="product_option_label">
+        {{#if product.options.length}}
+            {{#each product.options}}
+                {{#and (if (lowercase display_name) '===' 'color') (if values.length)}}
+                    {{#each values}}
+                        {{#if @first}}
+                            {{label}}
+                        {{/if}}
+                    {{/each}}
+                {{/and}}
+            {{/each}}
+        {{/if}}
+    </p>
 
     <div class="product_price">
         {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
@@ -17,16 +29,21 @@
         {{/or}}
     </div>
 
-    <div class="product_thumbnail_area">
-        <button type="button" class="product_thumbnail_button prev"></button>
+    <div class="product_thumbnail_area" data-carousel-area>
+        <button type="button" class="product_thumbnail_button prev disabled" data-prev></button>
 
             {{#if product.options.length}}
                 {{#each product.options}}
                     {{#and (if (lowercase display_name) '===' 'color') (if values.length)}}
-                        <div class="product_thumbnail_viewport" data-length="{{values.length}}">
-                            <div class="product_thumbnails">
+                        <div class="product_thumbnail_viewport" data-length="{{values.length}}" data-viewport>
+                            <div class="product_thumbnails" data-thumbnails>
                                 {{#each values}}
-                                    <button type="button" class="product_thumbnail_button {{#if @first}}now{{/if}}">
+                                    <button type="button" 
+                                    class="product_thumbnail_button {{#if @first}}now{{/if}}" 
+                                    data-thumbnail
+                                    data-option-id={{../id}} 
+                                    data-option-value-id={{id}} 
+                                    data-option-value-label="{{label}}">
                                         {{> components/common/responsive-img
                                             image=image
                                             class="product_thumbnail"
@@ -42,7 +59,7 @@
                 {{/each}}
             {{/if}}
         
-        <button type="button" class="product_thumbnail_button next"></button>
+        <button type="button" class="product_thumbnail_button next" data-next></button>
     </div>
 
     <form class="u-hiddenVisually" id="form{{product.id}}"></form>
