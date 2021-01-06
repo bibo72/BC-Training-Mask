@@ -96,7 +96,10 @@ function getProductHtml(productId, $categoryWelcomeLayer) {
         }
 
         if (response) {
-            $categoryWelcomeLayer.append(response);
+            // local test
+            // $categoryWelcomeLayer.append(response);
+
+            $(`.page_builder_product_card[data-product-id="${productId}"]`, $categoryWelcomeLayer).html(response);
         }
     })
 }
@@ -112,11 +115,11 @@ function initThumbnailCarousel(option, productId) {
     // $thumbnail.width(`${parseInt(cardWidth/6-5)}px`).height(`${parseInt(cardWidth/6-5)}px`);
     $thumbnail.width(`${cardWidth/6-5}px`).height(`${cardWidth/6-5}px`);
 
-    if (values.length) {
-        if (values.length < 7) {
-            $next.addClass('disabled');
-        }
-    }
+    // if (values.length) {
+    //     if (values.length < 7) {
+    //         $next.addClass('disabled');
+    //     }
+    // }
 
     // init next button hit count
     window.cardNextCount = 0;
@@ -221,6 +224,14 @@ export default function () {
     //     getProductHtml(productId, $categoryWelcomeLayer);
         
     //     getProductData(productId, $categoryWelcomeLayer);
+    // }
+
+    // const productIdAnother = 113;
+    
+    // if (productIdAnother) {
+    //     getProductHtml(productIdAnother, $categoryWelcomeLayer);
+        
+    //     getProductData(productIdAnother, $categoryWelcomeLayer);
     // }
 
     // event

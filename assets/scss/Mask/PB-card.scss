@@ -128,6 +128,7 @@
             // column-gap: 5px; // not support in IE, use margin instead
             transition: .5s;
             position: relative; // magins have influence on elements width, use position instead
+            left: 0;
 
             .product_thumbnail_button {
                 @include square(70px);

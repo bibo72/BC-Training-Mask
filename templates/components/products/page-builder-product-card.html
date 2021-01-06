@@ -30,36 +30,36 @@
     </div>
 
     <div class="product_thumbnail_area" data-carousel-area>
-        <button type="button" class="product_thumbnail_button prev disabled" data-prev></button>
 
-            {{#if product.options.length}}
-                {{#each product.options}}
-                    {{#and (if (lowercase display_name) '===' 'color') (if values.length)}}
-                        <div class="product_thumbnail_viewport" data-viewport>
-                            <div class="product_thumbnails" data-thumbnails data-length="{{values.length}}">
-                                {{#each values}}
-                                    <button type="button" 
-                                    class="product_thumbnail_button {{#if @first}}now{{/if}}" 
-                                    data-thumbnail
-                                    data-option-id={{../id}} 
-                                    data-option-value-id={{id}} 
-                                    data-option-value-label="{{label}}">
-                                        {{> components/common/responsive-img
-                                            image=image
-                                            class="product_thumbnail"
-                                            fallback_size=theme_settings.page_builder_product_card_thumbnail_size
-                                            lazyload=theme_settings.lazyload_mode
-                                            default_image=theme_settings.default_image_product
-                                        }}
-                                    </button>
-                                {{/each}}
-                            </div>
+        {{#if product.options.length}}
+            {{#each product.options}}
+                {{#and (if (lowercase display_name) '===' 'color') (if values.length)}}
+                    <button type="button" class="product_thumbnail_button prev disabled" data-prev></button>
+                    <div class="product_thumbnail_viewport" data-viewport>
+                        <div class="product_thumbnails" data-thumbnails data-length="{{values.length}}">
+                            {{#each values}}
+                                <button type="button" 
+                                class="product_thumbnail_button {{#if @first}}now{{/if}}" 
+                                data-thumbnail
+                                data-option-id={{../id}} 
+                                data-option-value-id={{id}} 
+                                data-option-value-label="{{label}}">
+                                    {{> components/common/responsive-img
+                                        image=image
+                                        class="product_thumbnail"
+                                        fallback_size=theme_settings.page_builder_product_card_thumbnail_size
+                                        lazyload=theme_settings.lazyload_mode
+                                        default_image=theme_settings.default_image_product
+                                    }}
+                                </button>
+                            {{/each}}
                         </div>
-                    {{/and}}
-                {{/each}}
-            {{/if}}
+                    </div>
+                    <button type="button" class="product_thumbnail_button next {{#if values.length '<' 7}}disabled{{/if}}" data-next></button>
+                {{/and}}
+            {{/each}}
+        {{/if}}
         
-        <button type="button" class="product_thumbnail_button next" data-next></button>
     </div>
 
     <form class="u-hiddenVisually" id="form{{product.id}}"></form>
