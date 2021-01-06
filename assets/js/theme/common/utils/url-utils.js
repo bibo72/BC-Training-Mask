@@ -6,6 +6,17 @@ const urlUtils = {
     goToUrl: (url) => {
         window.history.pushState({}, document.title, url);
         $(window).trigger('statechange');
+
+        const parsedUrl = Url.parse(url, true);
+        const query = parsedUrl.query;
+        const listQuery = Object.keys(query);
+        if (listQuery && listQuery.length === 1) {
+            $('body').addClass('welcome');
+            $('body').removeClass('listing');
+        } else {
+            $('body').addClass('listing');
+            $('body').removeClass('welcome');
+        }
     },
 
     replaceParams: (url, params) => {

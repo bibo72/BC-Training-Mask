@@ -75,7 +75,7 @@
 
         {{~inject 'productThumbSize' theme_settings.productview_thumb_size}}
     </head>
-    <body class="{{#if page_type}}page_type__{{snakecase page_type}}{{/if}} {{#if page}}page_title__{{snakecase page.title}} page_id__{{page.id}}{{/if}}">
+    <body class="{{#if page_type}}page_type__{{snakecase page_type}}{{/if}} {{#if page}}page_title__{{snakecase page.title}} page_id__{{page.id}}{{/if}} welcome">
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
 
         {{> components/common/header }}

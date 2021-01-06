@@ -4,6 +4,8 @@ import compareProducts from './global/compare-products';
 import FacetedSearch from './common/faceted-search';
 import { createTranslationDictionary } from '../theme/common/utils/translations-utils';
 
+import Url from 'url';
+
 export default class Category extends CatalogPage {
     constructor(context) {
         super(context);
@@ -33,6 +35,20 @@ export default class Category extends CatalogPage {
                 'aria-live': 'polite',
             });
         });
+
+
+
+
+        const parsedUrl = Url.parse(window.location.href, true);
+        const query = parsedUrl.query;
+        const listQuery = Object.keys(query);
+        if (listQuery && listQuery.length === 1 || listQuery.length === 0) {
+            $('body').addClass('welcome');
+            $('body').removeClass('listing');
+        } else {
+            $('body').addClass('listing');
+            $('body').removeClass('welcome');
+        }
     }
 
     initFacetedSearch() {
@@ -80,5 +96,9 @@ export default class Category extends CatalogPage {
                 onInvalidPrice,
             },
         });
+    }
+
+    listenStateChange() {
+        $(window).on('statechange', () => {});
     }
 }
