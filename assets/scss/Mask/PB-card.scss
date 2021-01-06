@@ -100,6 +100,7 @@
                 width: 0;
                 border-width: 0;
                 overflow: hidden;
+                pointer-events: none;
             }
         }
 
@@ -124,12 +125,17 @@
             flex-wrap: nowrap;
             justify-content: space-between;
             align-items: stretch;
-            column-gap: 5px;
+            // column-gap: 5px; // not support in IE, use margin instead
             transition: .5s;
+            position: relative; // magins have influence on elements width, use position instead
 
             .product_thumbnail_button {
                 @include square(70px);
                 flex: 0 0 auto;
+
+                &:not(:last-child) {
+                    margin-right: 5px;
+                }
             }
         }
     }

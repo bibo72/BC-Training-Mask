@@ -55,7 +55,6 @@ function dealRequiredOptions(parsedResponse, $categoryWelcomeLayer) {
 }
 
 function getMainImageByAttrs(productId, $form) {
-    console.log($form.serialize());
     utils.api.productAttributes.optionChange(productId, $form.serialize(), 'products/bulk-discount-rates', (err, response) => {
         if (err) {
             console.log(err);
@@ -109,18 +108,18 @@ function initThumbnailCarousel(option, productId) {
     const $prev = $('[data-prev]', $thisCard);
     const $next = $('[data-next]', $thisCard);
 
-    console.log($thisCard);
     const cardWidth = $thisCard.width();
-    console.log(cardWidth);
+    // $thumbnail.width(`${parseInt(cardWidth/6-5)}px`).height(`${parseInt(cardWidth/6-5)}px`);
     $thumbnail.width(`${cardWidth/6-5}px`).height(`${cardWidth/6-5}px`);
 
     if (values.length) {
         if (values.length < 7) {
             $next.addClass('disabled');
-        } else {
-            // $prev.addClass('disabled');
         }
     }
+
+    // init next button hit count
+    window.cardNextCount = 0;
 }
 
 function actPrev(event) {
@@ -130,14 +129,27 @@ function actPrev(event) {
     const $thumbnails = $('[data-thumbnails]', $thisCard);
 
     const cardWidth = $thisCard.width();
+    // const unit = parseInt(cardWidth / 6);
     const unit = cardWidth / 6;
-    const nowMarginLeft = $thumbnails.css('margin-left');
+    const nowLeft = $thumbnails.css('left');
     const disabledNext = $next.hasClass('disabled');
 
+    // help calc next button hit limit
+    if (window.cardNextCount && window.cardNextCount > 0) {
+        window.cardNextCount -= 1
+    }
+
     if (disabledNext) {
-        $thumbnails.css('margin-left', `${nowMarginLeft + (unit*5-5)}px`);
+        $thumbnails.css('left', `${parseInt(nowLeft) + (unit*5 - 5)}px`);
+        $next.removeClass('disabled');
     } else {
-        $thumbnails.css('margin-left', `${nowMarginLeft + (unit*4-5)}px`);
+        $thumbnails.css('left', `${parseInt(nowLeft) + (unit*4 - 5)}px`);
+    }
+
+    if (-unit < nowLeft < unit) {
+        $thumbnails.css('left', 0);
+        $currentTarget.addClass('disabled');
+        return
     }
 }
 
@@ -148,15 +160,37 @@ function actNext(event) {
     const $thumbnails = $('[data-thumbnails]', $thisCard);
 
     const cardWidth = $thisCard.width();
+    // const unit = parseInt(cardWidth / 6);
     const unit = cardWidth / 6;
-    const nowMarginLeft = $thumbnails.css('margin-left');
+    const nowLeft = $thumbnails.css('left');
     const disabledPrev = $prev.hasClass('disabled');
+    const thumbnailLength = $thumbnails.data('length');
+
+    // calc next button hit count
+    window.cardNextCount += 1;
 
     if (disabledPrev) {
-        $thumbnails.css('margin-left', `${nowMarginLeft} - ${(unit*5-5)}px`);
-        console.log('!!!');
+        $thumbnails.css('left', `${parseInt(nowLeft) - unit*5 - 5}px`);
+        $prev.removeClass('disabled');
     } else {
-        $thumbnails.css('margin-left', `${nowMarginLeft} - ${(unit*4-5)}px`);
+        $thumbnails.css('left', `${parseInt(nowLeft) - unit*4 - 5}px`);
+    }
+
+    const shouldDisableNext = calcNextLimit(thumbnailLength);
+    if (shouldDisableNext) {
+        $currentTarget.addClass('disabled');
+        return
+    }
+}
+
+function calcNextLimit(length) {
+    if (length > 6) {
+        const rest = length - 5 - window.cardNextCount * 4;
+        if (rest < 2) {
+            return true
+        } else {
+            return false
+        }
     }
 }
 
@@ -181,13 +215,13 @@ export default function () {
     }
 
     // local test
-    const productId = 112;
+    // const productId = 112;
     
-    if (productId) {
-        getProductHtml(productId, $categoryWelcomeLayer);
+    // if (productId) {
+    //     getProductHtml(productId, $categoryWelcomeLayer);
         
-        getProductData(productId, $categoryWelcomeLayer);
-    }
+    //     getProductData(productId, $categoryWelcomeLayer);
+    // }
 
     // event
     $('body').on('click', `.product_card .product_thumbnail_button[data-thumbnail]`, event => {
@@ -206,7 +240,6 @@ export default function () {
 
         const $currentCard = $currentTarget.closest('.product_card');
 
-        console.log($currentCard.find('form input[data-color-attr-val]'));
         $currentCard.find('form input[data-color-attr-val]').attr({name: `attribute[${optionId}]`, value: optionValueId});
         $currentCard.find('.product_option_label').text(optionValueLabel);
 
@@ -221,7 +254,6 @@ export default function () {
         actPrev(event);
     }).on('click', '.product_card .next', event => {
         event.stopPropagation();
-        console.log('???');
 
         actNext(event);
     });

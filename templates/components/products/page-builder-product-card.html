@@ -35,8 +35,8 @@
             {{#if product.options.length}}
                 {{#each product.options}}
                     {{#and (if (lowercase display_name) '===' 'color') (if values.length)}}
-                        <div class="product_thumbnail_viewport" data-length="{{values.length}}" data-viewport>
-                            <div class="product_thumbnails" data-thumbnails>
+                        <div class="product_thumbnail_viewport" data-viewport>
+                            <div class="product_thumbnails" data-thumbnails data-length="{{values.length}}">
                                 {{#each values}}
                                     <button type="button" 
                                     class="product_thumbnail_button {{#if @first}}now{{/if}}" 
