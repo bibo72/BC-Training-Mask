@@ -4,14 +4,13 @@ export default function (context) {
     const themeSettingsProductviewThumbSize = context.productThumbSize;
     const $productImageSection = $('[data-product-image-section]');
 
-    if (injectedProductOptions) {
-        const colorOptions = injectedProductOptions.find(option => option.display_name.toLowerCase() === 'color' && option.partial.toLowerCase() === 'swatch');
-        if (colorOptions) {
-            const selectedColorOption = colorOptions.values.find(colorOption => colorOption.selected === true);
-            if (selectedColorOption) {
-                const selectedColorOptionName = selectedColorOption.label;
-
-                if (injectedProductImages) {
+    if (injectedProductImages) {
+        if (injectedProductOptions) {
+            const colorOptions = injectedProductOptions.find(option => option.display_name.toLowerCase() === 'color' && option.partial.toLowerCase() === 'swatch');
+            if (colorOptions) {
+                const selectedColorOption = colorOptions.values.find(colorOption => colorOption.selected === true);
+                if (selectedColorOption) {
+                    const selectedColorOptionName = selectedColorOption.label;
                     fnSwitchProductImage(injectedProductImages, themeSettingsProductviewThumbSize, $productImageSection, selectedColorOptionName);
         
                     /* $('body').on('click', '[data-product-attribute="swatch"] .form-option', e => {
@@ -23,17 +22,21 @@ export default function (context) {
         
                         fnSwitchProductImage(injectedProductImages, themeSettingsProductviewThumbSize, $productImageSection, triggeredOptionName);
                     }); */
-        
-                    $('.productView form[data-cart-item-add] [data-product-option-change]').on('change', e => {
-                        const $target = $(e.target);
-        
-                        const triggeredOptionName = $target.attr('aria-label');
-
-                        if (triggeredOptionName) {
-                            fnSwitchProductImage(injectedProductImages, themeSettingsProductviewThumbSize, $productImageSection, triggeredOptionName);
-                        }
-                    });
+                } else {
+                    const defaultColorOptionName = colorOptions.values[0].label;
+                    fnSwitchProductImage(injectedProductImages, themeSettingsProductviewThumbSize, $productImageSection, defaultColorOptionName);
                 }
+
+                // bind color option change
+                $('.productView form[data-cart-item-add] [data-product-option-change]').on('change', e => {
+                    const $target = $(e.target);
+    
+                    const triggeredOptionName = $target.attr('aria-label');
+
+                    if (triggeredOptionName) {
+                        fnSwitchProductImage(injectedProductImages, themeSettingsProductviewThumbSize, $productImageSection, triggeredOptionName);
+                    }
+                });
             }
         }
     }
