@@ -34,14 +34,15 @@
         }
     }
 
+    .product_title,
+    .product_option_label,
+    .product_price {
+        margin: remCalc(3px) 0;
+    }
+
     .product_title {
         font-size: 18px;
         font-weight: bold;
-        margin: 0;
-    }
-
-    .product_option_label {
-        margin: 0;
     }
 
     // product_thumbnail_area
