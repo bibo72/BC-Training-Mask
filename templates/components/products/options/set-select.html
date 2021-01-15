@@ -2,7 +2,7 @@
     <label class="form-label form-label--alternate form-label--inlineSmall" for="attribute_select_{{id}}">
         {{ this.display_name }}:
 
-        {{> components/common/requireness-msg}}
+        {{!> components/common/requireness-msg}}
     </label>
 
     <select class="form-select form-select--small" name="attribute[{{this.id}}]" id="attribute_select_{{id}}" {{#if required}}required{{/if}}>

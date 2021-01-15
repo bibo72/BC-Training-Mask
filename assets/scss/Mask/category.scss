@@ -235,11 +235,12 @@
             max-height: none;
         }
 
-        .form-label {
+        /* .form-label {
             padding-left: remCalc(16px);
-        }
+        } */
 
         .form-select {
+            padding-left: remCalc(16px);
             padding-right: remCalc(30px);
         }
 
