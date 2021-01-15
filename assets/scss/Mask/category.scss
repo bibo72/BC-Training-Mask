@@ -48,10 +48,18 @@
     }
 }
 
+.block_category {
+    margin: remCalc(5px) 0 0;
+}
+
 .sidebarBlock + .sidebarBlock {
     border: none;
     padding: 0;
     margin: remCalc(20px) 0 0;
+}
+
+.navList {
+    margin: 0;
 }
 
 .facetedSearch-toggle + .facetedSearch-navList, .sidebarBlock + .facetedSearch-navList {
@@ -97,11 +105,12 @@
         font-style: normal;
         letter-spacing: 0;
         text-transform: uppercase;
+        color: stencilColor('color-textBase');
     }
 
     .accordion-navigation {
         margin: 0;
-        padding: remCalc(10px) 0;
+        padding: remCalc(13px) 0 remCalc(10px);
         border-top: 2px solid #ebebeb;
     }
 }
@@ -244,6 +253,10 @@
 
 .products_section {
     margin: remCalc(25px) 0 0;
+}
+
+.category_welcome_layer {
+    padding: remCalc(30px) 0 0;
 }
 
 
