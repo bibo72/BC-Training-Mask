@@ -11,7 +11,14 @@
                         class="navList-action navList-action--checkbox{{#if selected}} is-selected{{/if}}"
                         rel="nofollow"
                         data-faceted-search-facet>
-                        {{{sanitize title}}}
+
+                        {{#or (if (occurrences param_name 'color') '>' 0) (if (occurrences param_name 'Color') '>' 0) (if (occurrences param_name 'COLOR') '>' 0)}}
+                        <span class="filter_item_icon" 
+                            style="background-image: url('{{cdn (concat (concat 'webdav:img/category/filter/' title) '.png')}}'); background-color: {{{title}}};"></span>
+                        {{/or}}
+
+                        <span>{{{sanitize title}}}</span>
+                        
                         {{#if ../show_product_counts}}
                             <span>({{count}})</span>
                         {{/if}}

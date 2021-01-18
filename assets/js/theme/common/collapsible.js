@@ -195,6 +195,29 @@ export class Collapsible {
             return;
         }
 
+        // TrainingMask Custom
+        const $currentTarget = $(event.currentTarget);
+        const isNavPages = $currentTarget.closest('.navPages').length;
+        const isCurrentTargetOpen = $currentTarget.hasClass('is-open');
+        if (isNavPages) {
+            if (isCurrentTargetOpen) {
+                if (/Mobi/i.test(navigator.userAgent)){
+                    $('.global_background').hide();
+                }
+            } else {
+                if (window.screen.width > 800) {
+                    $('.global_background').show();
+                }
+            }
+            if (!(/Mobi/i.test(navigator.userAgent))) {
+                const href = event.currentTarget.href;
+                if (href) {
+                    window.location.href = href;
+                    return
+                }
+            }
+        }
+
         event.preventDefault();
 
         this.toggle();

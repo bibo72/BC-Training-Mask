@@ -260,6 +260,29 @@
     padding: remCalc(30px) 0 0;
 }
 
+.accordion-block {
+
+    .accordion-content {
+
+        .filter_item_icon {
+            display: inline-block;
+            @include square(21px);
+            border: 1px solid #b7b7b7;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin: 0;
+            margin-right: 5px;
+            background-position: center;
+            background-size: contain;
+        }
+    }
+}
+
+.navList-action span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
 
 // Products Grid
 
