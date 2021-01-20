@@ -35,7 +35,9 @@
         >
             <div class="accordion accordion--navList">
 
-                <p class="filter_by">Filter By:</p>
+                {{#unless total_products '===' 0}}
+                    <p class="filter_by">Filter By:</p>
+                {{/unless}}
 
                 {{#each facets}}
                     {{#if visible}}
