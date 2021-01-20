@@ -713,9 +713,6 @@
                     }
                 }
             }
-        }
-
-        @media (max-width: $screen-medium) {
 
             // button style - carousel style
             [data-test-id="carousel-cta-button"] {
@@ -1072,7 +1069,7 @@
 
                     p {
                         line-height: 32px !important;
-                        font-size: 28px !important;
+                        font-size: 38px !important;
                     }
                 }
 
@@ -1308,7 +1305,7 @@
 
                     p {
                         line-height: 32px !important;
-                        font-size: 28px !important;
+                        font-size: 38px !important;
                         width: 100%;
                     }
                 }
@@ -1345,7 +1342,7 @@
                             // banner content container
                             > div {
                                 width: 100%;
-                                max-width: remCalc(228px);
+                                max-width: remCalc(215px);
                                 display: block;
                             }
 
@@ -1404,6 +1401,97 @@
                     > div > div > div {
                         height: remCalc(20px) !important;
                         background-size: contain !important;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: $screen-small) {
+
+            // How Works section
+            [data-layout-name="LayoutHowWorks"] {
+
+                // layout column
+                > div {
+
+                    // article column
+                    &:last-child {
+
+                        // sub item
+                        > div {
+
+                            // buttons
+                            &:nth-child(4),
+                            &:nth-child(5) {
+                                width: 100%;
+                                max-width: 100%;
+                                position: static;
+                                bottom: auto;
+
+                                div {
+                                    width: 100%;
+                                }
+                            }
+
+                            // button LEARN MORE
+                            &:nth-child(4) {
+                                right: auto;
+                                margin-right: 0;
+                                max-width: 100%;
+                                margin-top: 40px;
+                            }
+
+                            // button SHOP NOW
+                            &:nth-child(5) {
+                                left: auto;
+                                margin-left: 0;
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Vent Filtration section
+            [data-layout-name="LayoutVentFiltration"] {
+
+                // layout column
+                > div {
+
+                    // article column
+                    &:nth-child(2) {
+
+                        // sub item
+                        > div {
+
+                            // buttons
+                            &:nth-child(4),
+                            &:nth-child(5) {
+                                position: static;
+                                bottom: auto;
+                                width: 100%;
+                                max-width: 100%;
+
+                                div {
+                                    width: 100%;
+                                }
+                            }
+
+                            // button LEARN MORE
+                            &:nth-child(4) {
+                                right: auto;
+                                margin-right: 0;
+                                max-width: 100%;
+                                margin-top: 40px;
+                            }
+
+                            // button SHOP NOW
+                            &:nth-child(5) {
+                                left: auto;
+                                margin-left: 0;
+                                margin-top: 10px;
+                            }
+                        }
                     }
                 }
             }
