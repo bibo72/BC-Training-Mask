@@ -21,15 +21,16 @@
             </li>
             --}}
 
+            {{!--
             <li class="navPages-item">
                 {{> components/common/navigation-list index=@index}}
             </li>
+            --}}
 
         {{/each}}
 
-        {{!--
         {{#each pages}}
-            {{#if (lowercase name) '===' 'header category'}}
+            {{#if (lowercase name) '===' 'header left'}}
                 {{#each children}}
                     <li class="navPages-item" data-test="{{@index}}">
                         {{> components/common/navigation-list index=@index}}
@@ -37,7 +38,6 @@
                 {{/each}}
             {{/if}}
         {{/each}}
-        --}}
 
         {{#unless theme_settings.hide_content_navigation}}
             {{#each pages}}

@@ -106,7 +106,16 @@
                         {{#if (lowercase name) "===" "shop"}}
                             {{#each children}}
                                 <li>
-                                    <a href="{{url}}">{{name}}</a>
+                                    <a href="{{url}}">
+                                        {{#contains name '-'}}
+                                            {{#replace '-' name}}
+                                            {{else}}
+                                                {{name}}
+                                            {{/replace}}
+                                        {{else}}
+                                            {{name}}
+                                        {{/contains}}
+                                    </a>
                                 </li>
                             {{/each}}
                         {{/if}}
@@ -122,7 +131,16 @@
                         {{#if (lowercase name) "===" "learn"}}
                             {{#each children}}
                                 <li>
-                                    <a href="{{url}}">{{name}}</a>
+                                    <a href="{{url}}">
+                                        {{#contains name '--'}}
+                                            {{#replace '--' name}}
+                                            {{else}}
+                                                {{name}}
+                                            {{/replace}}
+                                        {{else}}
+                                            {{name}}
+                                        {{/contains}}
+                                    </a>
                                 </li>
                             {{/each}}
                         {{/if}}
@@ -144,7 +162,16 @@
                         {{#if (lowercase name) "===" "support"}}
                             {{#each children}}
                                 <li>
-                                    <a href="{{url}}">{{name}}</a>
+                                    <a href="{{url}}">
+                                        {{#contains name '---'}}
+                                            {{#replace '---' name}}
+                                            {{else}}
+                                                {{name}}
+                                            {{/replace}}
+                                        {{else}}
+                                            {{name}}
+                                        {{/contains}}
+                                    </a>
                                 </li>
                             {{/each}}
                         {{/if}}

@@ -258,19 +258,21 @@
     @include breakpoint("medium") {
 
         &:last-child {
-            float: right;
+            // float: right;
         }
 
         &.one_banner_within {
             width: auto;
             max-width: 50%;
             padding: 0 !important;
+            float: right;
         }
 
         &.two_banner_within {
             width: auto;
             max-width: 25%;
             padding: 0 !important;
+            float: right;
         }
     }
 }
